@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Five in a Row</title>
+    <style>
+        div {
+            position: absolute;
+            left: 10%;
+            right: 10%;
+            margin-top: 60px;
+        }
+        svg {
+            display: block;
+            margin: auto;
+            background-color: wheat;
+        }
+        circle {
+            display: none;
+            z-index: 3;
+            fill: green;
+        }
+        .white {
+            background-color: white;
+        }
+        .black {
+            background-color: black;
+        }
+        circle:hover {
+            fill: red !important;
+        }
+    </style>
+</head>
+<body onload="createBoard(19)">
+    <div id="board"></div>
+    <button onclick="addEL(19)">Click to Start</button>
+    <script src="src/goBang.js"></script>
+</body>
+</html>
