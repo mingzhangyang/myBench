@@ -8,48 +8,139 @@
         body {
             background-color: grey;
         }
+        #container {
+            display: block;
+            position: absolute;
+            width: 80%;
+            max-width: 1400px;
+            height: 900px;
+            top: 50px;
+            bottom: 50px;
+            left: 10%;
+            right:10%;
+            margin: auto;
+            text-align: center;
+        }
         #topleft {
             display: block;
             position: absolute;
-            width: 45%;
-            height: 45%;
-            top: 5%;
-            left: 5%;
+            width: 40%;
+            /*max-width: 600px;*/
+            height: 350px;
+            top: 100px;
+            left: 10%;
+            margin: auto;
             background-color: orange;
         }
         #topright {
             display: block;
             position: absolute;
-            width: 45%;
-            height: 45%;
-            top: 5%;
-            right: 5%;
-            background-color: lightgreen;
+            width: 40%;
+            /*max-width: 600px;*/
+            height: 350px;
+            top: 100px;
+            right: 10%;
+            background-color: green;
         }
         #bottomleft {
             display: block;
             position: absolute;
-            width: 45%;
-            height: 45%;
-            bottom: 5%;
-            left: 5%;
+            width: 40%;
+            /*max-width: 600px;*/
+            height: 350px;
+            bottom: 100px;
+            left: 10%;
             background-color: #0000FF;
         }
         #bottomright {
             display: block;
             position: absolute;
-            width: 45%;
-            height: 45%;
-            bottom:  5%;
-            right: 5%;
+            width: 40%;
+            /*max-width: 600px;*/
+            height: 350px;
+            bottom:  100px;
+            right: 10%;
             background-color: rebeccapurple;
+        }
+        div.cat {
+            position: absolute;
+            color: white;
+            top: 0;
+            left: 0;
+            padding: 15px;
+        }
+        ol {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+        }
+        li {
+            color: white;
+        }
+        #urgent {
+            transform: rotate(270deg);
+            bottom: 420px;
+            left: -160px;
+            position: absolute;
+            font-size: xx-large;
+            width: 450px;
+        }
+        #important {
+            top: 50px;
+            position: absolute;
+            width: 50%;
+            left: 25%;
+            font-size: xx-large;
+        }
+        #unimportant {
+            bottom: 50px;
+            margin: auto;
+            width: 50%;
+            left: 25%;
+            position: absolute;
+            font-size: xx-large;
+        }
+        #nonurgent {
+            transform: rotate(90deg);
+            right: -160px;
+            top: 450px;
+            width: 450px;
+            position: absolute;
+            font-size: xx-large;
         }
     </style>
 </head>
 <body>
-    <div id="topleft"></div>
-    <div id="topright"></div>
-    <div id="bottomleft"></div>
-    <div id="bottomright"></div>
+    <div id="container">
+        <div id="topleft">
+            <div class="cat">DO IT NOW</div>
+            <ol>
+                <li><input type="text" placeholder="Input your task..."></li>
+            </ol>
+        </div>
+        <div id="urgent">URGENT</div>
+        <div id="topright">
+            <div class="cat">STRATEGIC TASKS</div>
+            <ol>
+                <li><input type="text" placeholder="Input your task..."></li>
+            </ol>
+        </div>
+        <div id="important">IMPORTANT</div>
+        <div id="bottomleft">
+            <div class="cat">NON-PRODUCTIVE TASKS</div>
+            <ol>
+                <li><input type="text" placeholder="Input your task..."></li>
+            </ol>
+        </div>
+        <div id="unimportant">UNIMPORTANT</div>
+        <div id="bottomright">
+            <div class="cat">AVOID THESE</div>
+            <ol>
+                <li><input type="text" placeholder="Input your task..."></li>
+            </ol>
+        </div>
+        <div id="nonurgent">NON-URGENT</div>
+    </div>
+
 </body>
 </html>
