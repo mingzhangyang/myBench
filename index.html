@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="image/Logo.png"/>
+    <link rel="icon" type="image/png" href="images/Logo.png"/>
     <title>Welcome to M.Y Web Apps</title>
     <style>
         body {
@@ -15,32 +15,99 @@
             margin-top: 50px;
             text-align: center;
         }
+        #forkme_banner {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 10%;
+            z-index: 10;
+            padding: 10px 50px 10px 10px;
+            color: #fff;
+            font-weight: 700;
+            box-shadow: 0 0 10px rgba(0,0,0,.5);
+            border-bottom-left-radius: 2px;
+            border-bottom-right-radius: 2px;
+            background: url(./images/blacktocat.png) #0090ff no-repeat 95% 95%;
+        }
         h2 {
             color: cadetblue;
         }
         div.abstract {
-            width: 45%;
+            width: 80%;
             margin: auto;
             background-color: white;
+            padding: 10px 20px 10px 20px;
+            text-align: left;
+        }
+        li {
+            padding: 5px;
+        }
+        div p {
+            text-align: left;
+            padding: 10px 15px 10px 15px;
+        }
+        div p::first-letter {
+            color: black;
+            font-size: x-large;
         }
         div.box {
             display: inline-block;
-            width: 25%;
+            max-width: 45%;
             margin: 10px;
             border: 2px;
             background-color: blanchedalmond;
         }
+        img {
+            float: right;
+            margin: 0 0 10px 10px;
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
+        <a id="forkme_banner" href="https://github.com/mingzhangyang/mywebapp">View on GitHub</a>
         <h2>Welcome to the collection of M.Y web apps!</h2>
         <hr>
         <div class="abstract">
+            <p>
+                Below are collection of my garage projects hosted on GitHub.
+                These are web applications are built mostly on HTML, CSS, and
+                client side JavaScript and JavaScript frameworks, including
+                d3.js, AngularJS, jQuery, React, etc. Feel free to give them
+                a try. And I appreciate your comments and suggestions.
+            </p>
+            <ul>
+                <li>
+                    <a href="https://mingzhangyang.github.io/" target="_blank">
+                        Homepage of M.Y at GitHub
+                    </a>
+                </li>
+                <li>
+                    <a href="https://mingzhangyang.github.io/biologymeetweb/" target="_blank">
+                        BiologyMeetWeb
+                    </a>
+                </li>
+            </ul>
+
 
         </div>
         <div class="box">
-            1
+            <p>
+                <a class="play"
+                   href="https://mingzhangyang.github.io/mywebapp/gobang.html" target="_blank">
+                    <img src="images/gobang.PNG" width="150" height="150">
+                </a>
+                Five in a Row, also known as 五子棋, 五子连珠, Gobang, or Gomoku.
+                Currently, only by two human players. Playing mode with
+                computer(algorithm) will be coming soon. Learn more about the
+                game at Wikipedia(<a
+                    href="https://en.wikipedia.org/wiki/Gomoku"><strong>English</strong></a>,
+                <a
+                        href="https://zh.wikipedia.org/wiki/%E4%BA%94%E5%AD%90%E6%A3%8B"><strong>中文</strong></a>).
+                <a class="play"
+                   href="https://mingzhangyang.github.io/mywebapp/gobang.html"> Click the picture to play the game!</a>
+            </p>
         </div>
         <div class="box">
             2
