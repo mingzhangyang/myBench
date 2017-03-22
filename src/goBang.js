@@ -9,6 +9,12 @@ var count = 0;
 // initiate the board data object
 var board;
 
+// initiate whiteList, blackList, and trashBin as array
+var whiteList = [];
+var blackList = [];
+var allClicked = [];
+var trashBin = [];
+
 // create the board object of 19 x 19
 function createBoardObject(n) {
   var i, j;
@@ -73,6 +79,9 @@ function click(elem) {
     d3.select(`#text-${elem.id}`).text(count + '');
     var g = elem.getElementsByTagName('g')[0];
     elem.removeChild(g);
+    blackList.push(elem.id);
+    allClicked.push(elem.id);
+    trashBin.push(g);
   } else {
     d3.select(`#${elem.id}`).attr('class', 'white');
     point.clicked = true;
@@ -82,6 +91,9 @@ function click(elem) {
     d3.select(`#text-${elem.id}`).text(count + '');
     var g = elem.getElementsByTagName('g')[0];
     elem.removeChild(g);
+    whiteList.push(elem.id);
+    allClicked.push(elem.id);
+    trashBin.push(g);
   }
 }
 
@@ -93,12 +105,28 @@ function addEL(n) {
         console.log(this.id);
         click(this);
       });
-      // d3.select(`#x${i}y${j}`).select('g').on('mouseover', function () {
-      //   this.style.opacity = 1;
-      // });
-      // d3.select(`#x${i}y${j}`).select('g').on('mouseout', function () {
-      //   this.style.opacity = 0;
-      // });
     }
+  }
+}
+
+function back() {
+  var key = allClicked.pop();
+  console.log(key);
+  var point = board[key];
+  point.class = '';
+  point.mark = count - 1;
+  point.clicked = false;
+  d3.select(`#${key}`).attr('class', 'removed');
+  d3.select(`#text-${key}`).text('');
+
+  count -= 1;
+
+  var toBeRestored = trashBin.pop();
+  document.getElementById(`${key}`).appendChild(toBeRestored);
+
+  if (whiteList.slice(-1)[0] === key) {
+    whiteList.pop();
+  } else {
+    blackList.pop();
   }
 }
