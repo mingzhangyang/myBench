@@ -40,9 +40,10 @@ y2="${n * 30 - 15}" style="stroke:rgb(0,0,0);stroke-width:2" />`;
   }
   for (i = 0; i < n; i++) {
     for (j = 0; j < n; j++) {
-      text += `<circle id="x${i}y${j}" cx="${i * 30 + 15}" cy="${j * 30 + 15}" r="15" 
+      text += `<g id="x${i}y${j}"><circle  cx="${i * 30 + 15}" cy="${j * 30 + 15}" r="15" 
 stroke="black" 
-stroke-opacity="0" />`;
+stroke-opacity="0" /><text id="text-x${i}y${j}" x="${i * 30 + 15}" 
+y="${j * 30 + 15}"></text></g>`;
     }
   }
   text += '</svg>';
@@ -63,18 +64,7 @@ function click(elem) {
     count += 1;
     point.mark = count;
     point.class = 'black';
-    var t = document.createElement('text');
-    $(t).attr('x', point.x * 30 + 15 + "");
-    $(t).attr('y', point.y * 30 + 15 + "");
-    $(t).attr('fill', 'white');
-    $(t).attr('text-anchor', 'middle');
-    $(t).attr('alignment-baseline', "central");
-    $(t).attr('opacity', 1);
-    // t.x = point.x * 30 + 15 + "";
-    // t.y = point.y * 30 + 15 + "";
-    // t.fill = "white";
-    t.innerHTML = count + "";
-    $('svg')[0].appendChild(t);
+    $(`#text-${elem.id}`).html = count + '';
   } else {
     // elem.class = 'white';
     $(elem).attr('class', 'white');
@@ -82,18 +72,7 @@ function click(elem) {
     count += 1;
     point.class = 'white';
     point.mark = count + "";
-    var t = document.createElement('text');
-    $(t).attr('x', point.x * 30 + 15 + "");
-    $(t).attr('y', point.y * 30 + 15 + "");
-    $(t).attr('fill', 'black');
-    $(t).attr('text-anchor', 'middle');
-    $(t).attr('alignment-baseline', "central");
-    $(t).attr('opacity', 1);
-    // t.x = point.x * 30 + 15 + "";
-    // t.y = point.y * 30 + 15 + "";
-    // t.fill = 'black';
-    t.innerHTML = count + "";
-    $('svg')[0].appendChild(t);
+    $(`#text-${elem.id}`).html = count + '';
   }
 }
 
