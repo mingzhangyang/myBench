@@ -19,12 +19,31 @@
             fill: green;
             opacity: 0;
         }
-        circle.white {
+        g.white circle{
             fill: white;
             opacity: 1;
         }
-        circle.black {
+        g.black circle{
             fill: black;
+            opacity: 1;
+        }
+        text {
+            text-anchor: middle;
+            alignment-baseline: central;
+        }
+        g.white text {
+            fill: black;
+            opacity: 1;
+        }
+        g.black text {
+            fill: white;
+            opacity: 1;
+        }
+        g.marker {
+            fill: red;
+            opacity: 0;
+        }
+        g.marker:hover {
             opacity: 1;
         }
         /*circle:hover {*/
@@ -32,7 +51,7 @@
             /*opacity: 1;*/
         /*}*/
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
 </head>
 <body onload="createBoard(19)">
     <div id="board"></div>

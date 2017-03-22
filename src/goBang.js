@@ -40,9 +40,17 @@ y2="${n * 30 - 15}" style="stroke:rgb(0,0,0);stroke-width:2" />`;
   }
   for (i = 0; i < n; i++) {
     for (j = 0; j < n; j++) {
-      text += `<circle id="x${i}y${j}" cx="${i * 30 + 15}" cy="${j * 30 + 15}" r="15" 
-stroke="black" 
-stroke-opacity="0" />`;
+      var x = i * 30 + 15;
+      var y = j * 30 + 15;
+      text += `<g id="x${i}y${j}">
+<circle  cx="${x}" cy="${y}" r="15" stroke="black" stroke-opacity="0" />
+<g class="marker">
+<path d="M ${x-8} ${y-2} L ${x-2} ${y-2} L ${x-2} ${y-8} z"></path>
+<path d="M ${x-8} ${y+2} L ${x-2} ${y+2} L ${x-2} ${y+8} z"></path>
+<path d="M ${x+8} ${y-2} L ${x+2} ${y-2} L ${x+2} ${y-8} z"></path>
+<path d="M ${x+8} ${y+2} L ${x+2} ${y+2} L ${x+2} ${y+8} z"></path>
+</g>
+<text id="text-x${i}y${j}" x="${i * 30 + 15}" y="${j * 30 + 15}"></text></g>`;
     }
   }
   text += '</svg>';
@@ -57,43 +65,23 @@ function click(elem) {
   }
   // elem.style.display = 'block';
   if (count % 2 === 0) {
-    // elem.class = 'black';
-    $(elem).attr('class', 'black');
+    d3.select(`#${elem.id}`).attr('class', 'black');
     point.clicked = true;
     count += 1;
     point.mark = count;
     point.class = 'black';
-    var t = document.createElement('text');
-    $(t).attr('x', point.x * 30 + 15 + "");
-    $(t).attr('y', point.y * 30 + 15 + "");
-    $(t).attr('fill', 'white');
-    $(t).attr('text-anchor', 'middle');
-    $(t).attr('alignment-baseline', "central");
-    $(t).attr('opacity', 1);
-    // t.x = point.x * 30 + 15 + "";
-    // t.y = point.y * 30 + 15 + "";
-    // t.fill = "white";
-    t.innerHTML = count + "";
-    $('svg')[0].appendChild(t);
+    d3.select(`#text-${elem.id}`).text(count + '');
+    var g = elem.getElementsByTagName('g')[0];
+    elem.removeChild(g);
   } else {
-    // elem.class = 'white';
-    $(elem).attr('class', 'white');
+    d3.select(`#${elem.id}`).attr('class', 'white');
     point.clicked = true;
     count += 1;
     point.class = 'white';
     point.mark = count + "";
-    var t = document.createElement('text');
-    $(t).attr('x', point.x * 30 + 15 + "");
-    $(t).attr('y', point.y * 30 + 15 + "");
-    $(t).attr('fill', 'black');
-    $(t).attr('text-anchor', 'middle');
-    $(t).attr('alignment-baseline', "central");
-    $(t).attr('opacity', 1);
-    // t.x = point.x * 30 + 15 + "";
-    // t.y = point.y * 30 + 15 + "";
-    // t.fill = 'black';
-    t.innerHTML = count + "";
-    $('svg')[0].appendChild(t);
+    d3.select(`#text-${elem.id}`).text(count + '');
+    var g = elem.getElementsByTagName('g')[0];
+    elem.removeChild(g);
   }
 }
 
@@ -101,10 +89,16 @@ function addEL(n) {
   console.log('start');
   for (var i = 0; i < n; i++) {
     for (var j = 0; j < n; j++) {
-      $(`#x${i}y${j}`).on('click', function () {
+      document.getElementById(`x${i}y${j}`).addEventListener('click', function () {
         console.log(this.id);
         click(this);
       });
+      // d3.select(`#x${i}y${j}`).select('g').on('mouseover', function () {
+      //   this.style.opacity = 1;
+      // });
+      // d3.select(`#x${i}y${j}`).select('g').on('mouseout', function () {
+      //   this.style.opacity = 0;
+      // });
     }
   }
 }
