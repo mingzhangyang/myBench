@@ -16,20 +16,23 @@
             background-color: wheat;
         }
         circle {
-            display: none;
-            z-index: 3;
             fill: green;
+            opacity: 0;
         }
-        .white {
-            background-color: white;
+        circle.white {
+            fill: white;
+            opacity: 1;
         }
-        .black {
-            background-color: black;
+        circle.black {
+            fill: black;
+            opacity: 1;
         }
-        circle:hover {
-            fill: red !important;
-        }
+        /*circle:hover {*/
+            /*fill: red !important;*/
+            /*opacity: 1;*/
+        /*}*/
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <body onload="createBoard(19)">
     <div id="board"></div>

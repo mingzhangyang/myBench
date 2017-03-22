@@ -51,38 +51,49 @@ stroke-opacity="0" />`;
 }
 
 function click(elem) {
-  console.log('hi');
   var point = board[elem.id];
   if (point.clicked) {
     return;
   }
-  elem.style.display = 'block';
+  // elem.style.display = 'block';
   if (count % 2 === 0) {
-    elem.class = 'black';
+    // elem.class = 'black';
+    $(elem).attr('class', 'black');
     point.clicked = true;
     count += 1;
     point.mark = count;
     point.class = 'black';
     var t = document.createElement('text');
-    t.x = point.x * 30 + 15 + "";
-    t.y = point.y * 30 + 15 + "";
-    t.fill = "white";
+    $(t).attr('x', point.x * 30 + 15 + "");
+    $(t).attr('y', point.y * 30 + 15 + "");
+    $(t).attr('fill', 'white');
+    $(t).attr('text-anchor', 'middle');
+    $(t).attr('alignment-baseline', "central");
+    $(t).attr('opacity', 1);
+    // t.x = point.x * 30 + 15 + "";
+    // t.y = point.y * 30 + 15 + "";
+    // t.fill = "white";
     t.innerHTML = count + "";
-    document.getElementsByName('svg')[0].appendChild(t);
-    console.log('clicked');
+    $('svg')[0].appendChild(t);
   } else {
-    elem.class = 'white';
+    // elem.class = 'white';
+    $(elem).attr('class', 'white');
     point.clicked = true;
     count += 1;
     point.class = 'white';
     point.mark = count + "";
     var t = document.createElement('text');
-    t.x = point.x * 30 + 15 + "";
-    t.y = point.y * 30 + 15 + "";
-    t.fill = 'black';
+    $(t).attr('x', point.x * 30 + 15 + "");
+    $(t).attr('y', point.y * 30 + 15 + "");
+    $(t).attr('fill', 'black');
+    $(t).attr('text-anchor', 'middle');
+    $(t).attr('alignment-baseline', "central");
+    $(t).attr('opacity', 1);
+    // t.x = point.x * 30 + 15 + "";
+    // t.y = point.y * 30 + 15 + "";
+    // t.fill = 'black';
     t.innerHTML = count + "";
-    document.getElementByName('svg')[0].appendChild(t);
-    console.log('clicked');
+    $('svg')[0].appendChild(t);
   }
 }
 
@@ -90,8 +101,9 @@ function addEL(n) {
   console.log('start');
   for (var i = 0; i < n; i++) {
     for (var j = 0; j < n; j++) {
-      document.getElementById(`x${i}y${j}`).addEventListener('click', function () {
+      $(`#x${i}y${j}`).on('click', function () {
         console.log(this.id);
+        click(this);
       });
     }
   }
