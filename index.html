@@ -2,53 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Test App</title>
+    <link rel="icon" type="image/png" href="image/Logo.png"/>
+    <title>Welcome to M.Y Web Apps</title>
     <style>
         body {
-            background-color: grey;
+            background-color: lavender;
         }
-        #topleft {
+        div.container {
             display: block;
-            position: absolute;
-            width: 45%;
-            height: 45%;
-            top: 5%;
-            left: 5%;
-            background-color: orange;
+            width: 50%;
+            margin: auto;
+            margin-top: 50px;
+            text-align: center;
         }
-        #topright {
-            display: block;
-            position: absolute;
-            width: 45%;
-            height: 45%;
-            top: 5%;
-            right: 5%;
-            background-color: lightgreen;
+        h2 {
+            color: cadetblue;
         }
-        #bottomleft {
-            display: block;
-            position: absolute;
+        div.abstract {
             width: 45%;
-            height: 45%;
-            bottom: 5%;
-            left: 5%;
-            background-color: #0000FF;
+            margin: auto;
+            background-color: white;
         }
-        #bottomright {
-            display: block;
-            position: absolute;
-            width: 45%;
-            height: 45%;
-            bottom:  5%;
-            right: 5%;
-            background-color: rebeccapurple;
+        div.box {
+            display: inline-block;
+            width: 25%;
+            margin: 10px;
+            border: 2px;
+            background-color: blanchedalmond;
         }
     </style>
 </head>
 <body>
-    <div id="topleft"></div>
-    <div id="topright"></div>
-    <div id="bottomleft"></div>
-    <div id="bottomright"></div>
+    <div class="container">
+        <h2>Welcome to the collection of M.Y web apps!</h2>
+        <hr>
+        <div class="abstract">
+
+        </div>
+        <div class="box">
+            1
+        </div>
+        <div class="box">
+            2
+        </div>
+        <div class="box">
+            3
+        </div>
+        <div class="box">
+            4
+        </div>
+    </div>
 </body>
 </html>
