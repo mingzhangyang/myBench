@@ -110,6 +110,9 @@ function addEL(n) {
 }
 
 function back() {
+  if (allClicked.length === 0) {
+    return;
+  }
   var key = allClicked.pop();
   console.log(key);
   var point = board[key];
