@@ -1,0 +1,56 @@
+body {
+    background-color: lavender;
+}
+div.container {
+    display: block;
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+}
+#forkme_banner {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 10%;
+    z-index: 10;
+    padding: 10px 50px 10px 10px;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 0 10px rgba(0,0,0,.5);
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background: url(./images/blacktocat.png) #0090ff no-repeat 95% 95%;
+}
+h2 {
+    color: cadetblue;
+}
+div.abstract {
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    padding: 10px 20px 10px 20px;
+    text-align: left;
+}
+li {
+    padding: 5px;
+}
+div p {
+    text-align: left;
+    padding: 10px 15px 10px 15px;
+}
+div p::first-letter {
+    color: black;
+    font-size: x-large;
+}
+div.box {
+    display: inline-block;
+    max-width: 45%;
+    margin: 10px;
+    border: 2px;
+    background-color: blanchedalmond;
+}
+img {
+    float: right;
+    margin: 0 0 10px 10px;
+}

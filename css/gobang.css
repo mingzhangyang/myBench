@@ -1,0 +1,70 @@
+#view {
+    margin: 50px;
+    text-align: center;
+    height: 700px;
+    width: 800px;
+}
+#board {
+    position: absolute;
+    left: 100px;
+    right: 100px;
+    margin: auto;
+    height: 600px;
+    width: 600px;
+}
+.btns {
+    position: absolute;
+    margin: auto;
+    width: 400px;
+    left: 200px;
+    right: 200px;
+    top: 630px;
+}
+#start {
+    position: absolute;
+    left: 0px;
+}
+#back {
+    position: absolute;
+    left: 42%;
+}
+#restart {
+    position: absolute;
+    right: 0px;
+}
+svg {
+    display: block;
+    margin: auto;
+    background-color: wheat;
+}
+circle {
+    fill: green;
+    opacity: 0;
+}
+g.white circle{
+    fill: white;
+    opacity: 1;
+}
+g.black circle{
+    fill: black;
+    opacity: 1;
+}
+text {
+    text-anchor: middle;
+    alignment-baseline: central;
+}
+g.white text {
+    fill: black;
+    opacity: 1;
+}
+g.black text {
+    fill: white;
+    opacity: 1;
+}
+g.marker {
+    fill: red;
+    opacity: 0;
+}
+g.marker:hover {
+    opacity: 1;
+}
