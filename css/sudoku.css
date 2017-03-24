@@ -1,0 +1,48 @@
+#view {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    padding: 30px;
+}
+
+svg {
+    display: block;
+    /*border: 2px solid black;*/
+    margin: auto;
+}
+
+svg line.normalLine {
+    stroke: black;
+    stroke-width: 1px;
+    opacity: 0.3;
+}
+
+svg line.borderLine {
+    stroke: black;
+    stroke-width: 2px;
+    opacity: 1;
+}
+
+
+g rect {
+    fill: orange;
+    opacity: 0;
+}
+
+g text {
+    fill: #007edf;
+    font-size: 3em;
+    text-anchor: middle;
+    alignment-baseline: central;
+}
+
+g.selected rect {
+    fill: orange;
+    opacity: 1;
+}
+
+rect.tobeselected {
+    fill: lightgrey;
+    stroke: white;
+    stroke-width: 1px;
+}
