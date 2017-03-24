@@ -74,3 +74,8 @@ g.suspect rect {
 g.win rect {
     fill: green;
 }
+
+g.win text {
+    opacity: 1;
+    fill: yellow;
+}

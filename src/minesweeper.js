@@ -93,7 +93,7 @@ function drawBoard(m, n, len) {
         numOfMines += 1;
         g = `<g id="x${i}y${j}">
 <rect x="${rectX}" y="${rectY}" width="${len}" height="${len}" />
-<text x="${textX}" y="${textY}" fill="red" font-size="24">&#9785</text>
+<text x="${textX}" y="${textY}" fill="red">&#9785</text>
 </g>`
       } else {
         g = `<g id="x${i}y${j}">
@@ -206,4 +206,7 @@ function youWin() {
       document.getElementById(coor).removeEventListener('contextmenu', rightClickEvent);
     }
   }
+  setTimeout(function () {
+    alert('Congratulations! You Win the Game!');
+  }, 1500);
 }
