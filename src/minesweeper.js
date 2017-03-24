@@ -10,26 +10,36 @@ var cols;
 var numOfMines = 0;
 
 function defaultLoad() {
+  count = 0;
+  numOfMines = 0;
   drawBoard(16, 16);
   addEL(16, 16);
 }
 
 function easyGame() {
+  count = 0;
+  numOfMines = 0;
   drawBoard(9, 9);
   addEL(9, 9);
 }
 
 function mediumGame() {
+  count = 0;
+  numOfMines = 0;
   drawBoard(16, 16);
   addEL(16, 16);
 }
 
 function professionalGame() {
+  count = 0;
+  numOfMines = 0;
   drawBoard(30, 16);
   addEL(30, 16);
 }
 
 function customGame() {
+  count = 0;
+  numOfMines = 0;
   var r = prompt('Please input the number of rows you would like to set?');
   var c = prompt('Please input the number of columns you would like to set?');
   console.log('r = ', r);
@@ -184,8 +194,8 @@ function gameOver(m, n) {
 function youWin() {
   var i, j;
   var coor;
-  for (i = 1; i <= m; i++) {
-    for (j = 1; j <= n; j++) {
+  for (i = 1; i <= cols; i++) {
+    for (j = 1; j <= rows; j++) {
       coor = `x${i}y${j}`;
       if (board[coor].clicked) {
         continue;
