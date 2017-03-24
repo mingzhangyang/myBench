@@ -197,13 +197,12 @@ function youWin() {
   for (i = 1; i <= cols; i++) {
     for (j = 1; j <= rows; j++) {
       coor = `x${i}y${j}`;
-      if (board[coor].clicked) {
-        continue;
+      if (board[coor].isMine) {
+        d3.select('#'+coor).attr('class', 'win');
+        d3.select('#'+coor).select('text').text('X');
+        document.getElementById(coor).removeEventListener('click', clickEvent);
+        document.getElementById(coor).removeEventListener('contextmenu', rightClickEvent);
       }
-      d3.select('#'+coor).attr('class', 'win');
-      d3.select('#'+coor).select('text').text('&#9786;');
-      document.getElementById(coor).removeEventListener('click', clickEvent);
-      document.getElementById(coor).removeEventListener('contextmenu', rightClickEvent);
     }
   }
   setTimeout(function () {
