@@ -83,8 +83,8 @@ function drawBoard(m, n, len) {
   var text = `<svg width="${width}" height="${height}">`;
   for (i = 1; i <= m; i++) {
     for (j = 1; j <= n; j++) {
-      var rectX = i * len;
-      var rectY = j * len;
+      var rectX = (i-1) * len;
+      var rectY = (j-1) * len;
       var textX = rectX + len/2;
       var textY = rectY + len/2;
       var val = board['x' + i + 'y' + j].isMine;
