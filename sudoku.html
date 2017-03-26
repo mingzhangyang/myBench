@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Soduku</title>
+    <link rel="icon" type="image/png" href="images/Logo.png"/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="src/sudoku.js"></script>
+    <link rel="stylesheet" href="css/sudoku.css">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body onload="drawBoard(0.5, 64)">
+    <div id="view">
+        <div id="board"></div>
+        <div id="controls">
+            <select id="level" onchange="getSelectVal();" >
+                <option value="Easy">Easy</option>
+                <option value="Normal" selected>Normal</option>
+                <option value="Hard">Hard</option>
+                <option value="God">God</option>
+            </select>
+            <div class="spa"></div>
+            <button class="btn btn-info" onclick="modifyInput();">Modify</button>
+            <div class="spa"></div>
+            <button class="btn btn-warning" onclick="showHints();">Hints</button>
+            <div class="spa"></div>
+            <button class="btn btn-danger" onclick="window.location.reload();">New Game</button>
+            <div class="spa"></div>
+        </div>
+    </div>
+</body>
+</html>

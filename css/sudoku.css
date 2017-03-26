@@ -1,0 +1,102 @@
+body {
+    background-color: lightgrey;
+}
+
+#view {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    padding: 30px;
+}
+
+svg {
+    display: block;
+    /*border: 2px solid black;*/
+    margin: auto;
+}
+
+svg line.normalLine {
+    stroke: black;
+    stroke-width: 1px;
+    opacity: 0.3;
+}
+
+svg line.borderLine {
+    stroke: black;
+    stroke-width: 2px;
+    opacity: 1;
+}
+
+g rect {
+    fill: orange;
+    opacity: 0;
+}
+
+g text {
+    fill: #007edf;
+    font-size: 3em;
+    text-anchor: middle;
+    alignment-baseline: central;
+}
+
+.selected rect {
+    fill: orange;
+    opacity: 0.6;
+}
+
+g circle {
+    fill: cyan;
+}
+
+.nums text {
+    fill: grey;
+    font-family:"sans-serif";
+    font-family: Open-Sans, Helvetica, Arial, sans-serif;
+}
+
+.inputting circle {
+    fill: orange;
+}
+
+.resolved rect {
+    fill: #DA70D6;
+    opacity: 0.6;
+}
+
+.sandr rect {
+    stroke: orange;
+    stroke-width: 4px;
+    opacity: 0.6;
+    fill: #DA70D6;
+}
+
+select {
+    border: 1px solid #4cae4c;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #5cb85c;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+#controls {
+    width: 600px;
+    margin: auto;
+    padding: 20px;
+}
+
+button {
+    display: inline-block;
+}
+
+.spa {
+    width: 40px;
+    display: inline-block;
+}

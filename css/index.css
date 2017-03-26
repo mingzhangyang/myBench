@@ -3,7 +3,8 @@ body {
 }
 div.container {
     display: block;
-    width: 50%;
+    width: 90%;
+    max-width: 950px;
     margin: auto;
     margin-top: 50px;
     text-align: center;
@@ -44,8 +45,8 @@ div p::first-letter {
     font-size: x-large;
 }
 div.box {
-    display: inline-flex;
-    max-width: 45%;
+    display: inline-block;
+    width: 450px;
     margin: 10px;
     border: 2px;
     background-color: blanchedalmond;
