@@ -15,6 +15,7 @@ function sudokuDataGenerator() {
     result[i] = row;
   }
 
+  //The function below only works with array of numbers and strings. No objects.
   function arrSubtraction(arr1, arr2) {
     return arr1.filter(function (d) {
       return arr2.indexOf(d) === -1;
@@ -159,10 +160,21 @@ function sudokuDataGenerator() {
 //
 // console.log(sk);
 
-var model = {};
-var selected = '';
+var model;
+var selected;
+var errs;
+var count;
+var numOfToBeFilled;
+var hidden;
 
 function drawBoard(p, n) {
+  model = {};
+  selected = '';
+  errs = [];
+  count = 0;
+  numOfToBeFilled = 0;
+  hidden = [];
+
   n = n || 64;
   var data = sudokuDataGenerator();
   while (true) {
@@ -172,7 +184,7 @@ function drawBoard(p, n) {
     data = sudokuDataGenerator();
   }
 
-  var svg = `<svg width="${n * 9 + 20 + n}" height="${n * 9}">`;
+  var svg = `<svg width="${n * 9 + 30 + n}" height="${n * 9 + 10}"><g transform="translate(5,5)">`;
   for (var i = 0; i <= 9; i++) {
     if (i % 3 === 0) {
       svg += `<line class="borderLine" x1="${n * i}" y1="0" x2="${n * i}" y2="${n * 9}" />`;
@@ -187,22 +199,26 @@ function drawBoard(p, n) {
   for (var j = 0; j < 9; j++) {
     for (var k = 0; k < 9; k++) {
       var t = (Math.random() > p);
-      model[`x${j}y${k}`] = {
+      model[`r${j}c${k}`] = {
+        uid: `r${j}c${k}`,
         val: data[j][k],
         show: t
       };
       if (t) {
-        svg += `<g class="showG" id="x${j}y${k}"><text x="${k * n + n/2}" y="${j * n + n/2}">${data[j][k]}</text><rect x="${k * n}" y="${j * n}" width="${n}" height="${n}" /></g>`;
+        svg += `<g class="showG" id="r${j}c${k}"><text x="${k * n + n/2}" y="${j * n + n/2}">${data[j][k]}</text><rect x="${k * n}" y="${j * n}" width="${n}" height="${n}" /></g>`;
       } else {
-        svg += `<g class="hideG" id="x${j}y${k}"><text x="${k * n + n/2}" y="${j * n + n/2}"></text><rect x="${k * n}" y="${j * n}" width="${n}" height="${n}" /></g>`;
+        numOfToBeFilled += 1;
+        hidden.push(model[`r${j}c${k}`]);
+        svg += `<g class="hideG" id="r${j}c${k}"><text x="${k * n + n/2}" y="${j * n + n/2}"></text><rect x="${k * n}" y="${j * n}" width="${n}" height="${n}" /></g>`;
       }
     }
   }
 
   for (var h = 0; h < 9; h++) {
-    svg += `<rect class="tobeselected" x="${n * 9 + 20}" y="${h * n}" width="${n}" height="${n}" />`;
+    svg += `<g class="nums" id="num${h+1}"><circle class="tobeselected" 
+cx="${n * 9 + 20 + n/2}" cy="${h * n + n/2}" r="${n/2}"  /><text x="${n * 9 + 20 + n/2}" y="${h * n + n/2}">${h+1}</text></g>`;
   }
-  svg += '</svg>';
+  svg += '</g></svg>';
   document.getElementById('board').innerHTML = svg;
   addEL();
 }
@@ -210,11 +226,15 @@ function drawBoard(p, n) {
 function addEL() {
   for (var j = 0; j < 9; j++) {
     for (var k = 0; k < 9; k++) {
-      if (!(model[`x${j}y${k}`].show)) {
-        var g = document.getElementById(`x${j}y${k}`);
+      if (!(model[`r${j}c${k}`].show)) {
+        var g = document.getElementById(`r${j}c${k}`);
         g.addEventListener('click', select);
       }
     }
+  }
+
+  for (var h = 0; h < 9; h++) {
+    document.getElementById('num' + (h+1)).addEventListener('click', chooseNum);
   }
 }
 
@@ -223,16 +243,120 @@ function select() {
   if (this.id === selected) {
     return;
   }
+
   if (selected) {
-    d3.select('#' + selected).attr('class', 'clicked');
+    var cls = d3.select('#' + selected).attr('class');
+    if (cls === 'sandr') {
+      d3.select('#' + selected).attr('class', 'resolved');
+    } else {
+      d3.select('#' + selected).attr('class', 'clicked');
+    }
   }
+
   selected = this.id;
-  d3.select('#' + this.id).attr('class', 'selected');
+  var cls = d3.select('#' + selected).attr('class');
+
+  if (cls === 'resolved') {
+    d3.select('#' + selected).attr('class', 'sandr');
+  } else {
+    d3.select('#' + selected).attr('class', 'selected');
+
+  }
 }
 
-function input() {
-
+function chooseNum() {
+  if (!selected) {
+    return;
+  }
+  if (d3.select('#' + selected).attr('class') === 'sandr') {
+    return;
+  }
+  var node = d3.select('#' + this.id);
+  node.attr('class', 'inputting');
+  var num = node.select('text').text();
+  console.log(num);
+  var g = d3.select('#' + selected);
+  g.select('text').text('' + num);
+  g.attr('class', 'sandr');
+  count += 1;
+  if (model[selected] !== num) {
+    errs.push(selected);
+  }
+  setTimeout(function () {
+    node.attr('class', 'nums');
+    if (count === numOfToBeFilled) {
+      if (errs.length === 0) {
+        alert('Congratulations! You win the game!');
+        return;
+      }
+      alert('There must be something wrong! Please check!');
+    }
+  }, 500);
 }
 
+function modifyInput() {
+  var node = d3.select('#' + selected);
+  if (node.attr('class') !== 'sandr') {
+    alert('Please click to select the cell which you want to modify!');
+    return;
+  }
+  node.select('text').text('');
+  node.attr('class', 'selected');
+  count -= 1;
+}
 
+function showHints() {
+  var t = hidden[Math.floor(hidden.length * Math.random())];
+  var g = d3.select('#' + t.uid);
 
+  if (!selected) {
+    selected = t.uid;
+    g.attr('class', 'sandr');
+    g.select('text').text(t.val);
+    hidden = hidden.filter(function (d) {
+      return d.uid !== t.uid;
+    });
+    count += 1;
+  } else {
+    var before = d3.select('#' + selected);
+    if (before.attr('class') === 'selected') {
+      before.attr('class', 'clicked');
+    }
+    if (before.attr('class') === 'sandr') {
+      before.attr('class', 'resolved');
+    }
+    selected = t.uid;
+    g.attr('class', 'sandr');
+    g.select('text').text(t.val);
+    hidden = hidden.filter(function (d) {
+      return d.uid !== t.uid;
+    });
+    count += 1;
+    if (count === numOfToBeFilled) {
+      setTimeout(function () {
+        if (errs.length !== 0) {
+          alert('There must be something wrong! Please check!');
+        } else {
+          alert('Congratulations! You win the game!');
+        }
+      }, 500);
+    }
+  }
+}
+
+function getSelectVal() {
+  var t = document.getElementById('level').value;
+  switch (t) {
+    case 'Easy':
+      drawBoard(0.3, 64);
+      break;
+    case 'Normal':
+      window.location.reload();
+      break;
+    case 'Hard':
+      drawBoard(0.6, 64);
+      break;
+    case 'God':
+      drawBoard(0.8, 64);
+  }
+}
