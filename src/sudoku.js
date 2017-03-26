@@ -326,6 +326,12 @@ function showHints() {
       before.attr('class', 'resolved');
     }
     selected = t.uid;
+    if (d3.select('#' + selected).select('text').text()) {
+      count -= 1;
+      errs = errs.filter(function (d) {
+        d !== t.uid;
+      })
+    }
     g.attr('class', 'sandr');
     g.select('text').text(t.val);
     hidden = hidden.filter(function (d) {
