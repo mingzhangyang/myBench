@@ -45,12 +45,12 @@ g text {
 }
 
 g circle {
-    fill: cyan;
+    fill: #3D9970;
+    opacity: 0.5;
 }
 
 .nums text {
-    fill: grey;
-    font-family:"sans-serif";
+    fill: silver;
     font-family: Open-Sans, Helvetica, Arial, sans-serif;
 }
 
