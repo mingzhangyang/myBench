@@ -4,10 +4,9 @@ body {
 div.container {
     display: block;
     width: 90%;
-    max-width: 950px;
+    max-width: 900px;
     margin: auto;
-    margin-top: 50px;
-    text-align: center;
+    padding: 50px;
 }
 #forkme_banner {
     display: block;
@@ -44,11 +43,15 @@ div p::first-letter {
     color: black;
     font-size: x-large;
 }
+div.row {
+    width: 100%;
+}
 div.box {
-    display: inline-block;
-    width: 450px;
-    margin: 10px;
-    border: 2px;
+    display: inline-flex;
+    width: 45%;
+    margin: 1%;
+    padding: 10px;
+    border: 0px;
     background-color: blanchedalmond;
 }
 img {
