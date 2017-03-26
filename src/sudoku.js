@@ -322,6 +322,10 @@ function modifyInput() {
     alert('Please click to select the cell which you want to modify!');
     return;
   }
+  if (model[selected].hinted) {
+    alert('You are trying to modify the hinted data. Avoid this! :-)');
+    return;
+  }
   node.select('text').text('');
   node.attr('class', 'selected');
   count -= 1;
@@ -357,6 +361,7 @@ function showHints() {
       return d.uid !== t.uid;
     });
     count += 1;
+    model[selected].hinted = true;
   } else {
     var before = d3.select('#' + selected);
     if (before.attr('class') === 'selected') {
@@ -378,6 +383,7 @@ function showHints() {
       return d.uid !== t.uid;
     });
     count += 1;
+    model[selected].hinted = true;
     if (count === numOfToBeFilled) {
       setTimeout(function () {
         if (errs.length !== 0) {
