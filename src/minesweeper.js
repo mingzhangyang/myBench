@@ -137,7 +137,7 @@ function compute(elem) {
         num += t.iniVal;
       }
     }
-    num -= board[elem.id].iniVal;
+    num -= board[elem.id].iniVal; // This is redundant. Luckily, it's safe.
   }
   if (num) {
     d3.select(`#${elem.id}`).select('text').text(num + '');
