@@ -202,6 +202,8 @@ function drawBoard(p, n) {
       model[`r${j}c${k}`] = {
         uid: `r${j}c${k}`,
         val: data[j][k],
+        // resolved: false,
+        // selected: false,
         show: t
       };
       if (t) {
@@ -244,6 +246,24 @@ function select() {
     return;
   }
 
+  // if (selected) {
+  //   if (model[selected].resolved) {
+  //     d3.select('#' + selected).attr('class', 'resolved');
+  //     model[selected].selected = false;
+  //   } else {
+  //     d3.select('#' + selected).attr('class', 'clicked');
+  //     model[selected].selected = false;
+  //   }
+  // }
+  // selected = this.id;
+  // if (model[selected].resolved) {
+  //   d3.select('#' + selected).attr('class', 'sandr');
+  //   model[selected].selected = true;
+  // } else {
+  //   d3.select('#' + selected).attr('class', 'selected');
+  //   model[selected].selected = true;
+  // }
+
   if (selected) {
     var cls = d3.select('#' + selected).attr('class');
     if (cls === 'sandr') {
@@ -260,7 +280,6 @@ function select() {
     d3.select('#' + selected).attr('class', 'sandr');
   } else {
     d3.select('#' + selected).attr('class', 'selected');
-
   }
 }
 
@@ -279,7 +298,10 @@ function chooseNum() {
   g.select('text').text('' + num);
   g.attr('class', 'sandr');
   count += 1;
-  if (model[selected] !== num) {
+  // model[selected].resolved = true;
+  // model[selected].selected = true;
+  // model[selected].resVal = +num;
+  if (model[selected].val !== +num) {
     errs.push(selected);
   }
   setTimeout(function () {
@@ -303,9 +325,27 @@ function modifyInput() {
   node.select('text').text('');
   node.attr('class', 'selected');
   count -= 1;
+  if (errs.indexOf(selected) !== -1) {
+    errs = errs.filter(function (d) {
+      return d !== selected;
+    })
+  }
 }
 
 function showHints() {
+  if (hidden.length === 0) {
+    if (count === numOfToBeFilled) {
+      setTimeout(function () {
+        if (errs.length !== 0) {
+          alert('There must be something wrong! Please check!');
+        } else {
+          alert('Congratulations! You win the game!');
+        }
+      }, 500);
+    }
+    return;
+  }
+
   var t = hidden[Math.floor(hidden.length * Math.random())];
   var g = d3.select('#' + t.uid);
 
@@ -329,7 +369,7 @@ function showHints() {
     if (d3.select('#' + selected).select('text').text()) {
       count -= 1;
       errs = errs.filter(function (d) {
-        d !== t.uid;
+        return d !== t.uid;
       })
     }
     g.attr('class', 'sandr');
