@@ -27,7 +27,8 @@ svg {
 }
 
 .btn {
-    margin: auto;
+    display: inline-block;
+    margin: 5px 10px;
 }
 
 
