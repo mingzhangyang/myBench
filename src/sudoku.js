@@ -35,7 +35,8 @@ function sudokuDataGenerator() {
     m = i % 3;
     for (j = 0; j < 9; j++) {
       n = j % 3;
-      collection = [0];
+
+      collection = [];
 
       for (var x = 0; x < i; x++) {
         collection.push(result[x][j]);
@@ -298,6 +299,7 @@ function chooseNum() {
   g.select('text').text('' + num);
   g.attr('class', 'sandr');
   count += 1;
+  model[selected].resVal = +num;
   // model[selected].resolved = true;
   // model[selected].selected = true;
   // model[selected].resVal = +num;
@@ -308,6 +310,10 @@ function chooseNum() {
     node.attr('class', 'nums');
     if (count === numOfToBeFilled) {
       if (errs.length === 0) {
+        alert('Congratulations! You win the game!');
+        return;
+      }
+      if (validate()) {
         alert('Congratulations! You win the game!');
         return;
       }
@@ -340,11 +346,15 @@ function showHints() {
   if (hidden.length === 0) {
     if (count === numOfToBeFilled) {
       setTimeout(function () {
-        if (errs.length !== 0) {
-          alert('There must be something wrong! Please check!');
-        } else {
+        if (errs.length === 0) {
           alert('Congratulations! You win the game!');
+          return;
         }
+        if (validate()) {
+          alert('Congratulations! You win the game!');
+          return;
+        }
+        alert('There must be something wrong! Please check!');
       }, 500);
     }
     return;
@@ -386,11 +396,15 @@ function showHints() {
     model[selected].hinted = true;
     if (count === numOfToBeFilled) {
       setTimeout(function () {
-        if (errs.length !== 0) {
-          alert('There must be something wrong! Please check!');
-        } else {
+        if (errs.length === 0) {
           alert('Congratulations! You win the game!');
+          return;
         }
+        if (validate()) {
+          alert('Congratulations! You win the game!');
+          return;
+        }
+        alert('There must be something wrong! Please check!');
       }, 500);
     }
   }
@@ -411,4 +425,77 @@ function getSelectVal() {
     case 'God':
       drawBoard(0.8, 64);
   }
+}
+
+function validate() {
+  var newData = [];
+  for (var k = 0; k < 9; k++) {
+    newData[k] = [];
+  }
+  for (var i = 0; i < 9; i++) {
+    for (var j = 0; j < 9; j++) {
+      if (model[`r${i}c${j}`].resVal) {
+        newData[i][j] = model[`r${i}c${j}`].resVal;
+      } else {
+        newData[i][j] = model[`r${i}c${j}`].val;
+      }
+    }
+  }
+  console.log(newData);
+
+  function checkDuplicate(arr) {
+    var s = new Set(arr);
+    return (arr.length !== s.size);
+  }
+
+  // function checkDuplicate(arr) {
+  //   var arrCopy = arr.slice();
+  //   arrCopy.sort();
+  //   for (var t = 0; t < arrCopy.length - 1; t++) {
+  //     if (arrCopy[t] === arrCopy[t+1]) {
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // }
+
+  // test rows
+  for (var r = 0; r < 9; r++) {
+    if (checkDuplicate(newData[r])) {
+      return false;
+    }
+  }
+  console.log('rows OK');
+
+  // test columns
+  for (var c = 0; c < 9; c++) {
+    var col = [];
+    for (var r = 0; r < 9; r++) {
+      col[r] = newData[r][c];
+    }
+    if (checkDuplicate(col)) {
+      return false;
+    }
+  }
+  console.log('cols OK');
+
+  //test blocks
+  var blocks = ['00', '03', '06', '30', '33', '36', '60', '63', '66'];
+  for (var i = 0; i < 9; i++) {
+    var r = +(blocks[0]);
+    var c = +(blocks[1]);
+    var block = [];
+    for (var m = 0; m < 3; m++) {
+      for (var n = 0; n < 3; n++) {
+        block.push(newData[r+m][c+n]);
+      }
+    }
+    if (checkDuplicate(block)) {
+      return false;
+    }
+  }
+
+  console.log('Blocks OK');
+
+  return true;
 }
