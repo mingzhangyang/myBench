@@ -1,0 +1,12 @@
+#view {
+    padding: 20px;
+}
+
+svg {
+    display: block;
+    margin: auto;
+}
+
+path {
+    fill: lightgreen;
+}

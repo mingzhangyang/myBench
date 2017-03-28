@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rubik's Cube</title>
+    <link rel="icon" type="image/png" href="images/Logo.png"/>
+    <link rel="stylesheet" type="text/css" href="css/rubikCube.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="src/rubikCube.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="view">
+                <svg width="920" height="620">
+                    <g transform="translate(20,20)">
+                        <rect x="0" y="0" width="90" height="90"></rect>
+                        <rect x="0" y="95" width="90" height="90"></rect>
+                        <rect x="0" y="190" width="90" height="90"></rect>
+                        <rect x="95" y="0" width="90" height="90"></rect>
+                        <rect x="95" y="95" width="90" height="90"></rect>
+                        <rect x="95" y="190" width="90" height="90"></rect>
+                        <rect x="190" y="0" width="90" height="90"></rect>
+                        <rect x="190" y="95" width="90" height="90"></rect>
+                        <rect x="190" y="190" width="90" height="90"></rect>
+                    </g>
+                    <g transform="translate(320,20)">
+                        <rect x="0" y="0" width="90" height="90"></rect>
+                        <rect x="0" y="95" width="90" height="90"></rect>
+                        <rect x="0" y="190" width="90" height="90"></rect>
+                        <rect x="95" y="0" width="90" height="90"></rect>
+                        <rect x="95" y="95" width="90" height="90"></rect>
+                        <rect x="95" y="190" width="90" height="90"></rect>
+                        <rect x="190" y="0" width="90" height="90"></rect>
+                        <rect x="190" y="95" width="90" height="90"></rect>
+                        <rect x="190" y="190" width="90" height="90"></rect>
+                    </g>
+                    <g transform="translate(620,20)">
+                        <rect x="0" y="0" width="90" height="90"></rect>
+                        <rect x="0" y="95" width="90" height="90"></rect>
+                        <rect x="0" y="190" width="90" height="90"></rect>
+                        <rect x="95" y="0" width="90" height="90"></rect>
+                        <rect x="95" y="95" width="90" height="90"></rect>
+                        <rect x="95" y="190" width="90" height="90"></rect>
+                        <rect x="190" y="0" width="90" height="90"></rect>
+                        <rect x="190" y="95" width="90" height="90"></rect>
+                        <rect x="190" y="190" width="90" height="90"></rect>
+                    </g>
+                    <g transform="translate(20,320)">
+                        <rect x="0" y="0" width="90" height="90"></rect>
+                        <rect x="0" y="95" width="90" height="90"></rect>
+                        <rect x="0" y="190" width="90" height="90"></rect>
+                        <rect x="95" y="0" width="90" height="90"></rect>
+                        <rect x="95" y="95" width="90" height="90"></rect>
+                        <rect x="95" y="190" width="90" height="90"></rect>
+                        <rect x="190" y="0" width="90" height="90"></rect>
+                        <rect x="190" y="95" width="90" height="90"></rect>
+                        <rect x="190" y="190" width="90" height="90"></rect>
+                    </g>
+                    <g transform="translate(320,320)">
+                        <rect x="0" y="0" width="90" height="90"></rect>
+                        <rect x="0" y="95" width="90" height="90"></rect>
+                        <rect x="0" y="190" width="90" height="90"></rect>
+                        <rect x="95" y="0" width="90" height="90"></rect>
+                        <rect x="95" y="95" width="90" height="90"></rect>
+                        <rect x="95" y="190" width="90" height="90"></rect>
+                        <rect x="190" y="0" width="90" height="90"></rect>
+                        <rect x="190" y="95" width="90" height="90"></rect>
+                        <rect x="190" y="190" width="90" height="90"></rect>
+                    </g>
+                    <g transform="translate(620,320)">
+                        <rect x="0" y="0" width="90" height="90"></rect>
+                        <rect x="0" y="95" width="90" height="90"></rect>
+                        <rect x="0" y="190" width="90" height="90"></rect>
+                        <rect x="95" y="0" width="90" height="90"></rect>
+                        <rect x="95" y="95" width="90" height="90"></rect>
+                        <rect x="95" y="190" width="90" height="90"></rect>
+                        <rect x="190" y="0" width="90" height="90"></rect>
+                        <rect x="190" y="95" width="90" height="90"></rect>
+                        <rect x="190" y="190" width="90" height="90"></rect>
+                    </g>
+                    <path transform="translate(50,50)" d="M0 0 L 30 0 L 30 -5 L 45 9 L 30 23 L 30 18 L 0 18 L 0 0"></path>
+                </svg>
+        </div>
+        <div id="controls">
+
+        </div>
+    </div>
+</body>
+</html>
