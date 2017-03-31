@@ -45,11 +45,13 @@ div p::first-letter {
 }
 div.row {
     width: 100%;
+    text-align: center;
+    margin-top: 4px;
 }
 div.box {
-    display: inline-flex;
+    display: inline-block;
     width: 45%;
-    margin: 1%;
+    margin: 4px 2px 2px 2px;
     padding: 10px;
     border: 0px;
     background-color: blanchedalmond;
