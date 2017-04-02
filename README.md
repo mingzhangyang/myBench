@@ -1,5 +1,5 @@
-## Welcome to M.Y collection of web apps
+## Welcome to M.Y Bench of Web Apps
 
-Please visit [myWebApp homepage](https://mingzhangyang.github.io/myBench/) for
+Please visit [myBench homepage](https://mingzhangyang.github.io/myBench/) for
 more.
 
