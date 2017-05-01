@@ -20,13 +20,13 @@ div.container {
     box-shadow: 0 0 10px rgba(0,0,0,.5);
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
-    background: url(./images/blacktocat.png) #0090ff no-repeat 95% 95%;
+    background: url(../images/blacktocat.png) #0090ff no-repeat 95% 95%;
 }
 h2 {
     color: cadetblue;
 }
 div.abstract {
-    width: 90%;
+    width: 92%;
     margin: auto;
     background-color: white;
     padding: 10px 20px 10px 20px;
@@ -45,8 +45,18 @@ div p::first-letter {
 }
 div.content {
     width: 100%;
-    text-align: center;
     margin-top: 4px;
+}
+
+.row {
+    display: flex;
+}
+
+.row div {
+    padding: 10px;
+    margin: 5px;
+    background-color: lavender;
+    border: white double;
 }
 
 img {

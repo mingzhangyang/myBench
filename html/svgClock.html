@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../images/Logo.png"/>
+    <title>SVG Clock</title>
+    <style>
+        #box {
+            display: flex;
+            width: 1200px;
+            margin: auto;
+        }
+        #svgContainer {
+            width: 760px;
+            /*margin: auto;*/
+            margin-top: 50px;
+            text-align: center;
+            padding-top: 0px;
+            display: inline-block;
+            background-color: transparent;
+        }
+        #clockSetting {
+            /*margin: auto;*/
+            width: 419px;
+            height: 630px;
+            background-color: lightskyblue;
+            margin-top: 50px;
+            padding-top: 60px;
+            padding-bottom: 60px;
+            padding-left: 30px;
+
+            display: inline-block;
+        }
+        svg {
+            background-color: #00d6b2;
+            /*background-color: transparent;*/
+            margin-top: 0px;
+        }
+        .label {
+            display: inline-block;
+            width: 150px;
+            margin-top: 20px;
+        }
+        input {
+            height: 24px;
+            padding-left: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="box">
+
+    <div id="svgContainer">
+        <svg width="750" height="750">
+            <g id="clock" transform="translate(375 375)"></g>
+        </svg>
+    </div>
+    <div>
+        <div id="clockSetting">
+            <div>
+                <div class="label"><lable for="input">Background color:</lable></div>
+                <input type="text" id="background" placeholder="transparent">
+            </div>
+            <div>
+                <div class="label"><lable for="input">Hour hand color:</lable></div>
+                <input type="text" id="hourhand" placeholder="red">
+            </div>
+            <div>
+                <div class="label"><lable for="input">Minute hand color:</lable></div>
+                <input type="text" id="minutehand" placeholder="blue">
+            </div>
+            <div>
+                <div class="label"><lable for="input">Second hand color:</lable></div>
+                <input type="text" id="secondhand" placeholder="black">
+            </div>
+            <div>
+                <div class="label"><lable for="input">Timezone:</lable></div>
+                <input type="text" id="timezone" placeholder="local time">
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script src="../src/svgClock.js"></script>
+</body>
+</html>
