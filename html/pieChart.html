@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../images/Logo.png"/>
+    <title>Pie Chart Generator</title>
+    <style>
+        body {
+            background-color: #f0f0f2;
+        }
+        #container {
+            width: 1000px;
+            margin: auto;
+            padding-top: 50px;
+            display: flex;
+        }
+        #console {
+            display: flex;
+            flex-direction: column;
+            width: 250px;
+            background-color: #00d6b2;
+        }
+        #data {
+            width: 100%;
+            background-color: #5cb85c;
+            max-height: 500px;
+            padding: 20px;
+        }
+        #config {
+            width: 100%;
+            padding: 20px;
+        }
+        #chartArea {
+            /*border: 2px dashed #00d6b2;*/
+        }
+        svg {
+            background-color: #f8f8f8;
+        }
+        #dataTable input {
+            width: 85px;
+            padding-left: 10px;
+            height: 20px;
+        }
+        input:focus {
+            background-color: wheat;
+        }
+        button {
+            height: 25px;
+            padding-left: 8px;
+            padding-right: 8px;
+            margin: 5px;
+            background-color: orange;
+            border-style: none;
+            border-radius: 5px;
+        }
+        #config input {
+            width: 30%;
+            padding-left: 10px;
+            height: 20px;
+            padding-right: 10px;
+        }
+        textarea {
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .labelB {
+            display: inline-block;
+            width: 100px;
+        }
+        h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .optionContainer {
+            margin-bottom: 5px;
+        }
+
+
+    </style>
+    <script src="../../biologymeetweb/src/drawing/myc.js"></script>
+</head>
+<body onload="draw()">
+<div id="container">
+    <div id="console">
+        <div id="data">
+            <table id="dataTable">
+                <tr><th>Name</th><th>Value</th></tr>
+                <tr class="monitor"><td><input type="text" placeholder="A"></td><td><input
+                        placeholder="233"></td></tr>
+                <tr class="monitor"><td><input type="text" placeholder="T"></td><td><input
+                        placeholder="234"></td></tr>
+                <tr class="monitor"><td><input type="text" placeholder="G"></td><td><input
+                        placeholder="235"></td></tr>
+                <tr class="monitor"><td><input type="text" placeholder="C"></td><td><input
+                        placeholder="236"></td></tr>
+            </table>
+            <button id="btn-add">  Add Row  </button>
+        </div>
+        <div id="config">
+            <h4>Figure settings</h4>
+            <div class="optionContainer">
+                <div class="labelA">
+                    <lable for="textarea">Fill colors:</lable>
+                </div>
+                <textarea rows="3" cols="24" id="fillColors"
+                >#f66;wheat;rgba(25,125,225,0.5);random
+                </textarea>
+            </div>
+            <div class="optionContainer">
+                <div class="labelB">
+                    <lable for="input">Stroke color:</lable>
+                </div>
+                <input type="text" id="strokeColor" class="monitor"
+                       placeholder="transparent">
+            </div>
+            <div class="optionContainer">
+                <div class="labelB">
+                    <lable for="input">Inner Radius:</lable>
+                </div>
+                <input type="text" id="innerR" class="monitor"
+                       placeholder="0">
+            </div>
+            <div class="optionContainer">
+                <div class="labelB">
+                    <lable for="input">Outer Radius:</lable>
+                </div>
+                <input type="text" id="outerR" class="monitor"
+                       placeholder="200">
+            </div>
+            <div class="optionContainer">
+                <div class="labelB">
+                    <lable for="input">Marks in/out:</lable>
+                </div>
+                <input type="text" id="notationPos" class="monitor"
+                       placeholder="in">
+            </div>
+            <div class="optionContainer">
+                <div class="labelB">
+                    <lable for="input">Take out:</lable>
+                </div>
+                <input type="text" id="takeOut" class="monitor"
+                       placeholder="">
+            </div>
+        </div>
+    </div>
+    <div id="chartArea">
+        <svg width="750" height="750">
+            <g id="chart" transform="translate(375 375)"></g>
+        </svg>
+    </div>
+</div>
+<script src="../src/pieChart.js"></script>
+</body>
+</html>
