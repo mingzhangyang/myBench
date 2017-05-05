@@ -177,13 +177,30 @@ function drawBoard(p, n) {
   hidden = [];
 
   n = n || 64;
-  var data = sudokuDataGenerator();
-  while (true) {
+  // var data = sudokuDataGenerator();
+  // while (true) {
+  //   if (data) {
+  //     break;
+  //   }
+  //   data = sudokuDataGenerator();
+  // }
+
+  // var data;
+  // do {
+  //   data = sudokuDataGenerator();
+  //   if (data) {
+  //     break;
+  //   }
+  // } while (1);
+
+  var data;
+  while (1) {
+    data = sudokuDataGenerator();
     if (data) {
       break;
     }
-    data = sudokuDataGenerator();
   }
+
 
   var svg = `<svg width="${n * 9 + 30 + n}" height="${n * 9 + 10}"><g transform="translate(5,5)">`;
   for (var i = 0; i <= 9; i++) {
