@@ -87,7 +87,7 @@ function getConfig() {
   let markPos = getValue(document.getElementById('notationPos'));
   let takeout = getValue(document.getElementById('takeOut'));
 
-  takeout = takeout.split(',');
+  takeout = takeout.split(';');
   takeout = takeout.map(d => d.trim());
   return {
     colorFunc: function () {
