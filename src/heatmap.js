@@ -82,46 +82,100 @@ function heatmap(data, options) {
   let width = w * data.values[0].length + 200 + margin.left + margin.right;
   let height = h * data.values.length + 200 + margin.bottom + margin.top;
 
-  let colorFuncs = [];
+  // let colorFuncs = [];
+  // for (let i = 0, len = data.xLabels.length; i < len; i++) {
+  //   let col = data.values.map((row) => row[i]);
+  //   let min = stats.min(col);
+  //   // let median = stats.median(row);
+  //   let max = stats.max(col);
+  //
+  //   let cs = colorScale({
+  //     min: min,
+  //     max: max,
+  //     start: colorScheme.start,
+  //     end: colorScheme.end
+  //   });
+  //
+  //   colorFuncs.push(function (v) {
+  //     return `rgba(${cs.r(v)},${cs.g(v)},${cs.b(v)},1)`;
+  //   });
+  //
+  // }
 
-  for (let i = 0, len = data.xLabels.length; i < len; i++) {
-    let row = data.values.map((row) => row[i]);
-    let min = stats.min(row);
-    // let median = stats.median(row);
-    let max = stats.max(row);
+  let colorFunc;
+  let min = data.values[0][0];
+  let max = min;
 
+  console.log(min, max);
+
+  for (let i = 0; i < data.yLabels.length; i++) {
+    for (let j = 0; j < data.xLabels.length; j++) {
+      let t = data.values[i][j];
+      if (t > max) {
+        max = t;
+      }
+      if (t < min) {
+        min = t;
+      }
+    }
+  }
+
+  console.log(min, max);
+
+  if (typeof colorScheme.middle === 'undefined') {
     let cs = colorScale({
       min: min,
       max: max,
       start: colorScheme.start,
       end: colorScheme.end
     });
-
-    colorFuncs.push(function (v) {
+    colorFunc = function (v) {
       return `rgba(${cs.r(v)},${cs.g(v)},${cs.b(v)},1)`;
+    }
+  } else {
+    let cs1 = colorScale({
+      min: min,
+      max: 1,
+      start: colorScheme.start,
+      end: colorScheme.middle
     });
-
+    let cs2 = colorScale({
+      min: 1,
+      max: max,
+      start: colorScheme.middle,
+      end: colorScheme.end
+    });
+    colorFunc = function (v) {
+      if (v < 1) {
+        return `rgba(${cs1.r(v)},${cs1.g(v)},${cs1.b(v)},1)`;
+      }
+      if (v > 1) {
+        return `rgba(${cs2.r(v)},${cs2.g(v)},${cs2.b(v)},1)`;
+      }
+      return `rgba(${colorScheme.middle[0]},${colorScheme.middle[1]},${colorScheme.middle[2]},1)`;
+    }
   }
 
   let code = '<g>';
+  let xRemarks = '<g>';
 
   for (let i = 0; i < data.xLabels.length; i++) {
     let col = data.values.map((row) => row[i]);
-    let currcf = colorFuncs[i];
     for (let j = 0; j < col.length; j++) {
-      code += `<rect x="${w * i}" y="${h * j}" width="${w}" height="${h}" fill="${currcf(col[j])}"></rect>`;
+      code += `<rect x="${w * i}" y="${h * j}" width="${w}" height="${h}" fill="${colorFunc(col[j])}"></rect>`;
     }
     let cx = w * i + w / 2;
     let cy = h * (col.length) + 20;
-    code += `<text x="${cx}" y="${cy}" text-anchor="start" alignment-baseline="middle" transform="rotate(45 ${cx} ${cy})">${data.xLabels[i]}</text>`;
+    xRemarks += `<path d="M${cx} ${cy - 15} v 8" stroke="#000"></path><text x="${cx}" y="${cy}" text-anchor="start" alignment-baseline="central" transform="rotate(45 ${cx} ${cy})">${data.xLabels[i]}</text>`;
   }
 
+  let yRemarks = '<g>';
   let xr = w * data.xLabels.length + 20;
   for (let k = 0; k < data.yLabels.length; k++) {
-    code += `<text x="${xr}" y="${h * k + h / 2}" text-anchor="start" alignment-baseline="middle">${data.yLabels[k]}</text>`;
+    yRemarks += `<path d="M${xr - 15} ${h * k + h / 2} h 8" stroke="#000"></path><text x="${xr}" y="${h * k + h / 2}" text-anchor="start" alignment-baseline="central">${data.yLabels[k]}</text>`;
   }
 
-  code += '</g>';
+  code += xRemarks + '</g>' + yRemarks + '</g></g>';
 
   return code;
 
@@ -166,6 +220,18 @@ function colorScale(options) {
 let yue = fs.readFileSync('../../../Data/gutMicrobiome/allSamples/yue.csv', 'utf8');
 console.log(typeof yue);
 yue = prepDataForHeatmap(yue);
-// console.log(yue.values[147], yue.xLabels.length, yue.yLabels[148]);
-// console.log(heatmap(yue));
-console.log(yue.values.slice(-12, -10));
+console.log(yue.values[147], yue.xLabels.length);
+
+let avg = [322.7711111,	2078.235556, 471.7277778, 556.4644444, 408.3222222];
+yue.values = yue.values.map(d => d.map((da, idx) => da / avg[idx]));
+
+console.log(yue.values[147], yue.xLabels.length);
+
+console.log(heatmap(yue, {
+  colorScheme: {
+    start: [255,255,255],
+    // middle: [255,255,255],
+    end: [0,0,255]
+  }
+}));
+// console.log(yue.values.slice(-12, -10));
