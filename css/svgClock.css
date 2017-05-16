@@ -41,3 +41,6 @@ input {
     height: 24px;
     padding-left: 10px;
 }
+input:focus {
+    background-color: wheat;
+}
