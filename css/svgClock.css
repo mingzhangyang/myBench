@@ -1,0 +1,43 @@
+body {
+    background-color: #f0f0f2;
+}
+#box {
+    display: flex;
+    width: 1200px;
+    margin: auto;
+}
+#svgContainer {
+    width: 760px;
+    /*margin: auto;*/
+    margin-top: 50px;
+    text-align: center;
+    padding-top: 0;
+    display: inline-block;
+    background-color: transparent;
+}
+#clockSetting {
+    /*margin: auto;*/
+    width: 419px;
+    height: 630px;
+    background-color: lightskyblue;
+    margin-top: 50px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: 30px;
+
+    display: inline-block;
+}
+svg {
+    background-color: #00d6b2;
+    /*background-color: transparent;*/
+    margin-top: 0;
+}
+.label {
+    display: inline-block;
+    width: 150px;
+    margin-top: 20px;
+}
+input {
+    height: 24px;
+    padding-left: 10px;
+}
