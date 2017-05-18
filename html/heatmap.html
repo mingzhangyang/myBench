@@ -2,13 +2,90 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../images/Logo.png"/>
     <title>Easy Heatmap</title>
+    <style>
+        body {
+            background-color: #f0f0f2;
+        }
+        #container {
+            width: 1240px;
+            margin: auto;
+            background-color: #f0f0f2;
+            border: 1px solid #0090ff;
+            display: flex;
+            padding: 50px 5px 50px 5px;
+        }
+        #control-area {
+            width: 300px;
+            display: inline-block;
+            border: 1px dotted #ff6666;
+            margin-left: auto;
+            padding: 10px;
+        }
+        #chart-area {
+            width: 900px;
+            display: inline-block;
+            border: 1px dashed #00d6b2;
+            margin:auto;
+        }
+        #mode-selector {
+            list-style-type: none;
+            padding-left: 10px;
+        }
+        #mode-selector li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+    </style>
 </head>
 <body>
+<div id="container">
+    <div id="control-area">
+        <div id="upload-area">
+            <h4>Select your file to visualize.</h4>
+            <input type="file" />
+            <h4>Choose the color mode of heatmap.</h4>
+            <div>
+                <div>
+                    <form id="mode-selector" action="">
 
-<svg width="1500" height="5000">
+                        <label for="mode">Mode 1</label><input type="radio"
+                                                           name="mode"
+                                                     value="mode-one">
+                        <label>Mode 2</label><input type="radio" value="mode-two">
 
-</svg>
+                    </form>
+                </div>
+                <div id="mode-one" class="shown">
 
+                </div>
+                <div id="mode-two" class="hidden">
+
+                </div>
+            </div>
+        </div>
+        <div id="tips-area">
+            <h4>Tips:</h4>
+            <ul>
+                <li>File format supported: .csv file</li>
+                <li>The first line should be column names, which then will be X axis labels</li>
+                <li>The first column should be sample names, which then
+                    will be the Y axis labels</li>
+                <li>The other content should be your numeric data</li>
+                <li>If you choose the color mode 2 above, you should process
+                    your data first, in which all the values are divided by
+                    the threshold value</li>
+            </ul>
+        </div>
+
+    </div>
+    <div id="chart-area">
+        <svg width="500" height="500">
+
+        </svg>
+    </div>
+</div>
 </body>
 </html>
