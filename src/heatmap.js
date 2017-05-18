@@ -3,42 +3,7 @@
  */
 'use strict';
 
-const stats = require('../../commonUse/statistics/stats');
-const fs = require('fs');
-
 let data;
-
-function draw(inputId) {
-  let p1 = new Promise(function (resolve, reject) {
-    let foo = document.getElementById(inputId).files;
-    let reader = new FileReader();
-    reader.onload = function () {
-      data = reader.result;
-      resolve(data);
-    };
-    reader.readAsText(foo[0]);
-  });
-  let p2 = p1.then(function (str) {
-    return new Promise(function (resolve, reject) {
-      let csvLines = str.split('\n');
-      let result = {
-        yLabels: [],
-        values: []
-      };
-      for (let i = 0, len = csvLines.length; i < len; i++) {
-        let line = csvLines[i].split(',');
-        if (i === 0) {
-          result['xLabels'] = line.slice(1);
-          continue;
-        }
-        result.yLabels.push(line[0]);
-        result.values.push(line.slice(1));
-      }
-      resolve(result);
-    });
-  });
-}
-
 
 
 function readDataFromCSV(inputId) {
@@ -75,6 +40,7 @@ function heatmap(data, options) {
   options = options || {};
   let w = options.cellWidth || 80;
   let h = options.cellHeight || 25;
+  let tv = options.thresholdValues;
   let colorScheme = options.colorScheme || {start: [255, 255, 255], end: [0, 0, 255]};
   let margin = options.margin || {left: 100, right: 100, bottom: 100, top: 100
     };
@@ -82,77 +48,58 @@ function heatmap(data, options) {
   let width = w * data.values[0].length + 200 + margin.left + margin.right;
   let height = h * data.values.length + 200 + margin.bottom + margin.top;
 
-  // let colorFuncs = [];
-  // for (let i = 0, len = data.xLabels.length; i < len; i++) {
-  //   let col = data.values.map((row) => row[i]);
-  //   let min = stats.min(col);
-  //   // let median = stats.median(row);
-  //   let max = stats.max(col);
-  //
-  //   let cs = colorScale({
-  //     min: min,
-  //     max: max,
-  //     start: colorScheme.start,
-  //     end: colorScheme.end
-  //   });
-  //
-  //   colorFuncs.push(function (v) {
-  //     return `rgba(${cs.r(v)},${cs.g(v)},${cs.b(v)},1)`;
-  //   });
-  //
-  // }
+  let colorFuncs = [];
+  let min;
+  let max;
 
-  let colorFunc;
-  let min = data.values[0][0];
-  let max = min;
-
-  console.log(min, max);
-
-  for (let i = 0; i < data.yLabels.length; i++) {
-    for (let j = 0; j < data.xLabels.length; j++) {
-      let t = data.values[i][j];
-      if (t > max) {
-        max = t;
-      }
-      if (t < min) {
-        min = t;
-      }
-    }
-  }
-
-  console.log(min, max);
-
-  if (typeof colorScheme.middle === 'undefined') {
-    let cs = colorScale({
-      min: min,
-      max: max,
-      start: colorScheme.start,
-      end: colorScheme.end
-    });
-    colorFunc = function (v) {
-      return `rgba(${cs.r(v)},${cs.g(v)},${cs.b(v)},1)`;
+  if (typeof colorScheme.threshold === 'undefined') {
+    for (let i = 0; i < data.xLabels.length; i++) {
+      let col = data.values.map(row => row[i]);
+      min = stats.min(col);
+      max = stats.max(col);
+      let cs = colorScale({
+        min: min,
+        max: max,
+        start: colorScheme.start,
+        end: colorScheme.end
+      });
+      colorFuncs.push(function (v) {
+        return `rgba(${cs.r(v)},${cs.g(v)},${cs.b(v)},1)`;
+      });
     }
   } else {
-    let cs1 = colorScale({
-      min: min,
-      max: 1,
-      start: colorScheme.start,
-      end: colorScheme.middle
-    });
-    let cs2 = colorScale({
-      min: 1,
-      max: max,
-      start: colorScheme.middle,
-      end: colorScheme.end
-    });
-    colorFunc = function (v) {
-      if (v < 1) {
-        return `rgba(${cs1.r(v)},${cs1.g(v)},${cs1.b(v)},1)`;
+    for (let i = 0; i < data.xLabels.length; i++) {
+      let col = data.values.map(row => row[i]);
+      let ctv;
+      min = stats.min(col);
+      max = stats.max(col);
+      if (tv === undefined || tv.length !== data.xLabels.length) {
+        ctv = stats.median(col);
+      } else {
+        ctv = tv[i];
       }
-      if (v > 1) {
-        return `rgba(${cs2.r(v)},${cs2.g(v)},${cs2.b(v)},1)`;
-      }
-      return `rgba(${colorScheme.middle[0]},${colorScheme.middle[1]},${colorScheme.middle[2]},1)`;
+      let cs1 = colorScale({
+        min: min,
+        max: ctv,
+        start: colorScheme.start,
+        end: colorScheme.threshold
+      });
+      let cs2 = colorScale({
+        min: ctv,
+        max: max,
+        start: colorScheme.threshold,
+        end: colorScheme.end
+      });
+
+      colorFuncs.push(function (v) {
+        if (v < ctv) {
+          return `rgba(${cs1.r(v)},${cs1.g(v)},${cs1.b(v)},1)`;
+        }
+        if (v > ctv) {
+          return `rgba(${cs2.r(v)},${cs2.g(v)},${cs2.b(v)},1)`;
+        }
+        return `rgba(${colorScheme.threshold[0]},${colorScheme.threshold[1]},${colorScheme.threshold[2]},1)`;
+      });
     }
   }
 
@@ -161,6 +108,7 @@ function heatmap(data, options) {
 
   for (let i = 0; i < data.xLabels.length; i++) {
     let col = data.values.map((row) => row[i]);
+    let colorFunc = colorFuncs[i];
     for (let j = 0; j < col.length; j++) {
       code += `<rect x="${w * i}" y="${h * j}" width="${w}" height="${h}" fill="${colorFunc(col[j])}"></rect>`;
     }
@@ -206,32 +154,124 @@ function colorScale(options) {
   }
 }
 
-// let foo = colorScale({
-//   min: 0,
-//   max: 10,
-//   start: [255, 125, 255],
-//   end: [0, 0, 255]
-// });
-//
-// console.log(foo.r(5));
-// console.log(foo.g(5));
-// console.log(foo.b(5));
-
-let yue = fs.readFileSync('../../../Data/gutMicrobiome/allSamples/yue.csv', 'utf8');
-console.log(typeof yue);
-yue = prepDataForHeatmap(yue);
-console.log(yue.values[147], yue.xLabels.length);
-
-let avg = [322.7711111,	2078.235556, 471.7277778, 556.4644444, 408.3222222];
-yue.values = yue.values.map(d => d.map((da, idx) => da / avg[idx]));
-
-console.log(yue.values[147], yue.xLabels.length);
-
-console.log(heatmap(yue, {
-  colorScheme: {
-    start: [255,255,255],
-    // middle: [255,255,255],
-    end: [0,0,255]
+function preview() {
+  let foo = document.getElementById('upload-btn').files;
+  if (foo.length === 0) {
+    alert('Please select your file to visualize!');
+    return;
   }
-}));
-// console.log(yue.values.slice(-12, -10));
+  let anw = true;
+  if (foo[0].name.slice(-3) !== 'csv') {
+    anw = confirm(`The file you selected is ${foo[0].name}. It seems not to be CSV file, are you sure to proceed?`);
+  }
+  if (!anw) {
+    return;
+  }
+  let reader = new FileReader();
+  reader.onload = function () {
+    data = reader.result;
+    let t = data.replace(/\r?\n/g, '<br>');
+    document.getElementById('preview-area').className = 'shown';
+    document.getElementById('preview-area').innerHTML = t;
+  };
+  reader.readAsText(foo[0]);
+}
+
+function switchMode() {
+  let t = document.getElementById('mode1').checked;
+  if (t) {
+    document.getElementById('mode-one').className = 'shown';
+    document.getElementById('mode-two').className = 'hidden';
+  } else {
+    document.getElementById('mode-one').className = 'hidden';
+    document.getElementById('mode-two').className = 'shown';
+  }
+}
+
+function getOpts() {
+  let w = document.getElementById('cell-width');
+  let h = document.getElementById('cell-height');
+  w = w.value ? +w.value : +w.placeholder;
+  h = h.value ? +h.value : +h.placeholder;
+
+  let tv = document.getElementById('threshold-value').value;
+  tv = tv === '' ? undefined : tv.split(',').map(d => +d);
+
+
+  let minColor, thresholdColor, maxColor;
+  let t = document.getElementById('mode1').checked;
+  if (t) {
+    minColor = document.getElementById('m1-min');
+    maxColor = document.getElementById('m1-max');
+    minColor = minColor.value ? minColor.value : '255,255,255';
+    maxColor = maxColor.value ? maxColor.value : '0,90,255';
+    minColor = minColor.split(',').map(d => +d);
+    maxColor = maxColor.split(',').map(d => +d);
+    if (minColor.length !== 3 || maxColor.length !==3) {
+      alert('Please see tips for more detail. Default color scheme applied.');
+      minColor = [255, 255, 255];
+      maxColor = [0, 90, 255];
+    }
+  } else {
+    minColor = document.getElementById('m2-min');
+    maxColor = document.getElementById('m2-max');
+    thresholdColor = document.getElementById('threshold');
+    minColor = minColor.value ? minColor.value : '255, 102, 102';
+    maxColor = maxColor.value ? maxColor.value : '0,90,255';
+    thresholdColor = thresholdColor.value ? thresholdColor.value : '255,255,255';
+    minColor = minColor.split(',').map(d => +d);
+    maxColor = maxColor.split(',').map(d => +d);
+    thresholdColor = thresholdColor.split(',').map(d => +d);
+    if (minColor.length !== 3 || maxColor.length !==3 || thresholdColor.length !== 3) {
+      alert('Please see tips for more detail. Default color scheme applied.');
+      minColor = [255, 102, 102];
+      maxColor = [0, 90, 255];
+      thresholdColor = [255, 255, 255];
+    }
+  }
+  return {
+    cellWidth: w,
+    cellHeight: h,
+    thresholdValues: tv,
+    colorScheme: {
+      start: minColor,
+      threshold: thresholdColor,
+      end: maxColor
+    }
+  };
+}
+
+function generate() {
+  let foo = document.getElementById('upload-btn').files;
+  if (foo.length === 0) {
+    alert('Please select your file to visualize!');
+    return;
+  }
+  let anw = true;
+  if (foo[0].name.slice(-3) !== 'csv') {
+    anw = confirm(`The file you selected is ${foo[0].name}. It seems not to be CSV file, are you sure to proceed?`);
+  }
+  if (!anw) {
+    return;
+  }
+  let reader = new FileReader();
+  reader.onload = function () {
+    data = reader.result;
+    try {
+      data = prepDataForHeatmap(data);
+    } catch(err) {
+      alert(err);
+      return;
+    }
+    document.getElementById('preview-area').className = 'hidden';
+    let svg = document.getElementById('chart-code');
+    let opts = getOpts();
+    console.log(opts);
+    let width = opts.cellWidth * data.values[0].length + 300;
+    let height = opts.cellHeight * data.values.length + 300;
+    svg.setAttribute('width', width + '');
+    svg.setAttribute('height', height + '');
+    svg.innerHTML = heatmap(data, opts);
+  };
+  reader.readAsText(foo[0]);
+}

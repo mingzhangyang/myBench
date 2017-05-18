@@ -3,89 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="../images/Logo.png"/>
-    <title>Easy Heatmap</title>
-    <style>
-        body {
-            background-color: #f0f0f2;
-        }
-        #container {
-            width: 1240px;
-            margin: auto;
-            background-color: #f0f0f2;
-            border: 1px solid #0090ff;
-            display: flex;
-            padding: 50px 5px 50px 5px;
-        }
-        #control-area {
-            width: 300px;
-            display: inline-block;
-            border: 1px dotted #ff6666;
-            margin-left: auto;
-            padding: 10px;
-        }
-        #chart-area {
-            width: 900px;
-            display: inline-block;
-            border: 1px dashed #00d6b2;
-            margin:auto;
-        }
-        #mode-selector {
-            list-style-type: none;
-            padding-left: 10px;
-        }
-        #mode-selector li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-    </style>
+    <title>Easy Heat Map</title>
+    <link rel="stylesheet" type="text/css" href="../css/heatmap.css">
 </head>
 <body>
 <div id="container">
     <div id="control-area">
         <div id="upload-area">
             <h4>Select your file to visualize.</h4>
-            <input type="file" />
+            <input id="upload-btn" type="file" />
+            <h4>Set width and height of a single cell</h4>
+            <table>
+                <tr>
+                    <td class="col-1">Width:</td>
+                    <td class="col-2">
+                        <input id="cell-width" type="text" placeholder="80">
+                    </td>
+                    <td class="col-3">px</td>
+                </tr>
+                <tr>
+                    <td class="col-1">Height:</td>
+                    <td class="col-2">
+                        <input id="cell-height" type="text" placeholder="25">
+                    </td>
+                    <td class="col-3">px</td>
+                </tr>
+            </table>
             <h4>Choose the color mode of heatmap.</h4>
             <div>
                 <div>
-                    <form id="mode-selector" action="">
-
-                        <label for="mode">Mode 1</label><input type="radio"
-                                                           name="mode"
-                                                     value="mode-one">
-                        <label>Mode 2</label><input type="radio" value="mode-two">
-
-                    </form>
+                    <input type="radio" id="mode1" name="mode-selection"
+                           value="mode-one" onchange="switchMode()" checked>
+                    <label for="mode1">Mode 1</label>
+                    <input type="radio" id="mode2" name="mode-selection"
+                           value="mode-two" onchange="switchMode()">
+                    <label for="mode2">Mode 2</label>
                 </div>
-                <div id="mode-one" class="shown">
+                <div id="mode-detail">
+                    <div id="mode-one" class="shown">
+                        <div class="color-selection">
+                            <div>
+                                <label for="m1-min">Min value color:</label>
+                            </div>
+                            <input id="m1-min" type="text"
+                                   placeholder="255, 255, 255">
+                        </div>
+                        <div class="color-selection">
+                            <div>
+                                <label for="m1-max">Max value color:</label>
+                            </div>
+                            <input type="text" id="m1-max">
+                        </div>
+                    </div>
+                    <div id="mode-two" class="hidden">
+                        <div class="color-selection">
+                            <div>
+                                <label for="threshold-value">Threshold
+                                    values:</label>
+                            </div>
+                            <input id="threshold-value" type="text">
+                        </div>
+                        <div class="color-selection">
+                            <div>
+                                <label for="m2-min">Min value color:</label>
+                            </div>
+                            <input id="m2-min" type="text">
+                        </div>
+                        <div class="color-selection">
+                            <div>
+                                <label for="threshold">Threshold color:</label>
+                            </div>
+                            <input id="threshold" type="text"
+                                   placeholder="255, 255, 255">
+                        </div>
+                        <div class="color-selection">
+                            <div>
+                                <label for="m2-max">Max value color:</label>
+                            </div>
+                            <input id="m2-max" type="text">
+                        </div>
 
-                </div>
-                <div id="mode-two" class="hidden">
 
+                    </div>
                 </div>
             </div>
+            <button id="preview" class="btn-do" onclick="preview()">Preview Data</button>
+            <button id="generate" class="btn-do" onclick="generate()">Generate
+                chart</button>
         </div>
         <div id="tips-area">
-            <h4>Tips:</h4>
+            <h4>Requirements for using this App properly:</h4>
             <ul>
-                <li>File format supported: .csv file</li>
-                <li>The first line should be column names, which then will be X axis labels</li>
-                <li>The first column should be sample names, which then
-                    will be the Y axis labels</li>
-                <li>The other content should be your numeric data</li>
-                <li>If you choose the color mode 2 above, you should process
-                    your data first, in which all the values are divided by
-                    the threshold value</li>
+                <li>
+                    File format supported: .csv file. If your data is in
+                    Excel, please export as CSV file.</li>
+                <li>
+                    The first row should be column names, which will be set
+                    as X axis labels.
+                </li>
+                <li>
+                    The first column should be sample names, which will set
+                    as Y axis labels.
+                </li>
+                <li>
+                    The other content should only be numeric values,
+                    otherwise the background will be fully dark.
+                </li>
+                <li>For colors selection, please input the RGB values
+                    separated by comma.
+                </li>
+                <li>
+                    Please refer to this <a href="https://www.w3schools.com/colors/colors_converter.asp"><strong>color converter</strong></a> to find the rgb values of the color of your interest.
+                </li>
+                <li>
+                    To use mode 2, it's better to provide an array of
+                    threshold values, one value for one column.
+                </li>
+                <li>
+                    In color mode 2, the median value of each column will be
+                    set as threshold value of that column if the threshold
+                    values are not provided.
+                </li>
             </ul>
         </div>
 
     </div>
     <div id="chart-area">
-        <svg width="500" height="500">
+        <div id="preview-area">
+
+        </div>
+        <svg id="chart-code">
 
         </svg>
     </div>
 </div>
+<script src="../../commonUse/statistics/stats.js"></script>
+<script src="../src/heatmap.js"></script>
 </body>
 </html>

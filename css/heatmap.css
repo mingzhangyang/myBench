@@ -1,0 +1,84 @@
+body {
+    background-color: #f0f0f2;
+}
+#container {
+    width: 80%;
+    min-width: 800px;
+    max-width: 1280px;
+    margin: auto;
+    background-color: #f0f0f2;
+    display: flex;
+    flex-direction: row;
+    padding-top: 50px;
+}
+#control-area {
+    display: block;
+    max-width: 40%;
+    background-color: #00d6b2;
+    padding: 20px 50px 30px 20px;
+}
+#chart-area {
+    display: block;
+    background-color: white;
+    padding: 50px;
+}
+.shown {
+    display: block;
+}
+.hidden {
+    display: none;
+}
+#mode-detail {
+    padding: 10px;
+}
+.color-selection {
+    margin: 5px;
+}
+.color-selection div{
+    width: 120px;
+    display: inline-block;
+    height: 16px;
+}
+.color-selection input {
+    width: 90px;
+    height: 16px;
+    padding: 5px;
+}
+#threshold-value {
+    width: 160px;
+}
+.color-selection input:focus {
+    background-color: wheat;
+}
+strong {
+    font-size: large;
+}
+.btn-do {
+    margin-right: 10px;
+    padding: 5px 5px;
+    border-radius: 5px;
+    color: black;
+}
+#preview {
+    background-color: orange;
+}
+#generate {
+    background-color: #ff6666;
+}
+#preview-area {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: 80%;
+    padding: 20px 50px 20px 50px;
+}
+table {
+    margin-left: 10px;
+}
+.col-2 input {
+    width: 30px;
+}
+svg {
+    display: block;
+    margin: auto;
+}
