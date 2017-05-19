@@ -3,7 +3,7 @@ body {
 }
 #container {
     width: 80%;
-    /*min-width: 800px;*/
+    min-width: 800px;
     max-width: 1280px;
     margin: auto;
     background-color: #f0f0f2;
@@ -47,7 +47,11 @@ body {
 #threshold-value {
     width: 160px;
 }
-.color-selection input:focus {
+.col-2 input {
+    height: 16px;
+    padding: 5px;
+}
+input:focus {
     background-color: wheat;
 }
 strong {
@@ -81,4 +85,7 @@ table {
 svg {
     display: block;
     margin: auto;
+}
+ul li {
+    line-height: 150%;
 }
