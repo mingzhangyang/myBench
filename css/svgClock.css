@@ -9,7 +9,7 @@ body {
 #svgContainer {
     width: 760px;
     /*margin: auto;*/
-    margin-top: 50px;
+    margin-top: 20px;
     text-align: center;
     padding-top: 0;
     display: inline-block;
@@ -20,7 +20,7 @@ body {
     width: 419px;
     height: 630px;
     background-color: lightskyblue;
-    margin-top: 50px;
+    margin-top: 20px;
     padding-top: 60px;
     padding-bottom: 60px;
     padding-left: 30px;
