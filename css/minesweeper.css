@@ -3,10 +3,12 @@ body {
     /*height: 100%;*/
 }
 #view {
-    position: absolute;
+    /*position: absolute;*/
     width: 90%;
+    /*max-width: 1000px;*/
     margin: auto;
     padding: 50px;
+    /*border: 2px solid #f66;*/
 }
 
 #board {
@@ -21,8 +23,8 @@ svg {
 
 #btns {
     margin: auto;
-    width: 50%;
-    max-width: 500px;
+    /*width: 50%;*/
+    width: 500px;
     /*text-align: center;*/
     padding: 20px;
     display: flex;
@@ -33,7 +35,7 @@ svg {
 
 .btn {
     display: block;
-    margin: 5px 10px;
+    margin: 5px;
 }
 
 
