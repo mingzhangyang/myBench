@@ -42,11 +42,11 @@ function heatmap(data, options) {
   let h = options.cellHeight || 25;
   let tv = options.thresholdValues;
   let colorScheme = options.colorScheme || {start: [255, 255, 255], end: [0, 0, 255]};
-  let margin = options.margin || {left: 100, right: 100, bottom: 100, top: 100
-    };
 
-  let width = w * data.values[0].length + 200 + margin.left + margin.right;
-  let height = h * data.values.length + 200 + margin.bottom + margin.top;
+  // let margin = options.margin || {left: 100, right: 100, bottom: 100, top: 100
+  //   };
+  // let width = w * data.values[0].length + 200 + margin.left + margin.right;
+  // let height = h * data.values.length + 200 + margin.bottom + margin.top;
 
   let colorFuncs = [];
   let min;
@@ -267,8 +267,8 @@ function generate() {
     let svg = document.getElementById('chart-code');
     let opts = getOpts();
     console.log(opts);
-    let width = opts.cellWidth * data.values[0].length + 300;
-    let height = opts.cellHeight * data.values.length + 300;
+    let width = opts.cellWidth * data.values[0].length + 250;
+    let height = opts.cellHeight * data.values.length + 250;
     svg.setAttribute('width', width + '');
     svg.setAttribute('height', height + '');
     svg.innerHTML = heatmap(data, opts);
