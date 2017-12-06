@@ -25,8 +25,7 @@ function oneWayBinding(domElm, dataObj) {
 }
 
 (function foo() {
-  let rect = document.getElementById('demo');
-  let size = document.getElementById('size-slider');
+  let rect = document.getElementById('demo'); let size = document.getElementById('size-slider');
   let red = document.getElementById('red-slider');
   let green = document.getElementById('green-slider');
   let blue = document.getElementById('blue-slider');
@@ -34,80 +33,35 @@ function oneWayBinding(domElm, dataObj) {
   let rot = document.getElementById('rotation-slider');
   let rgbaCode = document.getElementById('rgba-code');
 
-  let sizeObj = {
-    width: size.value * 8 + 'px',
-    height: size.value * 8 + 'px'
-  };
-
-  oneWayBinding({
-    elem: rect.style,
-    prop: 'width'
-  }, {
-    data: sizeObj,
-    prop: 'width'
-  });
-  oneWayBinding({
-    elem: rect.style,
-    prop: 'height'
-  }, {
-    data: sizeObj,
-    prop: 'height'
-  });
-
   size.addEventListener('change', () => {
     console.log('size changed');
-    sizeObj.width = size.value * 8 + 'px';
-    sizeObj.height = size.value * 8 + 'px';
+    rect.style.width = size.value * 8 + 'px';
+    rect.style.height = size.value * 8 + 'px';
     // console.log(sizeObj);
   });
 
-  let colorObj = {
-    rgb: "rgb(" + red.value + ', ' + green.value + ', ' + blue.value + ')',
-    opacity: opa.value / 10,
-    rgbaCode: "rgba(" + red.value + ', ' + green.value + ', ' + blue.value + ', ' + opa.value / 10 + ')'
-  };
-  oneWayBinding({
-    elem: rect.style,
-    prop: "background-color"
-  }, {
-    data: colorObj,
-    prop: "rgb"
-  });
-  oneWayBinding({
-    elem: rect.style,
-    prop: "opacity"
-  }, {
-    data: colorObj,
-    prop: "opacity"
-  });
-
-  oneWayBinding({
-    elem: rgbaCode,
-    prop: 'value'
-  }, {
-    data: colorObj,
-    prop: 'rgbaCode'
-  });
-
-
   red.addEventListener('change', () => {
-    console.log('red changed');
-    colorObj.rgb = "rgb(" + red.value + ', ' + green.value + ', ' + blue.value + ')';
-    colorObj.rgbaCode = "rgba(" + red.value + ', ' + green.value + ', ' + blue.value + ', ' + opa.value / 10 + ')';
-    console.log(colorObj.rgb);
-    console.log(colorObj.rgbaCode);
+    // console.log('red changed');
+    rect.style.backgroundColor = "rgb(" + red.value + ', ' + green.value + ', ' + blue.value + ')';
+    // rect.style.opacity = opa.value / 10;
+    rgbaCode.value = "rgba(" + red.value + ', ' + green.value + ', ' + blue.value + ', ' + opa.value / 10 + ')';
+    // console.log(colorObj.rgb);
+    // console.log(colorObj.rgbaCode);
   });
   green.addEventListener('change', () => {
-    colorObj.rgb = "rgb(" + red.value + ', ' + green.value + ', ' + blue.value + ')';
-    colorObj.rgbaCode = "rgba(" + red.value + ', ' + green.value + ', ' + blue.value + ', ' + opa.value / 10 + ')';
+    rect.style.backgroundColor = "rgb(" + red.value + ', ' + green.value + ', ' + blue.value + ')';
+    // rect.style.opacity = opa.value / 10;
+    rgbaCode.value = "rgba(" + red.value + ', ' + green.value + ', ' + blue.value + ', ' + opa.value / 10 + ')';
   });
   blue.addEventListener('change', () => {
-    colorObj.rgb = "rgb(" + red.value + ', ' + green.value + ', ' + blue.value + ')';
-    colorObj.rgbaCode = "rgba(" + red.value + ', ' + green.value + ', ' + blue.value + ', ' + opa.value / 10 + ')';
+    rect.style.backgroundColor = "rgb(" + red.value + ', ' + green.value + ', ' + blue.value + ')';
+    // rect.style.opacity = opa.value / 10;
+    rgbaCode.value = "rgba(" + red.value + ', ' + green.value + ', ' + blue.value + ', ' + opa.value / 10 + ')';
   });
   opa.addEventListener('change', () => {
-    colorObj.opacity = opa.value / 10;
-    colorObj.rgbaCode = "rgba(" + red.value + ', ' + green.value + ', ' + blue.value + ', ' + opa.value / 10 + ')';
+    // rect.style.backgroundColor = "rgb(" + red.value + ', ' + green.value + ', ' + blue.value + ')';
+    rect.style.opacity = opa.value / 10;
+    rgbaCode.value = "rgba(" + red.value + ', ' + green.value + ', ' + blue.value + ', ' + opa.value / 10 + ')';
   });
 
   rgbaCode.addEventListener('change', () => {
@@ -119,29 +73,55 @@ function oneWayBinding(domElm, dataObj) {
       green.value = c[1].trim();
       blue.value = c[2].trim();
       opa.value = c[3].trim() * 10;
-      colorObj.rgb = "rgb(" + red.value + ', ' + green.value + ', ' + blue.value + ')';
-      colorObj.opacity = opa.value / 10;
+      rect.style.backgroundColor = "rgb(" + red.value + ', ' + green.value + ', ' + blue.value + ')';
+      rect.style.opacity = opa.value / 10;
     } catch (err) {
       alert("Please input a valid rgba code");
     }
   });
 
 
-  let rotObj = {
-    transform: 'rotate(0deg)'
-  };
-
-  oneWayBinding({
-    elem: rect.style,
-    prop: 'transform'
-  }, {
-    data: rotObj,
-    prop: 'transform'
-  });
-
   rot.addEventListener('change', () => {
     console.log('rotating');
-    rotObj.transform = 'rotate(' + rot.value + 'deg)'
+    rect.style.transform = 'rotate(' + rot.value + 'deg)'
+  });
+
+
+  let cur = '';
+  let btn = document.getElementById('btn-click-1');
+  btn.addEventListener('click', () => {
+    let c = "rgba(" + red.value + ', ' + green.value + ', ' + blue.value + ', ' + opa.value / 10 + ')';
+    if (c !== cur) {
+      let div = document.createElement('div');
+      div.className = 'color-picked-unit';
+      let area = document.getElementById('show-area');
+      area.appendChild(div);
+      let subDiv = document.createElement('div');
+      subDiv.className = 'color-picked';
+      subDiv.style.backgroundColor = c;
+      div.appendChild(subDiv);
+      subDiv = document.createElement('div');
+      subDiv.className = 'color-code';
+      subDiv.innerText = c;
+      div.appendChild(subDiv);
+
+      cur = c;
+    }
+  });
+
+  let rand = document.getElementById('btn-click-2');
+  rand.addEventListener('click', () => {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    let o = Math.floor(Math.random() * 10 + 1);
+    red.value = r;
+    green.value = g;
+    blue.value = b;
+    opa.value = o;
+    rect.style.backgroundColor = "rgb(" + r + ', ' + g + ', ' + b + ')';
+    rect.style.opacity = o / 10;
+    rgbaCode.value = 'rgba(' + r + ', ' + g + ', ' + b + ', ' + (o / 10) + ')';
   });
 
 })();
