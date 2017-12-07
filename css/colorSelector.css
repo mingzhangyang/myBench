@@ -1,0 +1,91 @@
+body {
+    background-color: #f0f0f2;
+}
+#container {
+    margin: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+#svg-container {
+    width: 800px;
+    height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#demo {
+    width: 400px;
+    height: 400px;
+    background-color: rgb(50, 100, 150);
+    opacity: 0.8;
+}
+#control-panel {
+    margin: 50px;
+}
+.control-elem div label {
+    display: inline-block;
+    width: 80px;
+}
+.control-elem div input {
+    display: inline-block;
+}
+.control-elem div {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+input[type="text"] {
+    height: 25px;
+    padding-left: 10px;
+}
+#color-result {
+    margin-top: 30px;
+}
+#save-compare {
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#btn-click-1 {
+    color: white;
+    font-size: 16px;
+    background-color: #5cb85c;
+    /*width: 150px;*/
+    /*height: 30px;*/
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin: 20px;
+    cursor: pointer;
+    border: none;
+}
+
+#btn-click-2 {
+    color: white;
+    font-size: 16px;
+    background-color: orange;
+    /*width: 150px;*/
+    /*height: 30px;*/
+    border-radius: 6px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    margin: 20px;
+}
+
+#show-area {
+    margin: 30px;
+}
+.color-picked-unit {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px;
+}
+.color-picked {
+    width: 360px;
+    height: 60px;
+    margin-right: 30px;
+}

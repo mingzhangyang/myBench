@@ -17,3 +17,42 @@ var svgclock = `<div><a href="html/svgClock.html" target="_blank"><img src="imag
 var piechart = `<div><a href="html/pieChart.html" target="_blank"><img class="left-edge" src="images/pieChart.PNG" width="150" height="150"></a><strong>Pie Chart Generator: </strong>An easy pie chart generator. Just input new data or update the existing data, the pie chart will update automatically. You are free set the fill color for each part by inputting the colors of your style sequentially. To be noted, all the colors are filled by CSS, so that you can choose Hex, RGBA or just English words to declare your style. Each color name should be separated by semi colon (;). You can also set the color of the strokes, which is set to be transparent by default. The inner radius and outer radius adjust the size of the pie chart. Inner radius is 0 by default, which generate a pie chart, set it not to be 0 if you'd like to get annulus chart. The parameter 'Mark In/Out' determines where the notations will be on the chart: inner of the chart or out of the chart. You can also take one or more parts from the chart if you like. Just specify the names and separate them by semi colon (;). Enjoy!</div>`;
 
 var heatmap = `<div><a href="html/heatmap.html" target="_blank"><img class="left-edge" src="images/heatmap.PNG" width="150" height="150"></a><strong>Heat Map Generator: </strong>An easy heat map generator. Select the CSV file on your computer, then visualize it as a heat map to seize critical points of your data. In this application, please select colors of your interest using RGB values, i.e. "255, 0, 0" for <span class="red">red</span>, "0, 255, 0" for <span class="green">green</span>, "0, 0, 255" for <span class="blue">blue</span>, "255, 255, 255" for white and "0, 0, 0" for black. Learn about RGB colors at Wikipedia <strong><a href="https://en.wikipedia.org/wiki/RGB_color_space">HERE</a></strong>. Please see the "Requirements for using this App properly" section to learn more about this easy tool.</div>`;
+
+
+
+// let colorSelector = `<div><a href="html/colorSelector.html" target="_blank"><img class="left-edge" src="images/colorSelector.PNG" width="150" height="150"></a><strong>Color Selector:</strong>A tool for selecting your favorite colors and get the RGBA code. There are three ways to go through colors: 1) adjust the red, green, blue, and opacity parameters by sliding; 2) directly input the rgba code to check the color; 3) click the "I am feeling good" button to generate a color randomly. Once a color catches your eyes, you can save it and compare with others that interests you by clicking the "Save & Compare button". Hope this tool will help you find the right colors for you! <a href="html/colorSelector.html" target="_blank"><strong>Check it here</strong></a>.</div>`;
+
+let colorSelector = {
+  type: 'div',
+  child: [
+    {
+      type: 'a',
+      href: 'html/colorSelector.html',
+      target: '_blank',
+      child: {
+        type: 'img',
+        class: 'left-edge',
+        src: 'images/colorSelector.PNG',
+        width: 150,
+        height: 150
+      }
+    }, {
+      type: 'strong',
+      child: {
+        type: 'textContent',
+        content: 'Color Selector:'
+      }
+    }, {
+      type: 'textContent',
+      content: 'A tool for selecting your favorite colors and get the RGBA' +
+      ' code. There are three ways to go through colors: 1) adjust the red,' +
+      ' green, blue, and opacity parameters by sliding; 2) directly input' +
+      ' the rgba code to check the color; 3) click the "I am feeling good"' +
+      ' button to generate a color randomly. Once a color catches your eyes,' +
+      ' you can save it and compare with others that interests you by' +
+      ' clicking the "Save & Compare button". Hope this tool will help you' +
+      ' find the right colors for you! <a href="html/colorSelector.html"' +
+      ' target="_blank"><strong>Check it here</strong></a>.'
+    }
+  ]
+};
