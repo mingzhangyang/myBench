@@ -51,8 +51,18 @@ let colorSelector = {
       ' button to generate a color randomly. Once a color catches your eyes,' +
       ' you can save it and compare with others that interests you by' +
       ' clicking the "Save & Compare button". Hope this tool will help you' +
-      ' find the right colors for you! <a href="html/colorSelector.html"' +
-      ' target="_blank"><strong>Check it here</strong></a>.'
+      ' find the right colors for you! '
+    }, {
+      type: 'a',
+      href: "html/colorSelector.html",
+      target: '_blank',
+      child: {
+        type: 'strong',
+        child: {
+          type: 'textContent',
+          content: 'Check it here'
+        }
+      }
     }
   ]
 };
