@@ -8,24 +8,10 @@
  * @param domElm, format: {elem: obj, prop: "prop"}
  * @param dataObj, format: {data: obj, prop: "prop"}
  */
-function oneWayBinding(domElm, dataObj) {
-  let internal = dataObj.data[dataObj.prop];
-  Object.defineProperty(dataObj.data, dataObj.prop, {
-    get: () => internal,
-    set: v => {
-      if (typeof domElm.elem.setAttribute === 'function') {
-        domElm.elem.setAttribute(domElm.prop, v);
-      } else {
-        domElm.elem[domElm.prop] = v;
-      }
-      internal = v;
-    }
-  });
-  return dataObj;
-}
 
 (function foo() {
-  let rect = document.getElementById('demo'); let size = document.getElementById('size-slider');
+  let rect = document.getElementById('demo');
+  let size = document.getElementById('size-slider');
   let red = document.getElementById('red-slider');
   let green = document.getElementById('green-slider');
   let blue = document.getElementById('blue-slider');
