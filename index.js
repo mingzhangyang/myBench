@@ -8,4 +8,5 @@ row1.innerHTML = sudoku + minesweeper;
 row2.innerHTML = gobang + svgclock;
 row3.innerHTML = piechart + heatmap;
 row4.appendChild(tagHouse(colorSelector));
+row4.appendChild(tagHouse(turnOff));
 // console.log(tagHouse(colorSelector));

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Click to turn off lights</title>
+    <link rel="stylesheet" href="../css/turnOff.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+</head>
+<body data-ng-app="turnoff" data-ng-controller="myCtrl">
+<div id="container">
+    <div id="instruction">
+        <h3>Instruction</h3>
+        <p>{{instruction}}</p>
+        <label for="number-of-rows">Set the number of rows to be </label>
+        <input type="text" id="number-of-rows" data-ng-model="rows">
+        <label class="button" data-ng-click="matrix = updateMatrix()">
+            Generate
+        </label>
+    </div>
+    <div id="app-body">
+        <div class="row" data-ng-repeat="row in matrix track by $index">
+            <div class="cell-surrounding" data-ng-repeat="cell in row">
+                <div class="cell" data-ng-style="getColor(cell.value)"
+                     ng-click="click(cell)"></div>
+            </div>
+        </div>
+    </div>
+    <div id="result">
+        <div>Number of red: <span>{{red}}</span></div>
+        <div>Number of grey: <span>{{grey}}</span></div>
+        <div>Highest number so far: <span>{{max}}</span></div>
+    </div>
+</div>
+<script src="../src/turnOff.js"></script>
+</body>
+</html>

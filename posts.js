@@ -66,3 +66,47 @@ let colorSelector = {
     }
   ]
 };
+
+let turnOff = {
+  type: 'div',
+  child: [
+    {
+      type: 'a',
+      href: 'html/turnOff.html',
+      target: '_blank',
+      child: {
+        type: 'img',
+        class: 'right-edge',
+        src: 'images/turnOff.PNG',
+        width: 150,
+        height: 150
+      }
+    }, {
+      type: 'strong',
+      child: {
+        type: 'textContent',
+        content: 'Turn on lights:'
+      }
+    }, {
+      type: 'textContent',
+      content: 'You get a matrix in two colors, grey and red. Click on a' +
+      ' cell in the matrix will change the color the cell clicked, as well' +
+      ' as the color of cells that on the left, top, right and bottom of the' +
+      ' cell clicked, which means red cell will change to grey and grey cell' +
+      ' will change to red. Try your best to make the number of red cells as' +
+      ' large as possible. This is a naive example of using AngularJS in the' +
+      ' web page.'
+    }, {
+      type: 'a',
+      href: "html/turnOff.html",
+      target: '_blank',
+      child: {
+        type: 'strong',
+        child: {
+          type: 'textContent',
+          content: 'Check it here'
+        }
+      }
+    }
+  ]
+};
