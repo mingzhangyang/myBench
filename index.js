@@ -9,4 +9,5 @@ row2.innerHTML = gobang + svgclock;
 row3.innerHTML = piechart + heatmap;
 row4.appendChild(tagHouse(colorSelector));
 row4.appendChild(tagHouse(turnOff));
+others.innerHTML = list;
 // console.log(tagHouse(colorSelector));

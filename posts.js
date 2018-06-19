@@ -110,3 +110,9 @@ let turnOff = {
     }
   ]
 };
+
+let list = `<h3>Others:</h3>
+<ul class="list">
+<li><a href="html/cssAnimationTest.html" target="_blank">CSS Animation Test 
+Collection</a></li>
+</ul>`;
