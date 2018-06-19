@@ -59,6 +59,13 @@ div.content {
     border: white double;
 }
 
+#others {
+    padding: 10px;
+    margin: 5px;
+    background-color: lavender;
+    border: white double;
+}
+
 img {
     float: right;
     margin: 0 0 10px 10px;
