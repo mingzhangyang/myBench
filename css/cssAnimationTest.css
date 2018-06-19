@@ -1,0 +1,88 @@
+body {
+    display: flex;
+    padding: 100px;
+    flex-direction: column;
+    align-items: center;
+}
+.container {
+    width: 600px;
+    height: 480px;
+    background-color: #f8f8f8;
+    border: #0090ff 0px solid;
+    margin-bottom: 50px;
+    box-shadow: 15px 15px 8px lightgrey;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+.bar {
+    width: 50px;
+    height: 200px;
+    background-color: #f66;
+    margin: 5px;
+    display: inline-block;
+    animation: stretch infinite;
+    animation-duration: 1s;
+}
+#div-11{
+    animation-delay: .1s;
+}
+#div-12{
+    animation-delay: .2s;
+}
+#div-13{
+    animation-delay: .3s;
+}
+#div-14{
+    animation-delay: .4s;
+}
+#div-15{
+    animation-delay: .5s;
+}
+#div-16{
+    animation-delay: .6s;
+}
+.ball {
+    width: 50px;
+    height: 50px;
+    background-color: #f66;
+    display: inline-block;
+    border-radius: 50%;
+    /*background: radial-gradient(red, #f66);*/
+}
+#div-21 {
+    animation-name: hitleft;
+    animation-duration: 1.2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+}
+#div-25 {
+    animation: hitright;
+    animation-duration: 1.2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+}
+@keyframes stretch {
+    0%, 40%, 100% {
+        transform: scaleY(.4);
+    }
+    20% {
+        transform: scaleY(1);
+    }
+}
+@keyframes hitleft {
+    0% {transform: translateX(-50px);}
+    25% {transform: translateX(-0px);}
+    50% {transform: translateX(-0px);}
+    75% {transform: translateX(-0px);}
+    100% {transform: translateX(-50px);}
+}
+@keyframes hitright {
+    0% {transform: translateX(-0px);}
+    25% {transform: translateX(-0px);}
+    50% {transform: translateX(50px);}
+    75% {transform: translateX(-0px);}
+    100% {transform: translateX(-0px);}
+}
