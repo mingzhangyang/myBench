@@ -86,3 +86,38 @@ body {
     75% {transform: translateX(-0px);}
     100% {transform: translateX(-0px);}
 }
+
+.circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: gray;
+    /*display: inline-block;*/
+    margin-right: 20px;
+    animation-name: progress;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+#div-31 {
+    animation-delay: .1s;
+}
+#div-32 {
+    animation-delay: .2s;
+}
+#div-33 {
+    animation-delay: .3s;
+}
+#div-34 {
+    animation-delay: .4s;
+}
+#div-35 {
+    animation-delay: .5s;
+}
+@keyframes progress {
+    from {
+        background-color: #68ebf9;
+    }
+    to {
+        background-color: #a0c1f7;
+    }
+}
