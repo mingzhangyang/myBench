@@ -117,6 +117,6 @@ let list = `
 <ul class="list">
 <li><a href="html/cssAnimationTest.html" target="_blank">CSS Animation Test 
 Collection</a></li>
-<li><a href="html/randomlyWalk.html" target="_blank">Random Walk on Canvas(Brownian Motion)</a></li>
+<li><a href="html/randomlyWalk.html" target="_blank">Random Walk on Canvas (Brownian Motion)</a></li>
 </ul>
 </div>`;
