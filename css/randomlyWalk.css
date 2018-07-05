@@ -1,0 +1,47 @@
+body {
+    background-color: #a0c1f7;
+    padding: 0 0 50px 0;
+}
+#container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
+}
+#title {
+    width: 1000px;
+    background-color: DodgerBlue;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+}
+#show-area {
+    width: 1000px;
+    height: 720px;
+    background-color: #d6fcee;
+    border: 2px dotted DodgerBlue;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#control-area {
+    width: 1000px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+}
+th {
+    text-align: center;
+    padding: 0 20px;
+}
+input {
+    height: 20px;
+    padding: 5px;
+    width: 60px;
+}

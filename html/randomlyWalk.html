@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Walk</title>
+    <link rel="stylesheet" href="../css/randomlyWalk.css">
+</head>
+<body>
+<div id="container">
+    <div id="title">
+        <h1>Random Walk</h1>
+        <span>A simulation of random walk on canvas. Also names as
+            Brownian motion.
+        </span>
+    </div>
+    <div id="show-area">
+        <canvas id="my-canvas" width="600" height="600"></canvas>
+    </div>
+    <div id="control-area">
+        <table>
+            <tr>
+                <th>
+                    <span class="icon">Step count</span>
+                    <input id="step-count" type="text" value="100">
+                </th>
+                <th>
+                    <span class="icon">Step length</span>
+                    <input id="step-length" type="text" value="10">
+                </th>
+                <th>
+                    <span class="icon">Line color</span>
+                    <input id="stroke-color" type="text" value="black">
+                </th>
+            </tr>
+        </table>
+    </div>
+</div>
+<script src="../src/randomlyWalk.js"></script>
+</body>
+</html>
