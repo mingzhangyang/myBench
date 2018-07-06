@@ -118,5 +118,6 @@ let list = `
 <li><a href="html/cssAnimationTest.html" target="_blank">CSS Animation Test 
 Collection</a></li>
 <li><a href="html/randomlyWalk.html" target="_blank">Random Walk on Canvas (Brownian Motion)</a></li>
+<li><a href="html/slider.html" target="_blank">A prototype for switching slides</a></li>
 </ul>
 </div>`;
