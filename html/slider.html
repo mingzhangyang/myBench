@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slider Prototype</title>
+    <link rel="stylesheet" href="../css/slider.css">
+</head>
+<body>
+<div id="container">
+    <div id="slider">
+        <div id="to-left" class="control">
+            <svg>
+                <line x1="0" y1="15" x2="25" y2="0" style="stroke:rgb(255,0,0);stroke-width:2" />
+                <line x1="0" y1="15" x2="25" y2="30" style="stroke:rgb(255,0,0);stroke-width:2" />
+            </svg>
+        </div>
+        <div id="to-right" class="control">
+            <svg>
+                <line x1="5" y1="0" x2="30" y2="15" style="stroke:rgb(255,0,0);stroke-width:2" />
+                <line x1="5" y1="30" x2="30" y2="15" style="stroke:rgb(255,0,0);stroke-width:2" />
+            </svg>
+        </div>
+        <div id="slide-1" class="slides current">1</div>
+        <div id="slide-2" class="slides upcoming">2</div>
+        <div id="slide-3" class="slides upcoming">3</div>
+        <div id="slide-4" class="slides upcoming">4</div>
+        <div id="slide-5" class="slides upcoming">5</div>
+        <div id="slide-6" class="slides upcoming">6</div>
+        <div id="slide-7" class="slides upcoming">7</div>
+        <div id="slide-8" class="slides upcoming">8</div>
+        <div id="indicators">
+            <div class="indicator selected"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+        </div>
+    </div>
+</div>
+<script src="../src/slider.js"></script>
+</body>
+</html>

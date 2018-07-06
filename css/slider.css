@@ -1,0 +1,86 @@
+body {
+    padding: 100px;
+}
+#container {
+    margin-left: 200px;
+}
+#slider {
+    width: 500px;
+    height: 300px;
+    border: 2px dotted #f66;
+    padding: 10px;
+    position: absolute;
+}
+.slides {
+    width: 500px;
+    height: 300px;
+    color: white;
+    position: absolute;
+    font-size: 96px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    top: 10px;
+    transition-duration: 2s;
+}
+.current {
+    background-color: DodgerBlue;
+    opacity: 1;
+    left: 10px;
+}
+.upcoming {
+    background-color: green;
+    opacity: 0;
+    left: 10px;
+}
+.gone {
+    left: -100%;
+    opacity: 0;
+}
+.control {
+    width: 60px;
+    height: 60px;
+    background-color: #f66;
+    opacity: .8;
+    border-radius: 50%;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#to-left {
+    top: 120px;
+    left: -20px;;
+}
+#to-right {
+    top: 60px;
+    left: 460px;;
+}
+svg {
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+#indicators {
+    width: 200px;
+    /*   background-color: #42f4e8; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: absolute;
+    top: 300px;
+    left: 150px;
+}
+.indicator {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    opacity: .4;
+    background-color: #f66;
+    z-index: 2;
+    transition-duration: 2s;
+}
+.selected {
+    opacity: 1;
+}
