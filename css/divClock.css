@@ -1,0 +1,131 @@
+body {
+    background-color: silver;
+}
+#container {
+    margin: 50px auto;
+    width: 600px;
+    height: 600px;
+}
+#clock-plate {
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background-color: #afeeee;
+    position: relative;
+}
+.digits {
+    position: absolute;
+    width: 560px;
+    height: 55px;
+    /*   border: 2px dotted DodgerBlue; */
+    left: 20px;
+    top: 272px;
+}
+#zero {
+    transform: rotate(-90deg);
+}
+#one {
+    transform: rotate(-60deg);
+}
+#two {
+    transform: rotate(-30deg);
+}
+#four {
+    transform: rotate(30deg);
+}
+#five {
+    transform: rotate(60deg);
+}
+.digit-number {
+    display: inline-block;
+    position: absolute;
+    background-color: yellow;
+    font-size: 48px;
+    width: 55px;
+    text-align: center;
+    border-radius: 50%;
+}
+.left {
+    left: 0;
+}
+.right {
+    right: 0;
+}
+#zero .digit-number {
+    transform: rotate(90deg);
+}
+#one .digit-number {
+    transform: rotate(60deg);
+}
+#two .digit-number {
+    transform: rotate(30deg);
+}
+#four .digit-number {
+    transform: rotate(-30deg);
+}
+#five .digit-number {
+    transform: rotate(-60deg);
+}
+.hand {
+    position: absolute;
+    width: 560px;
+    height: 20px;
+    /*   border: 2px dotted DodgerBlue; */
+    left: 20px;
+    top: 296px;
+}
+.half {
+    display: inline-block;
+    margin-right: -4px;
+}
+.hour {
+    width: 160px;
+    background-color: #66cccc;
+    height: 20px;
+    margin-left: 60px;
+    border-radius: 10px;
+}
+.minute {
+    width: 200px;
+    background-color: #f66;
+    height: 20px;
+    margin-left: 40px;
+    border-radius: 10px;
+}
+.second {
+    width: 220px;
+    background-color: #ffa500;
+    height: 20px;
+    margin-left: 30px;
+    border-radius: 10px;
+}
+.hidden {
+    background-color: transparent;
+}
+#hour {
+    animation-name: hour-movement;
+    animation-duration: 432000s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+#minute {
+    animation-name: minute-movement;
+    animation-duration: 432000s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+#second {
+    animation-name: second-movement;
+    animation-duration: 432000s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes hour-movement {
+    100% {transform: rotate(10turn)}
+}
+@keyframes minute-movement {
+    100% {transform: rotate(120turn)}
+}
+@keyframes second-movement {
+    100% {transform: rotate(7200turn)}
+}
