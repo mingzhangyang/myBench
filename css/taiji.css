@@ -1,0 +1,78 @@
+body {
+    background-color: silver;
+}
+#container {
+    width: 600px;
+    height: 600px;
+    background-color: silver;
+    padding: 50px;
+    margin: auto;
+}
+#taiji {
+    width: 400px;
+    margin: auto;
+    padding: 100px;
+}
+.semi-circle {
+    position: relative;
+}
+.circle {
+    border-radius: 50%;
+    position: relative;
+}
+.large {
+    width: 400px;
+    height: 200px;
+}
+.medium {
+    width: 200px;
+    height: 100px;
+}
+.small {
+    width: 60px;
+    height: 60px;
+}
+#up-large {
+    border-radius: 200px 200px 0 0;
+    background-color: white;
+}
+#down-large {
+    border-radius: 0 0 200px 200px;;
+    background-color: black;
+}
+#up-medium {
+    border-radius: 100px 100px 0 0;
+    background-color: black;
+    bottom: -100px;
+}
+#down-medium {
+    border-radius: 0 0 100px 100px;
+    background-color: white;
+    left: 200px;
+}
+#up-small {
+    background-color: white;
+    left: 70px;
+    top: 70px;
+    z-index: 10;
+}
+#down-small {
+    background-color: black;
+    left: 70px;
+    top: -30px;
+}
+#taiji {
+    width: 400px;
+    height: 400px;
+    /*   background-color: #f66; */
+    transform: rotate(-90deg);
+}
+#taiji:hover {
+    animation-name: spin;
+    animation-duration: 10s;
+    animation-iteration-count: 10;
+    animation-timing-function: ease;
+}
+@keyframes spin {
+    100% {transform: rotate(10turn)}
+}
