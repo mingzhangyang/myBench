@@ -119,5 +119,7 @@ let list = `
 Collection</a></li>
 <li><a href="html/randomlyWalk.html" target="_blank">Random Walk on Canvas (Brownian Motion)</a></li>
 <li><a href="html/slider.html" target="_blank">A prototype for switching slides</a></li>
+<li><a href="html/divClock.html" target="_blank">A clock built solely with divs</a></li>
+<li><a href="html/taiji.html" target="_blank">A TaiJiTu created with divs</a></li>
 </ul>
 </div>`;

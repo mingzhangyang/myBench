@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A clock built on Divs solely</title>
+    <link rel="stylesheet" href="../css/divClock.css">
+</head>
+<body>
+<div id="container">
+    <div id="clock">
+        <div id="clock-plate">
+            <div id="zero" class="digits">
+                <div id="zero-12" class="digit-number left">6</div>
+                <div id="zero-6" class="digit-number right">12</div>
+            </div>
+            <div id="one" class="digits">
+                <div id="zero-7" class="digit-number left">7</div>
+                <div id="zero-1" class="digit-number right">1</div>
+            </div>
+            <div id="two" class="digits">
+                <div id="zero-8" class="digit-number left">8</div>
+                <div id="zero-2" class="digit-number right">2</div>
+            </div>
+            <div id="three" class="digits">
+                <div id="zero-9" class="digit-number left">9</div>
+                <div id="zero-3" class="digit-number right">3</div>
+            </div>
+            <div id="four" class="digits">
+                <div id="zero-10" class="digit-number left">10</div>
+                <div id="zero-4" class="digit-number right">4</div>
+            </div>
+            <div id="five" class="digits">
+                <div id="zero-11" class="digit-number left">11</div>
+                <div id="zero-5" class="digit-number right">5</div>
+            </div>
+            <div id="second" class="hand">
+                <div class="half hidden second"></div>
+                <div id="second-hand" class="half shown second"></div>
+            </div>
+            <div id="minute" class="hand">
+                <div class="half hidden minute"></div>
+                <div id="minute-hand" class="half shown minute"></div>
+            </div>
+            <div id="hour" class="hand">
+                <div class="half hidden hour"></div>
+                <div id="hour-hand" class="half shown hour"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../src/divClock.js"></script>
+</body>
+</html>
