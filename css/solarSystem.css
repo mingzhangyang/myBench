@@ -1,0 +1,121 @@
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#container {
+    /*position: relative;*/
+    width: 2000px;
+    height: 2000px;
+    margin: auto;
+}
+#sun {
+    position: absolute;
+    left: 600px;
+    top: 400px;
+    width: 300px;
+    height: 300px;
+    background-color: #ffa500;
+    border-radius: 50%;
+}
+.hand {
+    /*   border: 1px solid DodgerBlue; */
+    height: 60px;
+    position: absolute;
+    width: 1500px;
+    top: 520px;
+}
+.planet {
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+}
+#mercury {
+    width: 8px;
+    height: 8px;
+    background-color: #cccccc;
+    margin-top: -4px;
+    left: 590px;
+}
+#venus {
+    width: 12px;
+    height: 12px;
+    background-color: #faebd7;
+    margin-top: -6px;
+    left: 575px;
+}
+#earth {
+    width: 18px;
+    height: 18px;
+    background-color: #3399ff;
+    margin-top: -9px;
+    left: 545px;
+}
+#mars {
+    width: 10px;
+    height: 10px;
+    background-color: #ff7f50;
+    margin-top: -5px;
+    left: 515px;
+}
+#jupiter {
+    width: 60px;
+    height: 60px;
+    background-color: #cbbeb5;
+    margin-top: -30px;
+    left: 300px;
+}
+#saturn {
+    width: 40px;
+    height: 40px;
+    background-color: #f5f5dc;
+    margin-top: -20px;
+    left: 200px;
+}
+#uranus {
+    width: 30px;
+    height: 30px;
+    background-color: #81d8d0;
+    margin-top: -15px;
+    left: 30px;
+}
+#neptune {
+    width: 24px;
+    height: 24px;
+    background-color: blue;
+    margin-top: -12px;
+    left: -150px;
+}
+@keyframes spin {
+    100% {transform: rotate(1turn)}
+}
+.hand {
+    animation-name: spin;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.h-mercury {
+    animation-duration: 1s;
+}
+.h-venus {
+    animation-duration: 1.2s;
+}
+.h-earth {
+    animation-duration: 2s;
+}
+.h-mars {
+    animation-duration: 1.8s;
+}
+.h-jupiter {
+    animation-duration: 4s;
+}
+.h-saturn {
+    animation-duration: 6s;
+}
+.h-uranus {
+    animation-duration: 8s;
+}
+.h-neptune {
+    animation-duration: 10s;
+}
