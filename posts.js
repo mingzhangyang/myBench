@@ -122,5 +122,6 @@ Collection</a></li>
 <li><a href="html/divClock.html" target="_blank">A clock built solely with divs</a></li>
 <li><a href="html/taiji.html" target="_blank">A TaiJiTu created with divs</a></li>
 <li><a href="html/solarSystem.html" target="_blank">A toy simulation of solar system</a></li>
+<li><a href="html/hungryFish.html" target="_blank">A PacMan simulation</a></li>
 </ul>
 </div>`;

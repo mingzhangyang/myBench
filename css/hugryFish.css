@@ -1,0 +1,90 @@
+body {
+    background-color: black;
+}
+#container {
+    width: 1200px;
+    height: 800px;
+    margin: 50px auto;
+}
+#field {
+    width: 1200px;
+    height: 800px;
+    border: 1px dotted DodgerBlue;
+    position: relative;
+}
+.box {
+    /*   border: 1px dotted DodgerBlue; */
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.circle {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    /*   background-color: DodgerBlue; */
+}
+.back {
+    background-color: black;
+}
+.semi-circle {
+    width: 200px;
+    height: 100px;
+}
+.upper {
+    border-radius: 100px 100px 0 0;;
+}
+.lower {
+    border-radius: 0 0 100px 100px;
+}
+.filled {
+    background-color: #fef65b;
+}
+.transparent {
+    bacground-color: transparent;
+}
+#uid-1 .anti-clock {
+    transform: rotate(-30deg);
+}
+#uid-1 .clock {
+    transform: rotate(30deg)
+}
+
+#uid-1 {
+    transition: all .8s;
+    /*   transform: rotate(0deg); */
+    top: 0;
+    left: 0;
+}
+
+#uid-1-u {
+    animation-name: eat-u;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+#uid-1-d {
+    animation-name: eat-d;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes eat-u {
+    100% {transform: rotate(-5deg);}
+}
+@keyframes eat-d {
+    100% {transform: rotate(5deg);}
+}
+
+#bait {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: DodgerBlue;
+    border-radius: 50%;
+}
+.hidden {
+    opacity: 0;
+}
