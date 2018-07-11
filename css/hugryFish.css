@@ -58,6 +58,7 @@ body {
     /*   transform: rotate(0deg); */
     top: 0;
     left: 0;
+    z-index: 10;
 }
 
 #uid-1-u {
