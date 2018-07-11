@@ -17,8 +17,6 @@ body {
     width: 200px;
     height: 200px;
     position: absolute;
-    top: 0;
-    left: 0;
 }
 .circle {
     position: absolute;
@@ -56,8 +54,8 @@ body {
 #uid-1 {
     transition: all .8s;
     /*   transform: rotate(0deg); */
-    top: 0;
-    left: 0;
+    top: 300px;
+    left: 500px;
     z-index: 10;
 }
 
@@ -88,4 +86,24 @@ body {
 }
 .hidden {
     opacity: 0;
+}
+#eye {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border: 8px solid white;
+    position: absolute;
+    right: 40px;
+    top: 40px;
+}
+#tail {
+    width: 0;
+    height: 0;
+    border-left: 100px solid #fef65b;
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+    position: absolute;
+    left: -50px;
+    top: 40px;
+    border-radius: 20px;
 }

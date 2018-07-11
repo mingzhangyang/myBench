@@ -22,7 +22,7 @@ function init() {
       // console.log('should disappear');
     }, Math.random() * 1000 + 1000);
     let pre = c.getBoundingClientRect();
-    if (pre.left < des.x) {
+    if (pre.left < des.x - 200) {
       c.style.top = `${des.y - p0.top - 100}px`;
       setTimeout(function () {
         c.style.left = `${des.x - p0.left - 100}px`;
