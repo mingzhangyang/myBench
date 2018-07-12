@@ -8,12 +8,20 @@
         body {
             background-color: black;
         }
+        #container {
+            width: 80%;
+            height: 750px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            padding: 50px;
+        }
         svg {
             display: block;
             margin: auto;
             border: 1px dotted DodgerBlue;
             position: relative;
-            top: 100px;
+            /*top: 100px;*/
         }
         .red {
             fill: #f66;
@@ -21,11 +29,48 @@
         .white {
             fill: white;
         }
+        #for-user {
+            display: flex;
+            /*width: 300px;*/
+            margin: auto;
+            flex-direction: row;
+            align-items: center;
+        }
+        #number {
+            width: 30px;
+            height: 20px;
+            padding: 5px;
+            margin-right: 20px;
+            text-align: center;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            outline: none;
+            box-shadow: none;
+        }
+        #number:focus {
+            background-color: DodgerBlue;
+            border: 2px solid DodgerBlue;
+        }
+        label {
+            width: 80px;
+            border-radius: 5px;
+            height: 28px;
+            color: white;
+            background-color: DodgerBlue;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 <div id="container">
     <svg id="svg" width="600px" height="600px"></svg>
+    <div id="for-user">
+        <input type="text" value="20" id="number">
+        <label for="number" id="btn">Re-Draw-It</label>
+    </div>
 </div>
 <script>
   function draw(n) {
@@ -47,6 +92,37 @@
     svg.innerHTML = context;
   }
   draw(30);
+  document.getElementById('number').addEventListener('change', function () {
+    let n = +this.value;
+    if (n) {
+      if (n < 3) {
+        alert('Numbers smaller than 3 is not allowed.');
+        return;
+      }
+      if (n % 2 !== 0) {
+        alert('An even number expected. However, will draw with the odd number.')
+      }
+      draw(n);
+    } else {
+      alert(`Failed to convert "${this.value}" to number.`);
+    }
+  });
+  document.getElementById('btn').addEventListener('click', function () {
+    let v = document.getElementById('number').value
+    let n = +v;
+    if (n) {
+      if (n < 3) {
+        alert('Numbers smaller than 3 is not allowed.');
+        return;
+      }
+      if (n % 2 !== 0) {
+        alert('An even number expected. However, will draw with the odd number.')
+      }
+      draw(n);
+    } else {
+      alert(`Failed to convert "${v}" to number.`);
+    }
+  });
 </script>
 </body>
 </html>

@@ -123,5 +123,6 @@ Collection</a></li>
 <li><a href="html/taiji.html" target="_blank">A TaiJiTu created with divs</a></li>
 <li><a href="html/solarSystem.html" target="_blank">A toy simulation of solar system</a></li>
 <li><a href="html/hungryFish.html" target="_blank">A PacMan simulation</a></li>
+<li><a href="html/Spiral.html" target="_blank">Draw spiral in SVG</a></li>
 </ul>
 </div>`;
