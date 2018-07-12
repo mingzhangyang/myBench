@@ -12,9 +12,14 @@ body {
 svg {
     display: block;
     margin: auto;
-    border: 1px dotted DodgerBlue;
+    /*border: 1px dotted DodgerBlue;*/
     position: relative;
     /*top: 100px;*/
+}
+svg:hover {
+    animation-name: spin;
+    animation-duration: 2s;
+    animation-iteration-count: 10;
 }
 .red {
     fill: #f66;
@@ -54,4 +59,8 @@ label {
     display: flex;
     align-items: center;
     cursor: pointer;
+}
+
+@keyframes spin {
+    100% {transform: rotate(1turn)}
 }
