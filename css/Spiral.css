@@ -1,0 +1,57 @@
+body {
+    background-color: black;
+}
+#container {
+    width: 80%;
+    height: 750px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+}
+svg {
+    display: block;
+    margin: auto;
+    border: 1px dotted DodgerBlue;
+    position: relative;
+    /*top: 100px;*/
+}
+.red {
+    fill: #f66;
+}
+.white {
+    fill: white;
+}
+#for-user {
+    display: flex;
+    /*width: 300px;*/
+    margin: auto;
+    flex-direction: row;
+    align-items: center;
+}
+#number {
+    width: 30px;
+    height: 20px;
+    padding: 5px;
+    margin-right: 20px;
+    text-align: center;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    outline: none;
+    box-shadow: none;
+}
+#number:focus {
+    background-color: DodgerBlue;
+    border: 2px solid DodgerBlue;
+}
+label {
+    width: 80px;
+    border-radius: 5px;
+    height: 28px;
+    color: white;
+    background-color: DodgerBlue;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
