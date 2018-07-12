@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../images/Logo.png"/>
+    <title>Spiral</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        svg {
+            display: block;
+            margin: auto;
+            border: 1px dotted DodgerBlue;
+            position: relative;
+            top: 100px;
+        }
+        .red {
+            fill: #f66;
+        }
+        .white {
+            fill: white;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <svg id="svg" width="600px" height="600px"></svg>
+</div>
+<script>
+  function draw(n) {
+    let svg = document.getElementById('svg');
+    let angle = 360 / n;
+    console.log(angle);
+    let dx = 150 * Math.sin(angle / 180 * Math.PI);
+    let dy = 150 * Math.cos(angle / 180 * Math.PI);
+    let endPx = 300 + dx;
+    let endPy = 150 - dy;
+    console.log(endPx, endPy);
+    let context = '';
+    let i = 0;
+    for (i; i < n; i++) {
+      context += `<g transform="rotate(${angle * i}, 300, 300)" class="${i % 2
+      === 0 ? 'red' : 'white'}">
+      <path d="M300 300 A 150 150 0 1 1 ${endPx} ${endPy} A 150 150 0 0 0 300 300" ></g> `;
+    }
+    svg.innerHTML = context;
+  }
+  draw(30);
+</script>
+</body>
+</html>
