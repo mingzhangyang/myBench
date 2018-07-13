@@ -1,0 +1,27 @@
+body {
+    background-color: black;
+    color: white;
+    /*   font-family:'Courier New'; */
+    padding: 50px;
+    line-height: 1.5;
+}
+#container {
+    width: 80%;
+    margin:auto;
+}
+.root:before {
+    content: "- - - "
+}
+.node:before {
+    content: "| - - "
+}
+.tail-node:before {
+    content: "` - - "
+}
+.blank:before {
+    content: "- - ";
+    color: transparent;
+}
+.blank {
+    color: transparent;
+}
