@@ -49,7 +49,7 @@ svg:hover {
     background-color: DodgerBlue;
     border: 2px solid DodgerBlue;
 }
-label {
+#btn {
     width: 120px;
     border-radius: 5px;
     height: 28px;
