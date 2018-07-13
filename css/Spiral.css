@@ -57,6 +57,7 @@ label {
     background-color: DodgerBlue;
     padding: 5px 10px;
     display: flex;
+    justify-content: center;
     align-items: center;
     cursor: pointer;
 }
