@@ -96,7 +96,8 @@ if (typeof module !== 'undefined' && module.parent) {
   y1.addChild('Find me on Github with the link below:');
   y1.addChild('https://github.com/mingzhangyang');
   y2.addChild('Create more projects on web to help the pubic find or' +
-      ' understand biological data easily, and help the biologists to create' +
+      ' understand biological data easily, ');
+  y2.addChild('and help the biologists to create' +
       ' and share their data easily.');
   y.addChild(y1);
   y.addChild(y2);
