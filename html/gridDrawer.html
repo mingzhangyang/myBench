@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../images/Logo.png"/>
+    <title>Grid Drawer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/gridDrawer.css">
+</head>
+<body>
+<div id="container">
+    <div id="create">
+        <label for="rows">Rows:</label>
+        <input type="text" id="rows">
+        <label for="cols">Cols:</label>
+        <input type="text" id="cols">
+        <input type="button" value="Create" id="create-btn">
+    </div>
+    <table id="table-area"></table>
+    <div id="color-palette">
+        <div id="c1" class="color-unit color" style="background-color: #f66"></div>
+        <div id="c2" class="color-unit color" style="background-color: #66cdaa"></div>
+        <div id="c3" class="color-unit color" style="background-color: #ffd700"></div>
+        <div id="c4" class="color-unit color" style="background-color: #3399ff"></div>
+        <div id="c5" class="color-unit color" style="background-color: #8a2be2"></div>
+        <div id="eraser" class="color-unit control">
+            <i class="fa fa-eraser"></i>
+        </div>
+        <div id="restore" class="color-unit control">
+            <i class="fa fa-repeat"></i>
+        </div>
+    </div>
+</div>
+<script src="../src/gridDrawer.js"></script>
+</body>
+</html>
