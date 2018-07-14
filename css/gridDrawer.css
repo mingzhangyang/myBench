@@ -44,8 +44,8 @@ input[type="button"] {
     background-color: #40e0d0;
 }
 td {
-    width: 20px;
-    height:20px;
+    width: 15px;
+    height:15px;
     border: 1px dotted DodgerBlue;
     cursor: crosshair;
 }
