@@ -32,12 +32,78 @@
                 <label for="remote-image">Input the url of an image</label>
                 <input type="text" id="remote-image" placeholder="http://...">
             </div>
+            <div class="buttons">
+                <button>Show</button>
+                <button>Gray</button>
+                <button>Invert</button>
+                <button>Rotate</button>
+                <button>Cut</button>
+                <button>Restore</button>
+            </div>
         </div>
-        <div id="store">
-            <img src="" alt="Image store, won't show on the page">
+        <div id="show-area">
+            <div id="store">
+                <img id="img-store" src="" alt="Image store, won't show on the page">
+            </div>
+            <div id="canvas-area">
+                <canvas id="canvas"></canvas>
+            </div>
+            <div class="for-rotation">
+                <div class="range-slider">
+                    <input id="slider" type="range" name="rotation" min="-180"
+                           max="180">
+                    <span class="tooltiptext">0</span>
+                </div>
+                <svg>
+                    <g class="unit">
+                        <path class="tick" d="M20 10 v -10"></path>
+                        <text x="20" y="25">-180</text>
+                    </g>
+                    <g class="unit" transform="translate(30, 0)">
+                        <path class="tick" d="M20 10 v -10"></path>
+                    </g>
+                    <g class="unit" transform="translate(60, 0)">
+                        <path class="tick" d="M20 10 v -10"></path>
+                    </g>
+                    <g class="unit" transform="translate(90, 0)">
+                        <path class="tick" d="M20 10 v -10"></path>
+                        <text x="20" y="25">-90</text>
+                    </g>
+                    <g class="unit" transform="translate(120, 0)">
+                        <path class="tick" d="M20 10 v -10"></path>
+                    </g>
+                    <g class="unit" transform="translate(150, 0)">
+                        <path class="tick" d="M20 10 v -10"></path>
+                    </g>
+                    <g class="unit" transform="translate(180, 0)">
+                        <path class="tick" d="M20 10 v -10"></path>
+                        <text x="20" y="25">0</text>
+                    </g>
+                    <g class="unit" transform="translate(210, 0)">
+                        <path class="tick" d="M20 10 v -10"></path>
+                    </g>
+                    <g class="unit" transform="translate(240, 0)">
+                        <path class="tick" d="M20 10 v -10"></path>
+                    </g>
+                    <g class="unit" transform="translate(270, 0)">
+                        <path class="tick" d="M20 10 v -10"></path>
+                        <text x="20" y="25">90</text>
+                    </g>
+                    <g class="unit" transform="translate(300, 0)">
+                        <path class="tick" d="M20 10 v -10"></path>
+                    </g>
+                    <g class="unit" transform="translate(330, 0)">
+                        <path class="tick" d="M20 10 v -10"></path>
+                    </g>
+                    <g class="unit" transform="translate(360, 0)">
+                        <path class="tick" d="M20 10 v -10"></path>
+                        <text x="20" y="25">180</text>
+                    </g>
+                </svg>
+            </div>
         </div>
-        <div id="show-area"></div>
     </div>
 </div>
+<script src="../src/imageAssistant.js"></script>
 </body>
 </html>

@@ -7,6 +7,7 @@ body {
     margin: 0 auto 50px auto;
     border-left: 2px solid burlywood;
     border-right: 2px solid burlywood;
+    border-bottom: 2px solid burlywood;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -36,8 +37,7 @@ body {
     width: 100%;
 }
 .controls {
-    height: 150px;
-    border-bottom:4px double #f66;
+    border-bottom: 2px solid burlywood;
 }
 .input-block {
     margin: 20px 0 20px 60px;
@@ -50,7 +50,7 @@ body {
     cursor: pointer;
     justify-content: space-around;
     align-items: center;
-    background-color: #f66;
+    background-color: #00ced1;
     border-radius: 5px;
     color: white;
 }
@@ -72,6 +72,91 @@ body {
     background-color: gold;
     opacity: .6;
     outline: none;
+}
+.buttons {
+    display: flex;
+    height: 80px;
+    justify-content: space-evenly;
+    align-items: center;
+    /*border-bottom: 2px solid burlywood;*/
+}
+.buttons button {
+    width: 100px;
+    height: 40px;
+    border-radius: 6px;
+    border: 2px solid #f66;
+    background-color: transparent;
+    outline: none;
+}
+.buttons button:hover {
+    cursor: pointer;
+    background-color: #6dc066;
+    border-color: #6dc066;
+    color: white;
+}
+#show-area {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: auto;
+}
+#canvas-area {
+    padding: 50px;
+    /*border: 1px dashed dodgerblue;*/
+    margin: 50px;
+}
+.for-rotation {
+    position: relative;
+    width: 440px;
+    margin-top: 50px;
+    z-index: 100;
+    display: none;
+}
+input[type='range'] {
+    display: block;
+    margin: auto;
+    width: 372px;
+    border-radius: 250px;
+}
+.range-slider {
+    width: 400px;
+    margin: auto;
+}
+.tooltiptext {
+    visibility: hidden;
+    width: 30px;
+    background-color: orange;
+    height: 30px;
+    border-radius: 6px;
+    position: absolute;
+    top: -30px;
+    line-height: 30px;
+    text-align: center;
+    left: calc(50% - 15px);
+}
+.range-slider:hover .tooltiptext {
+    visibility: visible;
+
+}
+svg {
+    display: block;
+    width: 400px;
+    height: 40px;
+    margin: auto;
+}
+.unit text {
+    fill: gray;
+    text-anchor: middle;
+    alignment-baseline: top;
+    font-size: 12px;
+    font-family: Arial,Helvetica;
+}
+.unit .tick {
+    stroke: gray;
+    stroke-width: 1px;
 }
 #store {
     display: none;
