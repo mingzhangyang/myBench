@@ -73,14 +73,14 @@ body {
     opacity: .6;
     outline: none;
 }
-.buttons {
+#buttons {
     display: flex;
     height: 80px;
     justify-content: space-evenly;
     align-items: center;
-    /*border-bottom: 2px solid burlywood;*/
+    width: 100%;
 }
-.buttons button {
+#buttons button {
     width: 100px;
     height: 40px;
     border-radius: 6px;
@@ -88,20 +88,23 @@ body {
     background-color: transparent;
     outline: none;
 }
-.buttons button:hover {
+#buttons button:hover {
     cursor: pointer;
     background-color: #6dc066;
     border-color: #6dc066;
     color: white;
 }
 #show-area {
-    margin-top: 50px;
+    margin-top: 20px;
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     overflow: auto;
+    position: sticky;
+    align-self: flex-start;
+    top: 10px;
 }
 #canvas-area {
     padding: 50px;

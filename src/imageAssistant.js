@@ -4,35 +4,49 @@
 'use strict';
 
 function setImgSrcLocal() {
-  console.log('attached');
-  let img = document.getElementById('img-store');
-  let file = document.getElementById('local-image').files[0];
-  if (!file) {
-    alert('Please select an image from your computer.');
-    return
-  }
-  if (!(/\.(jpe?g|png|gif)$/i.test(file.name))) {
-    alert('Only JPG/JPEG, PNG, gif files are supported.');
-    return;
-  }
-  let reader = new FileReader();
-  reader.addEventListener('load', function() {
-    img.src = reader.result;
-  }, false);
-  reader.readAsDataURL(file);
+  return new Promise((res, rej) => {
+    let img = document.getElementById('img-store');
+    let file = document.getElementById('local-image').files[0];
+    if (!file) {
+      alert('Please select an image from your computer.');
+      return
+    }
+    if (!(/\.(jpe?g|png|gif)$/i.test(file.name))) {
+      alert('Only JPG/JPEG, PNG, gif files are supported.');
+      return;
+    }
+    let reader = new FileReader();
+    reader.addEventListener('load', function() {
+      img.src = reader.result;
+      res('Image loaded.');
+    }, false);
+    reader.onerror = () => {
+      rej('error happens');
+    };
+    reader.readAsDataURL(file);
+  });
 }
 
 function setImgSrcRemote() {
-  let url = document.getElementById('remote-image').value;
-  if (!url) {
-    alert('Please provide the url of an image.');
-    return;
-  }
-  if (!(/\.(jpe?g|png|gif)$/i.test(url))) {
-    alert('Only JPG/JPEG, PNG, gif files are supported.');
-    return;
-  }
-  document.getElementById('img-store').src = url;
+  return new Promise((res, rej) => {
+    let url = document.getElementById('remote-image').value;
+    if (!url) {
+      alert('Please provide the url of an image.');
+      return;
+    }
+    if (!(/\.(jpe?g|png|gif)$/i.test(url))) {
+      alert('Only JPG/JPEG, PNG, gif files are supported.');
+      return;
+    }
+    let img = document.getElementById('img-store');
+    img.src = url;
+    img.onload = () => {
+      res('Image loaded.')
+    };
+    img.onerror = () => {
+      rej('error happens');
+    };
+  });
 }
 
 function drawCanvas() {
@@ -65,9 +79,13 @@ function showRotationControl() {
 }
 
 function init() {
-  document.getElementById('local-image').addEventListener('change', setImgSrcLocal);
-  document.getElementById('remote-image').addEventListener('change', setImgSrcRemote);
-  document.getElementsByClassName('buttons')[0].addEventListener('click', function (evt) {
+  document.getElementById('local-image').addEventListener('change', () => {
+    setImgSrcLocal().then(drawCanvas).catch(console.log);
+  });
+  document.getElementById('remote-image').addEventListener('change', () => {
+    setImgSrcRemote().then(drawCanvas).catch(console.log);
+  });
+  document.getElementById('buttons').addEventListener('click', function (evt) {
     if (evt.target.tagName === 'BUTTON') {
       switch (evt.target.innerText) {
         case 'Show':
