@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../images/Logo.png"/>
+    <title>Image Assistant</title>
+    <link rel="stylesheet" href="../css/imageAssistance.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div id="container">
+    <div id="header">
+        <div class="title">
+            <h1>Image Assistant</h1>
+            <p>Manipulate image data with Canvas & JavaScript. It is just a
+                prototype for fun.</p>
+        </div>
+    </div>
+    <div id="content">
+        <div class="controls">
+            <div class="input-block">
+                <label for="local-image" class="upload">
+                    <i class="fa fa-upload"></i>
+                    <span>
+                        Choose a local file
+                    </span>
+                </label>
+                <input type="file" id="local-image">
+            </div>
+            <div class="input-block">
+                <h3>OR</h3>
+                <label for="remote-image">Input the url of an image</label>
+                <input type="text" id="remote-image" placeholder="http://...">
+            </div>
+        </div>
+        <div id="store">
+            <img src="" alt="Image store, won't show on the page">
+        </div>
+        <div id="show-area"></div>
+    </div>
+</div>
+</body>
+</html>

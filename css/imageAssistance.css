@@ -1,0 +1,78 @@
+body {
+    background-color: aliceblue;
+}
+#container {
+    width: 80vw;
+    min-width: 600px;
+    margin: 0 auto 50px auto;
+    border-left: 2px solid burlywood;
+    border-right: 2px solid burlywood;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+#header {
+    width: 100%;
+    height: 200px;
+    background-color: #dddddd;
+}
+.title {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -80%);
+    text-align: center;
+}
+.title h1 {
+    color: navy;
+    font-family: "Comic Sans MS", Times, serif;
+}
+.title p {
+    font-size: 18px;
+    color: coral;
+}
+#content {
+    width: 100%;
+}
+.controls {
+    height: 150px;
+    border-bottom:4px double #f66;
+}
+.input-block {
+    margin: 20px 0 20px 60px;
+}
+.upload {
+    display: flex;
+    width: 180px;
+    height: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f66;
+    border-radius: 5px;
+    color: white;
+}
+.upload:hover {
+    background-color: dodgerblue;
+}
+.input-block input[type='file'] {
+   display: none;
+}
+.input-block label {
+    margin-right: 30px;
+}
+.input-block input[type='text'] {
+    width: 500px;
+    padding: 8px;
+    border: 1px solid grey;
+}
+.input-block input[type='text']:focus {
+    background-color: gold;
+    opacity: .6;
+    outline: none;
+}
+#store {
+    display: none;
+}
