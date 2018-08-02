@@ -60,6 +60,7 @@ function drawCanvas() {
   console.log(img.width, img.height);
   canvas.width = img.width;
   canvas.height = img.height;
+  canvas.style.transform = '';
   if (ctx) {
     ctx.drawImage(img, 0, 0);
     showRotationControl();
