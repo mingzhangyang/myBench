@@ -73,12 +73,19 @@ body {
     opacity: .6;
     outline: none;
 }
+
+#show-area {
+    display: block;
+    position: sticky;
+    top: 0;
+}
 #buttons {
-    display: flex;
+    display: block;
     height: 80px;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
+    margin: auto;
+    width: 90%;
+    border: 1px dotted #f66;
+    text-align: center;
 }
 #buttons button {
     width: 100px;
@@ -87,6 +94,10 @@ body {
     border: 2px solid #f66;
     background-color: transparent;
     outline: none;
+    display: inline-block;
+    position: relative;
+    top: 10px;
+    margin: 10px;
 }
 #buttons button:hover {
     cursor: pointer;
@@ -94,37 +105,42 @@ body {
     border-color: #6dc066;
     color: white;
 }
-#show-area {
-    margin-top: 20px;
-    margin-bottom: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    overflow: auto;
-    position: sticky;
-    align-self: flex-start;
-    top: 10px;
+.collage-models {
+    width: 90%;
+    border: 1px dotted #f66;
+    display: none;
+    justify-content: space-around;
 }
 #canvas-area {
-    padding: 50px;
+    /*padding-top: 30px;*/
     /*border: 1px dashed dodgerblue;*/
-    margin: 50px;
+    margin: 50px auto;
+    border: 1px dotted #f66;
+    position: relative;
+    width: 90%;
+    min-height: 500px;
+}
+canvas {
+    border: 1px dotted #f66;
+    display: block;
+    margin: auto;
 }
 .for-rotation {
-    position: relative;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 440px;
-    margin-top: 50px;
     z-index: 100;
-    display: none;
+    /*display: none;*/
+    border: 1px dotted #f66;
 }
-input[type='range'] {
+.for-rotation input[type='range'] {
     display: block;
     margin: auto;
     width: 372px;
-    border-radius: 250px;
 }
-.range-slider {
+.for-rotation .range-slider {
     width: 400px;
     margin: auto;
 }
@@ -144,7 +160,7 @@ input[type='range'] {
     visibility: visible;
 
 }
-svg {
+.for-rotation svg {
     display: block;
     width: 400px;
     height: 40px;
@@ -161,6 +177,29 @@ svg {
     stroke: gray;
     stroke-width: 1px;
 }
+.for-resize {
+    position: absolute;
+    width: 300px;
+    z-index: 100;
+    /*display: none;*/
+    transform-origin: right 50%;
+    transform: rotate(-90deg);
+    right: 20px;
+    top: 0;
+    border: 1px dotted #f66;
+    text-align: center;
+}
+.for-resize input[type='range'] {
+    width: 250px;
+    height: 20px;
+}
+.for-resize .tooltiptext {
+    width: 40px;
+    left: calc(50% - 20px);
+    top: 40px;
+    transform: rotate(90deg);
+}
+
 #store {
     display: none;
 }

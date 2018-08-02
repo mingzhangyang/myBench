@@ -62,6 +62,8 @@ function drawCanvas() {
   canvas.height = img.height;
   if (ctx) {
     ctx.drawImage(img, 0, 0);
+    showRotationControl();
+    showResizeControl();
   }
 }
 
@@ -74,8 +76,10 @@ function invert() {
 }
 
 function showRotationControl() {
-  let ctrl = document.getElementsByClassName('for-rotation')[0];
-  ctrl.style.display = 'block';
+  document.getElementsByClassName('for-rotation')[0].style.display = 'block';
+}
+function showResizeControl() {
+  document.getElementsByClassName('for-resize')[0].style.display = 'block';
 }
 
 function init() {
@@ -88,19 +92,20 @@ function init() {
   document.getElementById('buttons').addEventListener('click', function (evt) {
     if (evt.target.tagName === 'BUTTON') {
       switch (evt.target.innerText) {
-        case 'Show':
-          drawCanvas();
-          break;
         case 'Gray':
           break;
         case 'Invert':
           break;
-        case 'Rotate':
-          showRotationControl();
+        case 'Collage':
+
           break;
         case 'Cut':
           break;
         case 'Restore':
+          let rs = document.querySelectorAll('input[type="range"]');
+          for (let i = 0; i < rs.length; i++) {
+            rs[i].value = i;
+          }
           drawCanvas();
           break;
         default:
@@ -108,12 +113,20 @@ function init() {
       }
     }
   });
-  document.getElementById('slider').addEventListener('input', function () {
+  document.getElementById('slider-1').addEventListener('input', function () {
     let v = this.value;
     let tp = document.getElementsByClassName('tooltiptext')[0];
     tp.innerText = v;
     tp.style.transform = `translateX(${v *31 / 30}px)`;
-    document.getElementById('canvas-area').style.transform = `rotate(${v}deg)`;
+    document.getElementById('canvas').style.transform = `rotate(${v}deg)`;
+  });
+  document.getElementById('slider-2').addEventListener('input', function () {
+    let v = +this.value;
+    v = v >= 1 ? (v-1) * 10 + 1 : v;
+    let tp = document.getElementsByClassName('tooltiptext')[1];
+    tp.innerText = v.toFixed(1) + ' X';
+    tp.style.transform = `translateX(${(+this.value-1)*125}px) rotate(90deg)`;
+    document.getElementById('canvas').style.transform = `scale(${v})`;
   });
   console.log('init invoked');
 }
