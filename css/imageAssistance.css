@@ -84,7 +84,7 @@ body {
     height: 80px;
     margin: auto;
     width: 90%;
-    border: 1px dotted #f66;
+    /*border: 1px dotted #f66;*/
     text-align: center;
 }
 #buttons button {
@@ -107,33 +107,33 @@ body {
 }
 .collage-models {
     width: 90%;
-    border: 1px dotted #f66;
+    /*border: 1px dotted #f66;*/
     display: none;
     justify-content: space-around;
 }
 #canvas-area {
-    /*padding-top: 30px;*/
+    /*padding-bottom: 30px;*/
     /*border: 1px dashed dodgerblue;*/
-    margin: 50px auto;
-    border: 1px dotted #f66;
+    margin: 40px auto 80px auto;
+    /*border: 1px dotted #f66;*/
     position: relative;
     width: 90%;
     min-height: 500px;
 }
 canvas {
-    border: 1px dotted #f66;
+    /*border: 1px dotted #f66;*/
     display: block;
     margin: auto;
 }
 .for-rotation {
     position: absolute;
-    bottom: 20px;
+    bottom: -70px;
     left: 50%;
     transform: translateX(-50%);
     width: 440px;
     z-index: 100;
     /*display: none;*/
-    border: 1px dotted #f66;
+    /*border: 1px dotted #f66;*/
 }
 .for-rotation input[type='range'] {
     display: block;
@@ -184,9 +184,9 @@ canvas {
     /*display: none;*/
     transform-origin: right 50%;
     transform: rotate(-90deg);
-    right: 20px;
+    right: -20px;
     top: 0;
-    border: 1px dotted #f66;
+    /*border: 1px dotted #f66;*/
     text-align: center;
 }
 .for-resize input[type='range'] {
@@ -194,7 +194,7 @@ canvas {
     height: 20px;
 }
 .for-resize .tooltiptext {
-    width: 40px;
+    width: 50px;
     left: calc(50% - 20px);
     top: 40px;
     transform: rotate(90deg);
