@@ -50,6 +50,7 @@ function setImgSrcRemote() {
 }
 
 function drawCanvas() {
+  restore();
   let canvas = document.getElementById('canvas');
   let ctx = canvas.getContext('2d');
   let img = document.getElementById('img-store');
@@ -72,7 +73,29 @@ function gray() {
 }
 
 function invert() {
+  let canvas = document.getElementById('canvas');
+  let ctx = canvas.getContext('2d');
+  let img = document.getElementById('img-store');
+  if (+img.width === 0 || +img.height === 0) {
+    alert('No image data. Have you choose an image?');
+  }
+  // console.log(img.src);
+  console.log(img.width, img.height);
+  canvas.width = img.width;
+  canvas.height = img.height;
+  if (ctx) {
+    ctx.drawImage(img, 0, 0);
+    showRotationControl();
+    showResizeControl();
+  }
+}
 
+function restore() {
+  let rs = document.querySelectorAll('input[type="range"]');
+  for (let i = 0; i < rs.length; i++) {
+    rs[i].value = i;
+  }
+  document.getElementById('canvas').style.transform = 'translate(-50%, -50%)';
 }
 
 function showRotationControl() {
@@ -83,6 +106,7 @@ function showResizeControl() {
 }
 
 function init() {
+  restore();
   document.getElementById('local-image').addEventListener('change', () => {
     setImgSrcLocal().then(drawCanvas).catch(console.log);
   });
@@ -102,10 +126,7 @@ function init() {
         case 'Cut':
           break;
         case 'Restore':
-          let rs = document.querySelectorAll('input[type="range"]');
-          for (let i = 0; i < rs.length; i++) {
-            rs[i].value = i;
-          }
+          restore();
           drawCanvas();
           break;
         default:
@@ -119,8 +140,9 @@ function init() {
     tp.innerText = v;
     tp.style.transform = `translateX(${v *31 / 30}px)`;
     let canvas = document.getElementById('canvas');
+    // console.log(canvas.style.transform);
     if (canvas.style.transform.indexOf('rotate') === -1) {
-      canvas.style.transform += `rotate(${v}deg)`;
+      canvas.style.transform += ` rotate(${v}deg)`;
     } else {
       canvas.style.transform = canvas.style.transform.replace(/rotate\(-?\d+deg\)/gi, `rotate(${v}deg)`);
     }
@@ -128,13 +150,14 @@ function init() {
   document.getElementById('slider-2').addEventListener('input', function () {
     let v = +this.value;
     v = v >= 1 ? (v-1) * 10 + 1 : v;
-    console.log(v.toFixed(2));
+    // console.log(v.toFixed(2));
     let tp = document.getElementsByClassName('tooltiptext')[1];
     tp.innerText = v.toFixed(2) + ' X';
     tp.style.transform = `translateX(${(+this.value-1)*125}px) rotate(90deg)`;
     let canvas = document.getElementById('canvas');
+    // console.log(canvas.style.transform);
     if (canvas.style.transform.indexOf('scale') === -1) {
-      canvas.style.transform += `scale(${v.toFixed(2)})`;
+      canvas.style.transform += ` scale(${v.toFixed(2)})`;
     } else {
       canvas.style.transform = canvas.style.transform.replace(/scale\(\d\.*\d*\)/gi, `scale(${v.toFixed(2)})`);
     }

@@ -1,31 +1,30 @@
 body {
     background-color: aliceblue;
+    margin-top: 0;
+    padding-bottom: 50px;
 }
 #container {
     width: 80vw;
     min-width: 600px;
-    margin: 0 auto 50px auto;
-    border-left: 2px solid burlywood;
-    border-right: 2px solid burlywood;
-    border-bottom: 2px solid burlywood;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    margin: 0 auto 200px auto;
+    border: 2px solid burlywood;
 }
 #header {
     width: 100%;
     height: 200px;
     background-color: #dddddd;
+    margin-top: -20px;
 }
 .title {
     position: relative;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -80%);
+    transform: translate(-50%, -50%);
+    font-size: 28px;
     text-align: center;
 }
 .title h1 {
+    margin: 0;
     color: navy;
     font-family: "Comic Sans MS", Times, serif;
 }
@@ -35,21 +34,26 @@ body {
 }
 #content {
     width: 100%;
+    position: relative;
+    /*overflow: visible;*/
 }
 .controls {
+    position: relative;
     border-bottom: 2px solid burlywood;
+    width: 95%;
+    margin: auto;
 }
 .input-block {
     margin: 20px 0 20px 60px;
 }
 .upload {
-    display: flex;
+    display: block;
+    text-align: center;
+    line-height: 36px;
     width: 180px;
     height: 36px;
     font-weight: bold;
     cursor: pointer;
-    justify-content: space-around;
-    align-items: center;
     background-color: #00ced1;
     border-radius: 5px;
     color: white;
@@ -76,9 +80,12 @@ body {
 
 #show-area {
     display: block;
-    position: sticky;
-    top: 0;
+    width: 95%;
+    margin: auto;
+    position: relative;
+    top: 5px;
 }
+
 #buttons {
     display: block;
     height: 80px;
@@ -112,18 +119,19 @@ body {
     justify-content: space-around;
 }
 #canvas-area {
-    /*padding-bottom: 30px;*/
-    /*border: 1px dashed dodgerblue;*/
     margin: 40px auto 80px auto;
-    /*border: 1px dotted #f66;*/
     position: relative;
     width: 90%;
-    min-height: 500px;
+    height: 500px;
 }
-canvas {
-    /*border: 1px dotted #f66;*/
+#canvas {
     display: block;
-    margin: auto;
+    /*position: absolute;*/
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*border: 1px dotted #f66;*/
 }
 .for-rotation {
     position: absolute;
@@ -132,8 +140,6 @@ canvas {
     transform: translateX(-50%);
     width: 440px;
     z-index: 100;
-    /*display: none;*/
-    /*border: 1px dotted #f66;*/
 }
 .for-rotation input[type='range'] {
     display: block;
@@ -171,7 +177,7 @@ canvas {
     text-anchor: middle;
     alignment-baseline: top;
     font-size: 12px;
-    font-family: Arial,Helvetica;
+    font-family: Arial,Helvetica, sans-serif;
 }
 .unit .tick {
     stroke: gray;
