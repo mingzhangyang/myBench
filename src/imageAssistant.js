@@ -50,6 +50,7 @@ function setImgSrcRemote() {
 }
 
 function drawCanvas() {
+  restore();
   let canvas = document.getElementById('canvas');
   let ctx = canvas.getContext('2d');
   let img = document.getElementById('img-store');
@@ -60,7 +61,6 @@ function drawCanvas() {
   console.log(img.width, img.height);
   canvas.width = img.width;
   canvas.height = img.height;
-  canvas.style.transform = '';
   if (ctx) {
     ctx.drawImage(img, 0, 0);
     showRotationControl();
@@ -73,7 +73,21 @@ function gray() {
 }
 
 function invert() {
-
+  let canvas = document.getElementById('canvas');
+  let ctx = canvas.getContext('2d');
+  let img = document.getElementById('img-store');
+  if (+img.width === 0 || +img.height === 0) {
+    alert('No image data. Have you choose an image?');
+  }
+  // console.log(img.src);
+  console.log(img.width, img.height);
+  canvas.width = img.width;
+  canvas.height = img.height;
+  if (ctx) {
+    ctx.drawImage(img, 0, 0);
+    showRotationControl();
+    showResizeControl();
+  }
 }
 
 function restore() {
@@ -81,8 +95,7 @@ function restore() {
   for (let i = 0; i < rs.length; i++) {
     rs[i].value = i;
   }
-  document.getElementById('canvas').style.transform = '';
-  drawCanvas();
+  document.getElementById('canvas').style.transform = 'translate(-50%, -50%)';
 }
 
 function showRotationControl() {
@@ -93,6 +106,7 @@ function showResizeControl() {
 }
 
 function init() {
+  restore();
   document.getElementById('local-image').addEventListener('change', () => {
     setImgSrcLocal().then(drawCanvas).catch(console.log);
   });
@@ -113,6 +127,7 @@ function init() {
           break;
         case 'Restore':
           restore();
+          drawCanvas();
           break;
         default:
           alert('This should not be seen.');
@@ -125,6 +140,7 @@ function init() {
     tp.innerText = v;
     tp.style.transform = `translateX(${v *31 / 30}px)`;
     let canvas = document.getElementById('canvas');
+    // console.log(canvas.style.transform);
     if (canvas.style.transform.indexOf('rotate') === -1) {
       canvas.style.transform += `rotate(${v}deg)`;
     } else {
@@ -139,6 +155,7 @@ function init() {
     tp.innerText = v.toFixed(2) + ' X';
     tp.style.transform = `translateX(${(+this.value-1)*125}px) rotate(90deg)`;
     let canvas = document.getElementById('canvas');
+    // console.log(canvas.style.transform);
     if (canvas.style.transform.indexOf('scale') === -1) {
       canvas.style.transform += `scale(${v.toFixed(2)})`;
     } else {
