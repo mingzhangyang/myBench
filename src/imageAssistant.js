@@ -118,15 +118,26 @@ function init() {
     let tp = document.getElementsByClassName('tooltiptext')[0];
     tp.innerText = v;
     tp.style.transform = `translateX(${v *31 / 30}px)`;
-    document.getElementById('canvas').style.transform = `rotate(${v}deg)`;
+    let canvas = document.getElementById('canvas');
+    if (canvas.style.transform.indexOf('rotate') === -1) {
+      canvas.style.transform += `rotate(${v}deg)`;
+    } else {
+      canvas.style.transform = canvas.style.transform.replace(/rotate\(-?\d+deg\)/gi, `rotate(${v}deg)`);
+    }
   });
   document.getElementById('slider-2').addEventListener('input', function () {
     let v = +this.value;
     v = v >= 1 ? (v-1) * 10 + 1 : v;
+    console.log(v.toFixed(2));
     let tp = document.getElementsByClassName('tooltiptext')[1];
-    tp.innerText = v.toFixed(1) + ' X';
+    tp.innerText = v.toFixed(2) + ' X';
     tp.style.transform = `translateX(${(+this.value-1)*125}px) rotate(90deg)`;
-    document.getElementById('canvas').style.transform = `scale(${v})`;
+    let canvas = document.getElementById('canvas');
+    if (canvas.style.transform.indexOf('scale') === -1) {
+      canvas.style.transform += `scale(${v.toFixed(2)})`;
+    } else {
+      canvas.style.transform = canvas.style.transform.replace(/scale\(\d\.*\d*\)/gi, `scale(${v.toFixed(2)})`);
+    }
   });
   console.log('init invoked');
 }
