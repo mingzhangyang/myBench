@@ -75,6 +75,15 @@ function invert() {
 
 }
 
+function restore() {
+  let rs = document.querySelectorAll('input[type="range"]');
+  for (let i = 0; i < rs.length; i++) {
+    rs[i].value = i;
+  }
+  document.getElementById('canvas').style.transform = '';
+  drawCanvas();
+}
+
 function showRotationControl() {
   document.getElementsByClassName('for-rotation')[0].style.display = 'block';
 }
@@ -102,11 +111,7 @@ function init() {
         case 'Cut':
           break;
         case 'Restore':
-          let rs = document.querySelectorAll('input[type="range"]');
-          for (let i = 0; i < rs.length; i++) {
-            rs[i].value = i;
-          }
-          drawCanvas();
+          restore();
           break;
         default:
           alert('This should not be seen.');
@@ -128,7 +133,7 @@ function init() {
   document.getElementById('slider-2').addEventListener('input', function () {
     let v = +this.value;
     v = v >= 1 ? (v-1) * 10 + 1 : v;
-    console.log(v.toFixed(2));
+    // console.log(v.toFixed(2));
     let tp = document.getElementsByClassName('tooltiptext')[1];
     tp.innerText = v.toFixed(2) + ' X';
     tp.style.transform = `translateX(${(+this.value-1)*125}px) rotate(90deg)`;
