@@ -49,5 +49,7 @@
   }
 
   let num = Object.keys(detectShapes2(m)).length;
-  alert('There are ' + num + ' objects on the image');
+  setTimeout(function () {
+    alert('There are ' + num + ' objects on the image');
+  }, 1000);
 })();
