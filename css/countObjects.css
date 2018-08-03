@@ -1,0 +1,13 @@
+body {
+    background-color: #000;
+}
+#container {
+    width: 80vw;
+    height: 60vh;
+    margin: 100px auto;
+    border: 1px dotted dodgerblue;
+}
+#canvas {
+    display: block;
+    margin: auto;
+}
