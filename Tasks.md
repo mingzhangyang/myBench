@@ -1,5 +1,5 @@
 - Use canvas to manipulate images
  
-   - [] color manipulation - imageAssistant.html
-   - [] count objects on image - countObjects.html
-   - [] draw a line to separate two objects - separeateTwoObjects.html
+   - [ ] color manipulation - imageAssistant.html
+   - [ ] count objects on image - countObjects.html
+   - [ ] draw a line to separate two objects - separeateTwoObjects.html
