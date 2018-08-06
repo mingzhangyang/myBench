@@ -20,7 +20,7 @@ var heatmap = `<div><a href="html/heatmap.html" target="_blank"><img class="left
 
 
 
-// let colorSelector = `<div><a href="html/colorSelector.html" target="_blank"><img class="left-edge" src="images/colorSelector.PNG" width="150" height="150"></a><strong>Color Selector:</strong>A tool for selecting your favorite colors and get the RGBA code. There are three ways to go through colors: 1) adjust the red, green, blue, and opacity parameters by sliding; 2) directly input the rgba code to check the color; 3) click the "I am feeling good" button to generate a color randomly. Once a color catches your eyes, you can save it and compare with others that interests you by clicking the "Save & Compare button". Hope this tool will help you find the right colors for you! <a href="html/colorSelector.html" target="_blank"><strong>Check it here</strong></a>.</div>`;
+// let colorSelector = `<div><a href="html/colorSelector.html" target="_blank"><img class="left-edge" js="images/colorSelector.PNG" width="150" height="150"></a><strong>Color Selector:</strong>A tool for selecting your favorite colors and get the RGBA code. There are three ways to go through colors: 1) adjust the red, green, blue, and opacity parameters by sliding; 2) directly input the rgba code to check the color; 3) click the "I am feeling good" button to generate a color randomly. Once a color catches your eyes, you can save it and compare with others that interests you by clicking the "Save & Compare button". Hope this tool will help you find the right colors for you! <a href="html/colorSelector.html" target="_blank"><strong>Check it here</strong></a>.</div>`;
 
 let colorSelector = {
   type: 'div',

@@ -57,7 +57,7 @@ function drawCanvas() {
   if (+img.width === 0 || +img.height === 0) {
     alert('No image data. Have you choose an image?');
   }
-  // console.log(img.src);
+  // console.log(img.js);
   console.log(img.width, img.height);
   canvas.width = img.width;
   canvas.height = img.height;
@@ -79,7 +79,7 @@ function invert() {
   if (+img.width === 0 || +img.height === 0) {
     alert('No image data. Have you choose an image?');
   }
-  // console.log(img.src);
+  // console.log(img.js);
   console.log(img.width, img.height);
   canvas.width = img.width;
   canvas.height = img.height;
