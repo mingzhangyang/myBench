@@ -126,5 +126,9 @@ Collection</a></li>
 <li><a href="html/Spiral.html" target="_blank">Draw spiral in SVG</a></li>
 <li><a href="html/tree.html" target="_blank">Simulation of tree command in Bash</a></li>
 <li><a href="html/gridDrawer.html" target="_blank">Draw on grids</a></li>
+<li><a href="html/dataTable.html" target="_blank">Show me the table</a></li>
+<li><a href="html/countObjects.html" target="_blank">Count objects in an image</a></li>
+<li><a href="html/imageAssistant.html" target="_blank">Manipulate images with CSS and 
+canvas</a></li>
 </ul>
 </div>`;
