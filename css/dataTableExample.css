@@ -18,23 +18,6 @@ body {
     z-index: 100;
 }
 
-.control-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: orange;
-    margin-top: 5px;
-    margin-left: 5px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    cursor: pointer;
-    font-size: 24px;
-}
-
 .setting-area {
     width: calc(50% - 60px);
     height: 100%;
@@ -51,6 +34,7 @@ body {
 }
 
 
+
 .data-preview-area {
     width: calc(50% - 60px);
     height: 100%;
@@ -60,26 +44,35 @@ body {
     padding-left: 30px;
 }
 
-.unfold-indicator {
-    float: right;
-    font-size: 32px;
-    margin-right: 4px;
-    opacity: 0;
-}
-
 .preview-folded .data-preview-area{
     transform: translateX(calc(60px - 100%));
 }
 
+.preview-folded .fold-indicator {
+    opacity: 0;
+}
+
 .preview-folded .unfold-indicator {
-    opacity: 1;
+    opacity: .6;
 }
 
 .preview-folded .data-table-area {
     width: calc(100% - 120px);
 }
 
+.fold-indicator {
+    float: right;
+    font-size: 32px;
+    margin-right: 12px;
+    opacity: .6;
+}
 
+.unfold-indicator {
+    float: right;
+    font-size: 32px;
+    margin-right: 4px;
+    opacity: 0;
+}
 
 .data-table-area {
     width: 50%;
@@ -89,7 +82,22 @@ body {
     right: 0;
 }
 
-
+.control-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: orange;
+    margin-top: 5px;
+    margin-left: 5px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    font-size: 24px;
+}
 input[type="file"] {
     display: none;
 }
@@ -123,6 +131,7 @@ input[type="text"], textarea {
 
 
 
+
 #my-table {
     width: 100%;
 }
@@ -134,7 +143,7 @@ table, tr, th, td {
     border-collapse: separate;
 }
 th, td {
-    min-width: 200px;
+    /*min-width: 200px;*/
     /*   max-width: 300px; */
 }
 tr:nth-child(2n) {
