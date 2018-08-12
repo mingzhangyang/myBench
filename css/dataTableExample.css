@@ -64,7 +64,7 @@ body {
     position: absolute;
     top: 50%;
     font-size: 32px;
-    left: calc(100% - 60px);
+    left: calc(100% - 54px);
     opacity: .6;
 }
 
@@ -113,6 +113,7 @@ input[type="text"], textarea {
     width: calc(100% - 66px);
     margin-bottom: 10px;
     margin-top: 5px;
+    display: block;
 }
 .info-section {
     width: 100%;
