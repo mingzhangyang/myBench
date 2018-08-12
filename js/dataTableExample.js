@@ -518,4 +518,54 @@ if (typeof module !== 'undefined' && module.parent) {
     dt.generate();
     console.log(dt);
   };
+  (function addEventListeners (){
+    let foldIndicator = document.getElementsByClassName('fold-indicator')[0];
+    foldIndicator.addEventListener('click', function () {
+      document.getElementsByClassName('main-content-area')[0]
+        .classList
+        .add('preview-folded');
+    });
+    let unfoldIndicator = document.getElementsByClassName('unfold-indicator')[0];
+    unfoldIndicator.addEventListener('click', function () {
+      document.getElementsByClassName('main-content-area')[0]
+        .classList
+        .remove('preview-folded');
+    });
+    let infoIcon = document.getElementsByClassName('info-section-controller')[0];
+    infoIcon.addEventListener('click', function () {
+      document.getElementsByClassName('data-table-area')[0]
+        .classList
+        .toggle('info-section-active');
+    });
+    let editSt = document.getElementsByClassName('table-setting-panel-controller')[0];
+    let graphSt = document.getElementsByClassName('graph-setting-panel-controller')[0];
+    let styleSt = document.getElementsByClassName('style-setting-panel-controller')[0];
+    let editPan = document.getElementsByClassName('table-setting-area')[0];
+    let graphPan = document.getElementsByClassName('graph-setting-area')[0];
+    let stylePan = document.getElementsByClassName('style-setting-area')[0];
+    editSt.addEventListener('click', function () {
+      editPan.classList.add('setting-active');
+      graphPan.classList.remove('setting-active');
+      stylePan.classList.remove('setting-active');
+    });
+    graphSt.addEventListener('click', function () {
+      editPan.classList.remove('setting-active');
+      graphPan.classList.add('setting-active');
+      stylePan.classList.remove('setting-active');
+    });
+    styleSt.addEventListener('click', function () {
+      editPan.classList.remove('setting-active');
+      graphPan.classList.remove('setting-active');
+      stylePan.classList.add('setting-active');
+    });
+    let sideBar = document.getElementsByClassName('left-side-bar')[0];
+    sideBar.addEventListener('click', function (evt) {
+      let target = evt.target;
+      if (!target.classList.contains('control-icon') && !target.parentElement.classList.contains('control-icon')) {
+        editPan.classList.remove('setting-active');
+        graphPan.classList.remove('setting-active');
+        stylePan.classList.remove('setting-active');
+      }
+    });
+  })();
 }

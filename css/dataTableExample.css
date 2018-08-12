@@ -120,14 +120,19 @@ input[type="text"], textarea {
     height: 300px;
     position: relative;
     background-color: aliceblue;
-    /*   transform: translateY(-100%); */
+    transform: translateY(-100%);
     font-size: 24px;
     color: #f88;
+    transition: all 1s;
+}
+.info-section-active .info-section {
+    transform: translateY(0%);
 }
 .info-section i {
     float:right;
     margin: 5px;
 }
+
 
 
 
