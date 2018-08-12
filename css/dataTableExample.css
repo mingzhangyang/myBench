@@ -164,6 +164,8 @@ table, tr, th, td {
 }
 th, td {
     overflow-wrap: break-word;
+    padding-left: 4px;
+    padding-right: 12px;
 }
 tr:nth-child(2n) {
     background-color: rgba(22, 66, 99, .4);
