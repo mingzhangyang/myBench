@@ -61,16 +61,18 @@ body {
 }
 
 .fold-indicator {
-    float: right;
+    position: absolute;
+    top: 50%;
     font-size: 32px;
-    margin-right: 12px;
+    left: calc(100% - 60px);
     opacity: .6;
 }
 
 .unfold-indicator {
-    float: right;
+    position: absolute;
+    top: 50%;
     font-size: 32px;
-    margin-right: 4px;
+    left: calc(100% - 30px);
     opacity: 0;
 }
 
@@ -125,6 +127,7 @@ input[type="text"], textarea {
     float:right;
     margin: 5px;
 }
+
 
 
 
