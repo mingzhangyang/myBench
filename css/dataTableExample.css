@@ -124,13 +124,13 @@ input[type="text"], textarea {
     height: 300px;
     position: relative;
     background-color: aliceblue;
-    transform: translateY(-100%);
+    margin-top: -300px;
     font-size: 24px;
     color: #f88;
     transition: all 1s;
 }
 .info-section-active .info-section {
-    transform: translateY(0%);
+    margin-top: 0;
 }
 .info-section i {
     float:right;
