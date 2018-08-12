@@ -567,5 +567,11 @@ if (typeof module !== 'undefined' && module.parent) {
         stylePan.classList.remove('setting-active');
       }
     });
+    let infoSection = document.getElementsByClassName('info-section')[0];
+    infoSection.addEventListener('click', function () {
+      document.getElementsByClassName('data-table-area')[0]
+        .classList
+        .remove('info-section-active');
+    });
   })();
 }
