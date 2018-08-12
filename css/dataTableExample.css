@@ -137,6 +137,7 @@ input[type="text"], textarea {
 .info-section i {
     float:right;
     margin: 5px;
+    cursor: pointer;
 }
 
 
