@@ -27,10 +27,12 @@ body {
     padding-left: 30px;
     transform: translateX(-100%);
     transition: all 1s;
+    opacity: 0;
 }
 
 .setting-active {
     transform: translateX(0%);
+    opacity: 1;
 }
 
 
