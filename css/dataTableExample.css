@@ -4,6 +4,7 @@ body {
     background-color: #fcfcfc;
     counter-reset: option;
     margin: 0;
+    font-size: 12px;
 }
 #data-table-container {
     width: 100vw;
@@ -106,18 +107,23 @@ body {
     cursor: pointer;
     font-size: 24px;
 }
-input[type="file"] {
-    display: none;
-}
+
 .control-icon label, .control-icon span {
     font-size: 12px;
 }
+
+input[type="file"] {
+    display: none;
+}
 .url-input {
-    margin-top: -50px;
+    margin-top: -100px;
     transition: all .5s;
 }
 .url-input-active .url-input {
     margin-top: 10px;
+}
+input[type="text"] {
+    padding: 2px 4px;
 }
 input[type="text"], textarea {
     width: calc(100% - 36px);
@@ -165,6 +171,7 @@ table, tr, th, td {
 th, td {
     overflow-wrap: break-word;
     padding: 2px 4px;
+    font-size: 12px;
 }
 tr:nth-child(2n) {
     background-color: rgba(22, 66, 99, .4);
