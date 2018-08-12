@@ -125,6 +125,11 @@ input[type="file"] {
 input[type="text"] {
     padding: 2px 4px;
 }
+
+.preview-block {
+    margin-top: 8px;
+}
+
 input[type="text"], textarea {
     width: calc(100% - 36px);
     margin-bottom: 10px;
