@@ -26,7 +26,7 @@ body {
     left: 60px;
     padding-left: 30px;
     transform: translateX(-100%);
-    transition: all 1s;
+    transition: transform 1s, opacity .4s;
     opacity: 0;
 }
 
