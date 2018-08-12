@@ -42,6 +42,7 @@ body {
     position: absolute;
     left: 60px;
     padding-left: 30px;
+    transition: all 1s;
 }
 
 .preview-folded .data-preview-area{
@@ -66,6 +67,7 @@ body {
     font-size: 32px;
     left: calc(100% - 54px);
     opacity: .6;
+    cursor: pointer;
 }
 
 .unfold-indicator {
@@ -74,6 +76,7 @@ body {
     font-size: 32px;
     left: calc(100% - 30px);
     opacity: 0;
+    cursor: pointer;
 }
 
 .data-table-area {
@@ -82,6 +85,7 @@ body {
     position: absolute;
     background-color: #f66;
     right: 0;
+    transition: all 1s;
 }
 
 .control-icon {
