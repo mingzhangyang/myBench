@@ -113,6 +113,10 @@ input[type="file"] {
     font-size: 12px;
 }
 .url-input {
+    margin-top: -50px;
+    transition: all .5s;
+}
+.url-input-active .url-input {
     margin-top: 10px;
 }
 input[type="text"], textarea {

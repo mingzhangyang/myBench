@@ -519,24 +519,21 @@ if (typeof module !== 'undefined' && module.parent) {
     console.log(dt);
   };
   (function addEventListeners (){
+    let mainContentArea = document.getElementsByClassName('main-content-area')[0];
+
+    // add event listener to fold/unfold arrows
     let foldIndicator = document.getElementsByClassName('fold-indicator')[0];
     foldIndicator.addEventListener('click', function () {
-      document.getElementsByClassName('main-content-area')[0]
-        .classList
+      mainContentArea.classList
         .add('preview-folded');
     });
     let unfoldIndicator = document.getElementsByClassName('unfold-indicator')[0];
     unfoldIndicator.addEventListener('click', function () {
-      document.getElementsByClassName('main-content-area')[0]
-        .classList
+      mainContentArea.classList
         .remove('preview-folded');
     });
-    let infoIcon = document.getElementsByClassName('info-section-controller')[0];
-    infoIcon.addEventListener('click', function () {
-      document.getElementsByClassName('data-table-area')[0]
-        .classList
-        .toggle('info-section-active');
-    });
+
+    // add event listeners to handle switching setting panels
     let editSt = document.getElementsByClassName('table-setting-panel-controller')[0];
     let graphSt = document.getElementsByClassName('graph-setting-panel-controller')[0];
     let styleSt = document.getElementsByClassName('style-setting-panel-controller')[0];
@@ -558,10 +555,41 @@ if (typeof module !== 'undefined' && module.parent) {
       graphPan.classList.remove('setting-active');
       stylePan.classList.add('setting-active');
     });
+
+    // add event listener to side bar, using object obligation
     let sideBar = document.getElementsByClassName('left-side-bar')[0];
     sideBar.addEventListener('click', function (evt) {
       let target = evt.target;
+
+      // toggle info-section
+      if (target.classList.contains('info-section-controller')) {
+        mainContentArea.classList
+          .toggle('info-section-active');
+      }
+
+      // switch setting panels
       if (!target.classList.contains('control-icon') && !target.parentElement.classList.contains('control-icon')) {
+        editPan.classList.remove('setting-active');
+        graphPan.classList.remove('setting-active');
+        stylePan.classList.remove('setting-active');
+      }
+
+      // toggle url-input region
+      if (target.classList.contains('url-input-controller') || target.parentElement.classList.contains('url-input-controller')) {
+        mainContentArea.classList
+          .add('url-input-active');
+        editPan.classList.remove('setting-active');
+        graphPan.classList.remove('setting-active');
+        stylePan.classList.remove('setting-active');
+      } else if (target.classList.contains('local-file-controller') || target.parentElement.classList.contains('local-file-controller')) {
+        mainContentArea.classList
+          .remove('url-input-active');
+        editPan.classList.remove('setting-active');
+        graphPan.classList.remove('setting-active');
+        stylePan.classList.remove('setting-active');
+      } else if (target.classList.contains('paste-input-controller') || target.parentElement.classList.contains('paste-input-controller')) {
+        mainContentArea.classList
+          .remove('url-input-active');
         editPan.classList.remove('setting-active');
         graphPan.classList.remove('setting-active');
         stylePan.classList.remove('setting-active');
@@ -569,9 +597,9 @@ if (typeof module !== 'undefined' && module.parent) {
     });
     let infoSection = document.getElementsByClassName('info-section')[0];
     infoSection.addEventListener('click', function () {
-      document.getElementsByClassName('data-table-area')[0]
-        .classList
+      mainContentArea.classList
         .remove('info-section-active');
     });
+
   })();
 }
