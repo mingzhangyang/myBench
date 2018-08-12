@@ -164,6 +164,7 @@ table, tr, th, td {
 }
 th, td {
     overflow-wrap: break-word;
+    padding: 4px;
 }
 tr:nth-child(2n) {
     background-color: rgba(22, 66, 99, .4);
@@ -179,6 +180,7 @@ tbody tr:hover {
 th {
     height: 30px;
     position: relative;
+    padding-right: 12px;
 }
 .my-table-control {
     width: 20px;
