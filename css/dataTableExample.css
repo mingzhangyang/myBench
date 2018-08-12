@@ -19,7 +19,7 @@ body {
 }
 
 .setting-area {
-    width: calc(50% - 60px);
+    width: calc(50% - 90px);
     height: 100%;
     background-color: #f77;
     position: absolute;
@@ -38,7 +38,7 @@ body {
 
 
 .data-preview-area {
-    width: calc(50% - 60px);
+    width: calc(50% - 90px);
     height: 100%;
     background-color: greenyellow;
     position: absolute;
@@ -67,7 +67,7 @@ body {
     position: absolute;
     top: 50%;
     font-size: 32px;
-    left: calc(100% - 54px);
+    left: calc(100% - 24px);
     opacity: .6;
     cursor: pointer;
 }
@@ -120,7 +120,7 @@ input[type="file"] {
     margin-top: 10px;
 }
 input[type="text"], textarea {
-    width: calc(100% - 66px);
+    width: calc(100% - 36px);
     margin-bottom: 10px;
     margin-top: 5px;
     display: block;
@@ -180,7 +180,6 @@ tbody tr:hover {
 th {
     height: 30px;
     position: relative;
-    padding-right: 20px;
 }
 .my-table-control {
     width: 20px;
