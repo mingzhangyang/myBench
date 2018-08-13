@@ -19,7 +19,7 @@ body {
     z-index: 100;
 }
 
-.setting-area {
+.setting-panel {
     width: calc(50% - 90px);
     height: 100%;
     background-color: #f77;
@@ -32,7 +32,22 @@ body {
     z-index: 99;
 }
 
-.setting-active {
+.table-setting-panel-active .table-setting-panel {
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+.graph-setting-panel-active .graph-setting-panel {
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+.style-setting-panel-active .style-setting-panel {
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+.export-setting-panel-active .export-setting-panel {
     transform: translateX(0%);
     opacity: 1;
 }
