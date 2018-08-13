@@ -36,16 +36,15 @@ body {
     opacity: 1;
 }
 
-
-
 .data-preview-area {
-    width: calc(50% - 90px);
+    box-sizing: border-box;
+    width: calc(50% - 60px);
     height: 100%;
     background-color: greenyellow;
     position: absolute;
     left: 60px;
     padding-left: 30px;
-    transition: all .8s;
+    transition: all .6s;
 }
 
 .preview-folded .data-preview-area{
@@ -88,7 +87,7 @@ body {
     position: absolute;
     /*background-color: #f66;*/
     right: 0;
-    transition: all .8s;
+    transition: all .6s;
 }
 
 .control-icon {
@@ -116,7 +115,7 @@ input[type="file"] {
     display: none;
 }
 .url-input {
-    margin-top: -50px;
+    margin-top: -42px;
     transition: all .5s;
 }
 .url-input-active .url-input {
@@ -135,6 +134,7 @@ input[type="text"], textarea {
     margin-bottom: 10px;
     margin-top: 5px;
     display: block;
+    box-sizing: border-box;
 }
 
 .about-col-names {
