@@ -54,6 +54,16 @@
               <label for="paste">Preview or Edit it below</label>
               <textarea id="paste" rows="10"></textarea>
             </div>
+            <div class="about-col-names">
+                <input type="checkbox" id="first-line-as-col-names">
+                <label for="first-line-as-col-names">
+                    Is the first line a collection of column names?
+                </label>
+                <p>If not, please provide a series of column names,
+                    otherwise the default ones will be taken.</p>
+                <input type="text" id="user-defined-col-names">
+            </div>
+            <button id="generate-the-table">Generate</button>
             <div class="fold-indicator">
               <i class="fa fa-angle-double-left"></i>
             </div>
