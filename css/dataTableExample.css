@@ -29,6 +29,7 @@ body {
     transform: translateX(-100%);
     transition: transform 1s, opacity .4s;
     opacity: 0;
+    z-index: 99;
 }
 
 .setting-active {
@@ -51,14 +52,6 @@ body {
     transform: translateX(calc(60px - 100%));
 }
 
-.preview-folded .fold-indicator {
-    opacity: 0;
-}
-
-.preview-folded .unfold-indicator {
-    opacity: .6;
-}
-
 .preview-folded .data-table-area {
     width: calc(100% - 120px);
 }
@@ -67,25 +60,20 @@ body {
     position: absolute;
     top: 50%;
     font-size: 32px;
-    left: calc(100% - 24px);
-    opacity: .6;
+    left: calc(100% - 30px);
+    transform: rotate(180deg);
+    transition: transform .6s;
     cursor: pointer;
 }
 
-.unfold-indicator {
-    position: absolute;
-    top: 50%;
-    font-size: 32px;
-    left: calc(100% - 30px);
-    opacity: 0;
-    cursor: pointer;
+.preview-folded .fold-indicator {
+    transform: rotate(0deg);
 }
 
 .data-table-area {
     width: 50%;
     height: 100%;
     position: absolute;
-    /*background-color: #f66;*/
     right: 0;
     transition: all .6s;
 }

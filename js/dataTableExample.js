@@ -525,12 +525,7 @@ if (typeof module !== 'undefined' && module.parent) {
     let foldIndicator = document.getElementsByClassName('fold-indicator')[0];
     foldIndicator.addEventListener('click', function () {
       mainContentArea.classList
-        .add('preview-folded');
-    });
-    let unfoldIndicator = document.getElementsByClassName('unfold-indicator')[0];
-    unfoldIndicator.addEventListener('click', function () {
-      mainContentArea.classList
-        .remove('preview-folded');
+        .toggle('preview-folded');
     });
 
     // add event listeners to handle switching setting panels
