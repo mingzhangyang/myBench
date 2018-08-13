@@ -562,7 +562,7 @@ if (typeof module !== 'undefined' && module.parent) {
       let target = evt.target;
 
       // toggle info-section
-      if (target.classList.contains('info-section-controller') || target.parentElement.classList.contains('info-section-controller')) {
+      if (target.classList.contains('info-section-controller') || target.parentElement.classList.contains('info-section-controller') || target.parentElement.parentElement.classList.contains('info-section-controller')) {
         mainContentArea.classList
           .toggle('info-section-active');
       }
