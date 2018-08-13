@@ -8,51 +8,51 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div id="data-table-container">
-        <div class="left-side-bar">
-            <div class="control-icon info-section-controller">
-                <i class="fa fa-info"></i>
-                <span>Info</span>
-            </div>
-            <label class="control-icon local-file-controller" for="local">
-                <i class="fa fa-cloud-upload"></i>
-                <span class="as-button">Local</span>
-                <input type="file" id="local">
-            </label>
-            <div class="control-icon paste-input-controller">
-                <i class="fa fa-copy"></i>
-                <span>Paste</span>
-            </div>
-            <div class="control-icon url-input-controller">
-                <i class="fa fa-cloud"></i>
-                <span>Online</span>
-            </div>
-            <div class="control-icon table-setting-panel-controller">
-                <i class="fa fa-edit"></i>
-                <span>Edit</span>
-            </div>
-            <div class="control-icon graph-setting-panel-controller">
-                <i class="fa fa-pie-chart"></i>
-                <span>Graph</span>
-            </div>
-            <div class="control-icon style-setting-panel-controller">
-                <i class="fa fa-magic"></i>
-                <span>Styles</span>
-            </div>
-            <div class="control-icon">
-                <i class="fa fa-download"></i>
-                <span>Export</span>
-            </div>
+<div id="data-table-container">
+    <div class="left-side-bar">
+        <div class="control-icon info-section-controller">
+            <i class="fa fa-info"></i>
+            <span>Info</span>
         </div>
-        <div class="main-content-area preview-unfolded">
-          <div class="data-preview-area">
+        <label class="control-icon local-file-controller" for="local">
+            <i class="fa fa-cloud-upload"></i>
+            <span class="as-button">Local</span>
+            <input type="file" id="local">
+        </label>
+        <div class="control-icon paste-input-controller">
+            <i class="fa fa-copy"></i>
+            <span>Paste</span>
+        </div>
+        <div class="control-icon url-input-controller">
+            <i class="fa fa-cloud"></i>
+            <span>Online</span>
+        </div>
+        <div class="control-icon table-setting-panel-controller">
+            <i class="fa fa-edit"></i>
+            <span>Edit</span>
+        </div>
+        <div class="control-icon graph-setting-panel-controller">
+            <i class="fa fa-pie-chart"></i>
+            <span>Graph</span>
+        </div>
+        <div class="control-icon style-setting-panel-controller">
+            <i class="fa fa-magic"></i>
+            <span>Styles</span>
+        </div>
+        <div class="control-icon">
+            <i class="fa fa-download"></i>
+            <span>Export</span>
+        </div>
+    </div>
+    <div class="main-content-area preview-unfolded">
+        <div class="data-preview-area">
             <div class="url-input">
-              <label for="data-url">Input the url of a file</label>
-              <input type="text" id="data-url" placeholder="http://...">
+                <label for="data-url">Input the url of a file</label>
+                <input type="text" id="data-url" placeholder="http://...">
             </div>
             <div class="preview-block">
-              <label for="paste">Preview or Edit it below</label>
-              <textarea id="paste" rows="10"></textarea>
+                <label for="paste">Preview or Edit it below</label>
+                <textarea id="paste" rows="10"></textarea>
             </div>
             <div class="about-col-names">
                 <input type="checkbox" id="first-line-as-col-names">
@@ -65,23 +65,23 @@
             </div>
             <button id="generate-the-table">Generate</button>
             <div class="fold-indicator">
-              <i class="fa fa-angle-double-right"></i>
+                <i class="fa fa-angle-double-right"></i>
             </div>
-          </div>
-          <div class="style-setting-area setting-area"></div>
-          <div class="table-setting-area setting-area"></div>
-          <div class="graph-setting-area setting-area"></div>
-          <div class="data-table-area">
+        </div>
+        <div class="style-setting-area setting-area"></div>
+        <div class="table-setting-area setting-area"></div>
+        <div class="graph-setting-area setting-area"></div>
+
+        <div class="data-table-area">
             <div class="info-section">
-              <i class="fa fa-remove"></i>
+                <i class="fa fa-remove"></i>
             </div>
             <!--<div id="data-table-visualization-section"></div>-->
             <!--<div id="data-table-change-column-modal"></div>-->
             <table id="my-table"></table>
-          </div>
         </div>
     </div>
-
+</div>
 <!--<script src="../../commonUse/string/splitLine.js"></script>-->
 <script src="../../commonUse/web/dataTable.js"></script>
 <script src="../js/dataTableExample.js"></script>
