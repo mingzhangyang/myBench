@@ -115,7 +115,7 @@ input[type="file"] {
     display: none;
 }
 .url-input {
-    margin-top: -42px;
+    margin-top: -45px;
     transition: all .5s;
 }
 .url-input-active .url-input {
