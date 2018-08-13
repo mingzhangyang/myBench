@@ -528,68 +528,55 @@ if (typeof module !== 'undefined' && module.parent) {
         .toggle('preview-folded');
     });
 
-    // add event listeners to handle switching setting panels
-    let editSt = document.getElementsByClassName('table-setting-panel-controller')[0];
-    let graphSt = document.getElementsByClassName('graph-setting-panel-controller')[0];
-    let styleSt = document.getElementsByClassName('style-setting-panel-controller')[0];
-    let editPan = document.getElementsByClassName('table-setting-area')[0];
-    let graphPan = document.getElementsByClassName('graph-setting-area')[0];
-    let stylePan = document.getElementsByClassName('style-setting-area')[0];
-    editSt.addEventListener('click', function () {
-      editPan.classList.add('setting-active');
-      graphPan.classList.remove('setting-active');
-      stylePan.classList.remove('setting-active');
-    });
-    graphSt.addEventListener('click', function () {
-      editPan.classList.remove('setting-active');
-      graphPan.classList.add('setting-active');
-      stylePan.classList.remove('setting-active');
-    });
-    styleSt.addEventListener('click', function () {
-      editPan.classList.remove('setting-active');
-      graphPan.classList.remove('setting-active');
-      stylePan.classList.add('setting-active');
-    });
-
-    // add event listener to side bar, using object obligation
+    // add event listener to side bar, using event delegation to handle
+    // different control icons
     let sideBar = document.getElementsByClassName('left-side-bar')[0];
     sideBar.addEventListener('click', function (evt) {
       let target = evt.target;
+      let ctrlStateParis = [
+        {
+          ctrl: 'info-section-controller',
+          state: 'info-section-active'
+        }, {
+          ctrl: 'local-file-controller',
+          state: 'local-file-active'
+        },
+        {
+          ctrl: 'paste-input-controller',
+          state: 'paste-input-active'
+        },
+        {
+          ctrl: 'url-input-controller',
+          state: 'url-input-active'
+        },
+        {
+          ctrl: 'table-setting-panel-controller',
+          state: 'table-setting-panel-active'
+        },
+        {
+          ctrl: 'graph-setting-panel-controller',
+          state: 'graph-setting-panel-active'
+        },
+        {
+          ctrl: 'style-setting-panel-controller',
+          state: 'style-setting-panel-active'
+        },
+        {
+          ctrl: 'export-setting-panel-controller',
+          state: 'export-setting-panel-active'
+        }
+      ];
 
-      // toggle info-section
-      if (target.classList.contains('info-section-controller') || target.parentElement.classList.contains('info-section-controller') || target.parentElement.parentElement.classList.contains('info-section-controller')) {
-        mainContentArea.classList
-          .toggle('info-section-active');
-      }
-
-      // switch setting panels
-      if (!target.classList.contains('control-icon') && !target.parentElement.classList.contains('control-icon')) {
-        editPan.classList.remove('setting-active');
-        graphPan.classList.remove('setting-active');
-        stylePan.classList.remove('setting-active');
-      }
-
-      // toggle url-input region
-      if (target.classList.contains('url-input-controller') || target.parentElement.classList.contains('url-input-controller')) {
-        mainContentArea.classList
-          .add('url-input-active');
-        editPan.classList.remove('setting-active');
-        graphPan.classList.remove('setting-active');
-        stylePan.classList.remove('setting-active');
-      } else if (target.classList.contains('local-file-controller') || target.parentElement.classList.contains('local-file-controller')) {
-        mainContentArea.classList
-          .remove('url-input-active');
-        editPan.classList.remove('setting-active');
-        graphPan.classList.remove('setting-active');
-        stylePan.classList.remove('setting-active');
-      } else if (target.classList.contains('paste-input-controller') || target.parentElement.classList.contains('paste-input-controller')) {
-        mainContentArea.classList
-          .remove('url-input-active');
-        editPan.classList.remove('setting-active');
-        graphPan.classList.remove('setting-active');
-        stylePan.classList.remove('setting-active');
+      for (let {ctrl, state} of ctrlStateParis) {
+        if (target.classList.contains(ctrl) || target.parentElement.classList.contains(ctrl)) {
+          mainContentArea.classList.add(state);
+        } else {
+          mainContentArea.classList.remove(state);
+        }
       }
     });
+
+    // add event listener to close icon of info-section
     let infoSection = document.getElementsByClassName('info-section')[0];
     infoSection.addEventListener('click', function () {
       mainContentArea.classList
