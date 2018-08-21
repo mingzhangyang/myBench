@@ -17,7 +17,13 @@ function processRGB(str) {
 }
 
 function processHex(str) {
-  return hex2rgb(str);
+  let res = '';
+  try {
+    res = hex2rgb(str)
+  } catch(err) {
+    return {error: err};
+  }
+  return res;
 }
 
 (function () {
@@ -27,12 +33,21 @@ function processHex(str) {
   let hexCode = document.getElementById('hex-code');
   let show = document.getElementsByClassName('example-show')[0];
   rgb2hex.addEventListener('click', function () {
+    if (rgbCode.value.indexOf(',')) {
+      alert('Please check your RGB code.');
+      return;
+    }
     hexCode.value = processRGB(rgbCode.value);
     show.style.backgroundColor = hexCode.value;
   });
   hex2rgb.addEventListener('click', function () {
-    rgbCode.value = processHex(hexCode.value);
-    show.style.backgroundColor = rgbCode.value;
+    let res = processHex(hexCode.value);
+    if (typeof res === 'object') {
+      alert(res.error);
+      return;
+    }
+    rgbCode.value = res;
+    show.style.backgroundColor = res;
   })
 })();
 
