@@ -130,5 +130,6 @@ Collection</a></li>
 <li><a href="html/countObjects.html" target="_blank">Count objects in an image</a></li>
 <li><a href="html/imageAssistant.html" target="_blank">Manipulate images with CSS and 
 canvas</a></li>
+<li><a href="html/converters.html" target="_blank">Converters</a></li>
 </ul>
 </div>`;
