@@ -19,15 +19,15 @@
             <div class="left-panel vertical-layout-container">
                 <div class="input-box">
                     <label for="rgb-code">RGB</label>
-                    <input type="text" id="rgb-code">
+                    <input type="text" id="rgb-code" value="rgb(255,102,102)">
                 </div>
                 <div class="control-arrows">
-                    <span>&uArr;</span>
-                    <span>&dArr;</span>
+                    <span id="hex2rgb">&uArr;</span>
+                    <span id="rgb2hex">&dArr;</span>
                 </div>
                 <div class="input-box">
                     <label for="hex-code">HEX</label>
-                    <input type="text" id="hex-code">
+                    <input type="text" id="hex-code" value="#ff6666">
                 </div>
             </div>
             <div class="right-panel vertical-layout-container">
@@ -36,5 +36,7 @@
         </div>
     </div>
 </div>
+<script type="application/javascript" src="../../commonUse/web/hex2rgb.js"></script>
+<script src="../js/converters.js"></script>
 </body>
 </html>
