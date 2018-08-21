@@ -7,26 +7,36 @@
     <link rel="stylesheet" href="../css/converters.css">
 </head>
 <body>
-<div id="container">
-    <div class="unit-block">
-        <div class="unit-name">
-
+<div id="container" class="vertical-layout-container">
+    <div class="app-header horizontal-layout-container">
+        <span>Converters</span>
+    </div>
+    <div class="unit-block vertical-layout-container">
+        <div class="unit-name horizontal-layout-container">
+            <span>RGB - HEX Converter</span>
         </div>
-        <div class="content-area color-converter">
-            <div class="input-box">
-                <label for="rgb-code">RGB</label>
-                <input type="text" id="rgb-code">
+        <div class="content-area color-converter horizontal-layout-container">
+            <div class="left-panel vertical-layout-container">
+                <div class="input-box">
+                    <label for="rgb-code">RGB</label>
+                    <input type="text" id="rgb-code" value="rgb(255,102,102)">
+                </div>
+                <div class="control-arrows">
+                    <span id="hex2rgb">&uArr;</span>
+                    <span id="rgb2hex">&dArr;</span>
+                </div>
+                <div class="input-box">
+                    <label for="hex-code">HEX</label>
+                    <input type="text" id="hex-code" value="#ff6666">
+                </div>
             </div>
-            <div class="control-arrows">
-                <span>&uArr;</span>
-                <span>&dArr;</span>
-            </div>
-            <div class="input-box">
-                <label for="hex-code">HEX</label>
-                <input type="text" id="hex-code">
+            <div class="right-panel vertical-layout-container">
+                <div class="example-show"></div>
             </div>
         </div>
     </div>
 </div>
+<script type="application/javascript" src="../../commonUse/web/hex2rgb.js"></script>
+<script src="../js/converters.js"></script>
 </body>
 </html>
