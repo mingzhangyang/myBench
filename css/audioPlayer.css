@@ -1,23 +1,15 @@
 body {
     margin: 0;
 }
-#container {
-    width: 1000px;
-    margin: 100px auto;
-    border: 1px dotted dodgerblue;
-}
-#audio-player .control-icons {
-    background-color: darkblue;
-    opacity: .5;
-    width: 600px;
-    height: 100px;
-    margin: auto;
-}
+
+
+
+/*generic classes*/
 .horizontal-layout-container {
     display: flex;
     flex-direction: row;
     align-items: center;
-    /*justify-content: flex-start;*/
+    justify-content: center;
 }
 .vertical-layout-container {
     display: flex;
@@ -25,6 +17,25 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+
+
+
+/*whole page layouts*/
+#container {
+    width: 1000px;
+    margin: 100px auto;
+    border: 1px dotted dodgerblue;
+}
+#audio-player .control-icons {
+    justify-content: flex-start;
+    background-color: darkblue;
+    opacity: .5;
+    width: 600px;
+    height: 100px;
+    margin: auto;
+}
+
 #audio-player .lyrics-area {
     background-color: aliceblue;
     width: 600px;
@@ -32,17 +43,58 @@ body {
     margin: auto;
 }
 
-.start-pause-icon {
+
+
+
+/*local-level layouts*/
+.control-icon {
+    margin-left: 30px;
+    position: relative;
+}
+.ripple-background {
+    position: absolute;
+    background-color: #00d6b2;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border-radius: 50%;
+}
+
+.control-icon-active .ripple-background {
+    animation: ripple .5s;
+}
+
+@keyframes ripple {
+    from {
+        opacity: .4;
+        transform: scale(.9);
+    }
+    to {
+        opacity: .2;
+        transform: scale(1.3);
+    }
+}
+.wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 50%;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#start-pause-icon {
     width: 60px;
     height: 60px;
     border: 1px solid white;
-    position: relative;
     border-radius: 50%;
-    margin-left: 20px;
     padding: 0;
 }
 
-.start-pause-icon .triangle-right {
+.triangle-right {
     display: block;
     width: 0;
     height: 0;
@@ -51,14 +103,14 @@ body {
     border-bottom: 18px solid transparent;
     margin-left: 10px;
 }
-.start-pause-icon .bars-two {
+.bars-two {
     display: block;
     width: 40px;
     height: 40px;
     text-align: center;
     position: relative;
 }
-.start-pause-icon .bars-two div {
+.bars-two div {
     display: inline-block;
     width: 10px;
     height: 30px;
@@ -72,4 +124,116 @@ body {
 }
 .playing .triangle-right {
     display: none;
+}
+
+
+
+#last-track-icon, #next-track-icon {
+    width: 40px;
+    height: 40px;
+}
+
+#last-track-icon .wrapper div:nth-child(1) {
+    width: 6px;
+    height: 30px;
+    background-color: white;
+    margin-right: 2px;
+}
+#last-track-icon .wrapper div:nth-child(2) {
+    width: 0;
+    height: 0;
+    border-right: 15px solid white;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+}
+
+#next-track-icon .wrapper div:nth-child(1) {
+    width: 0;
+    height: 0;
+    border-left: 15px solid white;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+}
+#next-track-icon .wrapper div:nth-child(2) {
+    width: 6px;
+    height: 30px;
+    background-color: white;
+    margin-left: 2px;
+}
+
+#loop-order-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.arrow {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    margin-top: -1px;
+}
+
+.arrow-up-right {
+    transform: rotate(-45deg);
+}
+.arrow-down-right {
+    transform: rotate(45deg);
+}
+
+.arrow-block-long-bar {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+}
+.arrow-block-short-bar {
+    width: 30%;
+    height: 300%;
+    top: -100%;
+    position: absolute;
+    left: 35%;
+}
+.arrow-block-triangle {
+    position: absolute;
+    right: -2px;
+    top: -3px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid white;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+}
+
+.randomly-ordered .arrow-block-long-bar {
+    background-color: orange;
+}
+.randomly-ordered .arrow-block-triangle {
+    border-left-color: orange;
+}
+
+
+
+#progress-bar {
+    width: 200px;
+    height: 20px;
+    margin-left: 50px;
+}
+
+.progress-line-fixed {
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    top: 50%;
+    margin-top: -2px;
+    background-color: gray;
+}
+
+.progress-line-dynamic {
+    width: 20%;
+    height: 4px;
+    position: absolute;
+    top: 50%;
+    margin-top: -2px;
+    background-color: #f66;
 }
