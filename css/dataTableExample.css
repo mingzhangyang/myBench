@@ -216,32 +216,37 @@ th {
     position: relative;
     padding-right: 20px;
 }
-.my-table-control {
+.table-sorting-control-container {
     width: 20px;
-    height: 100%;
-    /*   background-color: grey; */
+    height: 80%;
     display: inline-flex;
     position: absolute;
     right: 0;
-    top: 0;
+    top: 10%;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     opacity: .5;
 }
-.data-table-up-control {
+
+.table-sorting-control {
     display: block;
     width: 0;
     height: 0;
-    border-bottom: 10px solid #000;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    cursor: pointer;
+    opacity: .3;
 }
-.data-table-down-control {
-    display: block;
-    width: 0;
-    height: 0;
-    border-top: 10px solid #000;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
+
+.table-sorting-up-control {
+    border-bottom: 8px solid #000;
 }
+.table-sorting-down-control {
+    border-top: 8px solid #000;
+}
+
+.table-sorting-control-active {
+    opacity: 1;
+}
+
