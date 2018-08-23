@@ -189,33 +189,50 @@ input[type="text"], textarea {
     width: 100%;
 }
 #my-table-table-section {
-    width: 100%;
+    width: calc(100% - 8px);
+    position: relative;
+    left: 4px;
 }
+table {
+    table-layout: fixed;
+    margin-bottom: 12px;
+}
+th.table-row-index-column {
+    width: 30px;
+}
+
 table, tr, th, td {
-    border: 1px dotted dodgerblue;
-    border-collapse: separate;
+    border: 1px solid rgb(204, 204, 204);
+    border-collapse: collapse;
 }
+th {
+    height: 30px;
+    position: relative;
+    color: #2f5777;
+    background-color: #f2f2f2;
+}
+
 th, td {
     overflow-wrap: break-word;
-    padding: 2px 4px;
+    padding: 6px 4px;
     font-size: 12px;
+    /*width: 100px;*/
 }
-tr:nth-child(2n) {
-    background-color: rgba(22, 66, 99, .4);
+tr:nth-child(even){
+    background-color: #f2f2f2;
 }
 tbody tr:hover {
-    background-color: #f88;
+    background-color: #f2f2f2;
+}
+.table-row-index-column {
+    text-align: center;
 }
 #my-table-pager-section {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-th {
-    height: 30px;
-    position: relative;
-    padding-right: 20px;
-}
+
 .table-sorting-control-container {
     width: 20px;
     height: 80%;
@@ -250,3 +267,7 @@ th {
     opacity: 1;
 }
 
+.table-page-control-container select {
+    margin-left: 10px;
+    height: 24px;
+}
