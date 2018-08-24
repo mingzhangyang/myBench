@@ -52,15 +52,46 @@
             </div>
             <div class="preview-block">
                 <label for="paste">Preview or Edit it below</label>
-                <textarea id="paste" rows="10"></textarea>
+                <textarea wrap="off" id="paste" rows="30"></textarea>
             </div>
             <div class="about-col-names">
-                <input type="checkbox" id="first-line-as-col-names">
-                <label for="first-line-as-col-names">
+                <span>
+                    If not a JSON array, but CSV or TSV, please specify the
+                    delimiter below.
+                </span>
+                <form action="" id="delimiter-type">
+                    <label class="radio-input-container">
+                        <input type="radio" name="delimiter"
+                               value="false">&nbspComa
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-input-container">
+                        <input type="radio" name="delimiter"
+                               value="false">&nbspTab
+                        <span class="checkmark"></span>
+                    </label>
+                    <label for="custom-delimiter">If not coma or tabl,
+                        please specify the custom delimiter:
+                    </label>
+                    <input type="text" id="custom-delimiter">
+                </form>
+                <span>
                     Is the first line a collection of column names?
-                </label>
-                <p>If not, please provide a series of column names,
-                    otherwise the default ones will be taken.</p>
+                </span>
+                <form action="" id="first-line-as-col-names">
+                    <label class="radio-input-container">
+                        <input type="radio" name="flacn" value="true">&nbspYes
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-input-container">
+                        <input type="radio" name="flacn" value="false">&nbspNo
+                        <span class="checkmark"></span>
+                    </label>
+                </form>
+                <p>
+                    If not, please provide a series of column names separate
+                    by coma, otherwise the default ones will be taken.
+                </p>
                 <input type="text" id="user-defined-col-names">
             </div>
             <button id="generate-the-table">Generate</button>
