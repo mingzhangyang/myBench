@@ -14,7 +14,7 @@ body {
 .left-side-bar {
     width: 60px;
     height: 100%;
-    background-color: #0090ff;
+    background-color: palegoldenrod;
     position: fixed;
     z-index: 100;
 }
@@ -22,7 +22,7 @@ body {
 .setting-panel {
     width: calc(50% - 90px);
     height: 100%;
-    background-color: #f77;
+    background-color: #ffe1bb;
     position: fixed;
     left: 60px;
     padding-left: 30px;
@@ -56,7 +56,7 @@ body {
     box-sizing: border-box;
     width: calc(50% - 60px);
     height: 100%;
-    background-color: greenyellow;
+    background-color: #efefef;
     position: fixed;
     left: 60px;
     padding-left: 30px;
@@ -94,24 +94,24 @@ body {
 }
 
 .control-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: orange;
-    margin-top: 5px;
-    margin-left: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: darkkhaki;
+    margin-top: 10px;
+    margin-left: 10px;
     position: relative;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    color: white;
+    color: #f5f5dc;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 .control-icon label, .control-icon span {
-    font-size: 12px;
+    font-size: 10px;
 }
 
 input[type="file"] {
