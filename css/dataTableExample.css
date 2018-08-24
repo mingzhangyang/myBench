@@ -201,7 +201,7 @@ th.table-row-index-column {
 }
 
 table, tr, th, td {
-    border: 1px solid rgb(204, 204, 204);
+    border: 1px solid #ccc;
     border-collapse: collapse;
 }
 th {
@@ -301,10 +301,10 @@ tbody tr:hover {
     height: 20px;
     text-align: center;
     margin: 0 8px;
-    border: none;
+    border: 1px solid #ccc;
     outline: none;
-    background-color: #369;
 }
 #table-page-number-total {
+    border: none;
     background-color: transparent;
 }
