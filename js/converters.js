@@ -12,6 +12,7 @@
     } catch (err) {
       return {error: err};
     }
+    return res;
   }
 
   function processHex(str) {
@@ -24,12 +25,12 @@
     return res;
   }
 
-  let rgb2hex = document.getElementById('rgb2hex');
-  let hex2rgb = document.getElementById('hex2rgb');
+  let rgb2hexArrow = document.getElementById('rgb2hex');
+  let hex2rgbArrow = document.getElementById('hex2rgb');
   let rgbCode = document.getElementById('rgb-code');
   let hexCode = document.getElementById('hex-code');
   let show = document.getElementsByClassName('example-show')[0];
-  rgb2hex.addEventListener('click', function () {
+  rgb2hexArrow.addEventListener('click', function () {
     let res = processRGB(rgbCode.value);
     if (typeof res === 'object') {
       console.log(res.error); // debugging
@@ -39,7 +40,7 @@
     hexCode.value = res;
     show.style.backgroundColor = res;
   });
-  hex2rgb.addEventListener('click', function () {
+  hex2rgbArrow.addEventListener('click', function () {
     let res = processHex(hexCode.value);
     if (typeof res === 'object') {
       console.log(res.error); // debugging
