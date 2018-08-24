@@ -145,5 +145,40 @@ if (typeof module !== 'undefined' && module.parent) {
         .remove('info-section-active');
     });
 
+    // add event listener to selecting local file
+    let localFileSelector = document.getElementById('local');
+    let textArea = document.getElementById('paste');
+    localFileSelector.addEventListener('change', function () {
+      let file = this.files[0];
+      let re = /.+\.((csv)|(tsv)|(txt)|(json)$/i;
+      if (!re.test(file.name)) {
+        alert('Expected file types: .txt, .csv, .tsv');
+        return;
+      }
+      let reader = new FileReader();
+      reader.onload = function() {
+        textArea.value = this.result;
+      };
+      reader.onerror = function () {
+        alert('Error happens reading the file.');
+      };
+      reader.readAsText(file);
+    });
+
+    let inp = document.getElementById('custom-delimiter');
+    inp.addEventListener('focus', function() {
+      let cb = document.getElementsByName('delimiter');
+      cb[0].checked = false;
+      cb[1].checked = false;
+    });
+
+    // add event listener to generate button
+    let generateBtn = document.getElementById('generate-the-table');
+    let firstLineAsColNames = document.getElementById('first-line-as-col-names')['flacn'].value;
+    let colNamesByUser = document.getElementById('user-defined-col-names');
+
+    generateBtn.addEventListener('click', function () {
+
+    });
   })();
 }
