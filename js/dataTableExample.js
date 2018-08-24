@@ -174,11 +174,13 @@ if (typeof module !== 'undefined' && module.parent) {
 
     // add event listener to generate button
     let generateBtn = document.getElementById('generate-the-table');
+    let delimiterValue = document.getElementById('delimiter-type')['delimiter'].value;
+    let custDeli = document.getElementById('custom-delimiter').value;
     let firstLineAsColNames = document.getElementById('first-line-as-col-names')['flacn'].value;
     let colNamesByUser = document.getElementById('user-defined-col-names');
 
     generateBtn.addEventListener('click', function () {
-
+      
     });
   })();
 }
