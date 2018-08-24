@@ -86,10 +86,10 @@ body {
 }
 
 .data-table-area {
-    width: 50%;
+    width: calc(50% - 4px);
     height: 100%;
     position: absolute;
-    right: 0;
+    right: 2px;
     transition: all .6s;
 }
 
@@ -189,9 +189,8 @@ input[type="text"], textarea {
     width: 100%;
 }
 #my-table-table-section {
-    width: calc(100% - 8px);
+    width: 100%;
     position: relative;
-    left: 4px;
 }
 table {
     table-layout: fixed;
