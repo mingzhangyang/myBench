@@ -150,7 +150,7 @@ if (typeof module !== 'undefined' && module.parent) {
     let textArea = document.getElementById('paste');
     localFileSelector.addEventListener('change', function () {
       let file = this.files[0];
-      let re = /.+\.((csv)|(tsv)|(txt)|(json)$/i;
+      let re = /.+\.((csv)|(tsv)|(txt)|(json))$/i;
       if (!re.test(file.name)) {
         alert('Expected file types: .txt, .csv, .tsv');
         return;
@@ -174,13 +174,18 @@ if (typeof module !== 'undefined' && module.parent) {
 
     // add event listener to generate button
     let generateBtn = document.getElementById('generate-the-table');
-    let delimiterValue = document.getElementById('delimiter-type')['delimiter'].value;
-    let custDeli = document.getElementById('custom-delimiter').value;
-    let firstLineAsColNames = document.getElementById('first-line-as-col-names')['flacn'].value;
-    let colNamesByUser = document.getElementById('user-defined-col-names');
 
     generateBtn.addEventListener('click', function () {
-      
+      // pull out user settings
+      let delimiterValue = document.getElementById('delimiter-type')['delimiter'].value;
+      let custDeli = document.getElementById('custom-delimiter').value;
+      let firstLineAsColNames = document.getElementById('first-line-as-col-names')['flacn'].value;
+      let colNamesByUser = document.getElementById('user-defined-col-names').value;
+
+      // determine the file type
+      let str = document.getElementById('paste').value.trim();
+
+
     });
   })();
 }
