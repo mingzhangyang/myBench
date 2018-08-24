@@ -86,10 +86,10 @@ body {
 }
 
 .data-table-area {
-    width: calc(50% - 4px);
+    width: calc(50% - 20px);
     height: 100%;
     position: absolute;
-    right: 2px;
+    right: 18px;
     transition: all .6s;
 }
 
