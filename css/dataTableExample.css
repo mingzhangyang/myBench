@@ -68,7 +68,7 @@ body {
 }
 
 .preview-folded .data-table-area {
-    width: calc(100% - 120px);
+    width: calc(100% - 140px);
 }
 
 .fold-indicator {
