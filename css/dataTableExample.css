@@ -269,6 +269,7 @@ tbody tr:hover {
 .table-page-control-container select {
     margin-left: 10px;
     height: 24px;
+    border: 1px solid #ccc;
 }
 
 .table-page-number-control-container {
