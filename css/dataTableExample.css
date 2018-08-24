@@ -15,7 +15,7 @@ body {
     width: 60px;
     height: 100%;
     background-color: #0090ff;
-    position: absolute;
+    position: fixed;
     z-index: 100;
 }
 
@@ -23,7 +23,7 @@ body {
     width: calc(50% - 90px);
     height: 100%;
     background-color: #f77;
-    position: absolute;
+    position: fixed;
     left: 60px;
     padding-left: 30px;
     transform: translateX(-100%);
@@ -57,7 +57,7 @@ body {
     width: calc(50% - 60px);
     height: 100%;
     background-color: greenyellow;
-    position: absolute;
+    position: fixed;
     left: 60px;
     padding-left: 30px;
     transition: all .6s;
