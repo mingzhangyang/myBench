@@ -19,14 +19,14 @@
             <span class="as-button">Local</span>
             <input type="file" id="local">
         </label>
-        <div class="control-icon paste-input-controller">
+        <a href="#paste" class="control-icon paste-input-controller">
             <i class="fa fa-copy"></i>
             <span>Paste</span>
-        </div>
-        <div class="control-icon url-input-controller">
+        </a>
+        <a href="#remote-file" class="control-icon url-input-controller">
             <i class="fa fa-cloud"></i>
             <span>Online</span>
-        </div>
+        </a>
         <div class="control-icon table-setting-panel-controller">
             <i class="fa fa-edit"></i>
             <span>Edit</span>
@@ -46,7 +46,7 @@
     </div>
     <div class="main-content-area">
         <div class="data-preview-area">
-            <div class="url-input">
+            <div id="remote-file" class="url-input">
                 <label for="data-url">Input the url of a file</label>
                 <input type="text" id="data-url" placeholder="http://...">
             </div>
