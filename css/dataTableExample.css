@@ -20,7 +20,8 @@ body {
 }
 
 .setting-panel {
-    width: calc(50% - 90px);
+    box-sizing: border-box;
+    width: calc(50% - 60px);
     height: 100%;
     background-color: cornsilk;
     position: fixed;
