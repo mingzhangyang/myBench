@@ -110,6 +110,7 @@ body {
     color: #f5f5dc;
     cursor: pointer;
     font-size: 18px;
+    text-decoration: none;
 }
 
 .control-icon label, .control-icon span {
