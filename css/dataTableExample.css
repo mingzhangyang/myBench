@@ -135,7 +135,7 @@ input[type="text"] {
 
 input[type="text"], textarea {
     width: calc(100% - 66px);
-    padding: 6px;
+    padding: 4px;
     margin-bottom: 16px;
     margin-top: 5px;
     display: block;
