@@ -191,8 +191,8 @@ input[type="text"], textarea {
     display: block;
     position: relative;
     padding-left: 24px;
-    margin-top: 12px;
-    margin-bottom: 12px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     cursor: pointer;
     font-size: 14px;
     -webkit-user-select: none;
