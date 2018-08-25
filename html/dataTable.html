@@ -62,7 +62,7 @@
                 <form action="" id="delimiter-type">
                     <label class="radio-input-container">
                         <input type="radio" name="delimiter"
-                               value="comma">&nbspComma
+                               value="comma" checked>&nbspComma
                         <span class="checkmark"></span>
                     </label>
                     <label class="radio-input-container">
@@ -75,19 +75,10 @@
                     </label>
                     <input type="text" id="custom-delimiter">
                 </form>
-                <span>
-                    Is the first line a collection of column names?
-                </span>
-                <form action="" id="first-line-as-col-names">
-                    <label class="radio-input-container">
-                        <input type="radio" name="flacn" value="true">&nbspYes
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="radio-input-container">
-                        <input type="radio" name="flacn" value="false">&nbspNo
-                        <span class="checkmark"></span>
-                    </label>
-                </form>
+                <input type="checkbox" id="first-line-as-col-names">
+                <label for="first-line-as-col-names">
+                    Check if the first line is a list of column names.
+                </label>
                 <p>
                     If not, please provide a series of column names separate
                     by coma, otherwise the default ones will be taken.
