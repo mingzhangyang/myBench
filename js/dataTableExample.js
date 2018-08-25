@@ -77,6 +77,7 @@ if (typeof module !== 'undefined' && module.parent) {
 } else if (typeof window !== 'undefined') {
   document.body.onload = function () {
     document.getElementById('paste').value = JSON.stringify(exampleData, null, '    ');
+    console.log(JSON.stringify(exampleData, null, '    '));
     let dt = new DataTable(exampleData, 'my-table');
     dt.generate();
     // console.log(dt);
