@@ -30,9 +30,9 @@ function splitLineB(s, sep) {
   return array;
 }
 
-function csvString2JSON(str, firstLineAsColName) {
+function csvString2JSON(str, delimiter, firstLineAsColName) {
   let arr = str.split('\n').map(line => line.trim());
-  arr = arr.map(line => splitLineB(line));
+  arr = arr.map(line => splitLineB(line, delimiter));
   let colNames = [];
   let num = 0;
   if (firstLineAsColName) {
@@ -76,9 +76,10 @@ if (typeof module !== 'undefined' && module.parent) {
   // test code go here
 } else if (typeof window !== 'undefined') {
   document.body.onload = function () {
+    document.getElementById('paste').value = exampleData;
     let dt = new DataTable(exampleData, 'my-table');
     dt.generate();
-    console.log(dt);
+    // console.log(dt);
   };
   (function addEventListeners (){
     let mainContentArea = document.getElementsByClassName('main-content-area')[0];
@@ -185,7 +186,43 @@ if (typeof module !== 'undefined' && module.parent) {
       // determine the file type
       let str = document.getElementById('paste').value.trim();
 
-
+      // if the first char is not [, it can't be JSON
+      if (str.charAt(0) !== '[') {
+        let sep = '';
+        if (delimiterValue && !custDeli) {
+          sep = delimiterValue === 'tab' ? '\t' : ',';
+        }
+        if (!delimiterValue && custDeli) {
+          sep = custDeli;
+        }
+        if (!sep) {
+          alert('delimiter not set');
+          return;
+        }
+        let firstLine = false;
+        if (firstLineAsColNames === 'true') {
+          firstLine = true;
+        }
+        let data;
+        try {
+          data = csvString2JSON(str, sep, firstLine);
+        } catch (err) {
+          alert('failed to convert data into JSON');
+          return;
+        }
+        let dt = new DataTable(data, 'my-table');
+        dt.generate();
+      } else {
+        let data;
+        try {
+          data = JSON.parse(str);
+        } catch (err) {
+          alert('failed to parse data into JSON');
+          return;
+        }
+        let dt = new DataTable(data, 'my-table');
+        dt.generate();
+      }
     });
   })();
 }
