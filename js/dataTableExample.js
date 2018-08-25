@@ -181,7 +181,7 @@ if (typeof module !== 'undefined' && module.parent) {
       // pull out user settings
       let delimiterValue = document.getElementById('delimiter-type')['delimiter'].value;
       let custDeli = document.getElementById('custom-delimiter').value;
-      let firstLineAsColNames = document.getElementById('first-line-as-col-names')['flacn'].value;
+      let firstLineAsColNames = document.getElementById('first-line-as-col-names').value;
       let colNamesByUser = document.getElementById('user-defined-col-names').value;
 
       // determine the file type
@@ -200,13 +200,10 @@ if (typeof module !== 'undefined' && module.parent) {
           alert('delimiter not set');
           return;
         }
-        let firstLine = false;
-        if (firstLineAsColNames === 'true') {
-          firstLine = true;
-        }
+
         let data;
         try {
-          data = csvString2JSON(str, sep, firstLine);
+          data = csvString2JSON(str, sep, firstLineAsColNames);
         } catch (err) {
           alert('failed to convert data into JSON');
           return;
