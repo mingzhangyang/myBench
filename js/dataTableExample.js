@@ -76,7 +76,7 @@ if (typeof module !== 'undefined' && module.parent) {
   // test code go here
 } else if (typeof window !== 'undefined') {
   document.body.onload = function () {
-    document.getElementById('paste').value = exampleData;
+    document.getElementById('paste').value = JSON.stringify(exampleData, null, '    ');
     let dt = new DataTable(exampleData, 'my-table');
     dt.generate();
     // console.log(dt);
