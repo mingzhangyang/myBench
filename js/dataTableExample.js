@@ -181,9 +181,10 @@ if (typeof module !== 'undefined' && module.parent) {
       // pull out user settings
       let delimiterValue = document.getElementById('delimiter-type')['delimiter'].value;
       let custDeli = document.getElementById('custom-delimiter').value;
-      let firstLineAsColNames = document.getElementById('first-line-as-col-names').value;
+      let firstLineAsColNames = document.getElementById('first-line-as-col-names').checked;
       let colNamesByUser = document.getElementById('user-defined-col-names').value;
 
+      // console.log(firstLineAsColNames);
       // determine the file type
       let str = document.getElementById('paste').value.trim();
 
