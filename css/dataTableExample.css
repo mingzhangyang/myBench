@@ -61,6 +61,7 @@ body {
     position: fixed;
     left: 60px;
     padding-left: 30px;
+    overflow-y: auto;
     transition: all .6s;
 }
 
