@@ -17,6 +17,7 @@ body {
     --generate-the-table-color: white;
     --info-section-background-color: aliceblue;
     --info-section-color: #f88;
+    --candidate-color: #6f42c1;
 }
 
 #data-table-container {
