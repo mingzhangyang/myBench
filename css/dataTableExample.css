@@ -1,20 +1,35 @@
 body {
     font-family: 'Helvetica Neue',HelveticaNeue,TeXGyreHeros,FreeSans,'Nimbus Sans L','Liberation Sans',Helvetica,Arial,sans-serif;
-    color: #333;
-    background-color: #fcfcfc;
     counter-reset: option;
     margin: 0;
     font-size: 12px;
 }
+
+.default-scheme {
+    --container-background-color: #fcfcfc;
+    ---container-front-color: #333;
+    --left-side-bar-background-color: #ccc;
+    --control-icon-background-color: cornflowerblue;
+    --control-icon-color: #f5f5dc;
+    --setting-panel-background-color: cornsilk;
+    --data-preview-area-background-color: #efefef;
+    --generate-the-table-background-color: darkturquoise;
+    --generate-the-table-color: white;
+    --info-section-background-color: aliceblue;
+    --info-section-color: #f88;
+}
+
 #data-table-container {
     width: 100vw;
     height: 100vh;
     position: relative;
+    background-color: var(--container-background-color);
+    color: var(---container-front-color);
 }
 .left-side-bar {
     width: 60px;
     height: 100%;
-    background-color: #ccc;
+    background-color: var(--left-side-bar-background-color);
     position: fixed;
     z-index: 100;
 }
@@ -23,7 +38,7 @@ body {
     box-sizing: border-box;
     width: calc(50% - 60px);
     height: 100%;
-    background-color: cornsilk;
+    background-color: var(--setting-panel-background-color);
     position: fixed;
     left: 60px;
     padding-left: 30px;
@@ -57,7 +72,7 @@ body {
     box-sizing: border-box;
     width: calc(50% - 60px);
     height: 100%;
-    background-color: #efefef;
+    background-color: var(--data-preview-area-background-color);
     position: fixed;
     left: 60px;
     padding-left: 30px;
@@ -99,7 +114,7 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 8px;
-    background-color: cornflowerblue;
+    background-color: var(--container-background-color);
     margin-top: 10px;
     margin-left: 10px;
     position: relative;
@@ -107,7 +122,7 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    color: #f5f5dc;
+    color: var(--control-icon-color);
     cursor: pointer;
     font-size: 18px;
     text-decoration: none;
@@ -151,13 +166,13 @@ input[type="text"], textarea {
 }
 
 #generate-the-table {
-    background-color: darkturquoise;
+    background-color: var(--generate-the-table-background-color);
     width: 120px;
     height: 36px;
     border-radius: 10px;
     line-height: 30px;
     text-align: center;
-    color: white;
+    color: var(--generate-the-table-color);
     font-size: 18px;
     border: 1px solid transparent;
     cursor: pointer;
@@ -168,10 +183,10 @@ input[type="text"], textarea {
     width: 100%;
     height: 300px;
     position: relative;
-    background-color: aliceblue;
+    background-color: var(--info-section-background-color);
     margin-top: -300px;
     font-size: 24px;
-    color: #f88;
+    color: var(--info-section-color);
     transition: all .5s;
 }
 .info-section-active .info-section {
@@ -259,7 +274,13 @@ input[type="text"], textarea {
 
 
 
-
+.default-table-scheme {
+    --border-color: #ccc;
+    --hover-color: #f2f2f2;
+    --font-color: #369;
+    --icon-color: #369;
+    --sorting-icon-color: #000;
+}
 
 
 
@@ -283,14 +304,14 @@ th.table-row-index-column {
 }
 
 table, tr, th, td {
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-collapse: collapse;
 }
 th {
     height: 30px;
     position: relative;
-    color: #2f5777;
-    background-color: #f2f2f2;
+    color: var(--font-color);
+    background-color: var(--hover-color);
 }
 
 th, td {
@@ -300,10 +321,10 @@ th, td {
     /*width: 100px;*/
 }
 tr:nth-child(even){
-    background-color: #f2f2f2;
+    background-color: var(--hover-color);
 }
 tbody tr:hover {
-    background-color: #f2f2f2;
+    background-color: var(--hover-color);
 }
 .table-row-index-column {
     text-align: center;
@@ -338,10 +359,10 @@ tbody tr:hover {
 }
 
 .table-sorting-up-control {
-    border-bottom: 8px solid #000;
+    border-bottom: 8px solid var(--sorting-icon-color);
 }
 .table-sorting-down-control {
-    border-top: 8px solid #000;
+    border-top: 8px solid var(--sorting-icon-color);
 }
 
 .table-sorting-control-active {
@@ -351,7 +372,7 @@ tbody tr:hover {
 .table-page-control-container select {
     margin-left: 10px;
     height: 24px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
 }
 
 .table-page-number-control-container {
@@ -371,10 +392,10 @@ tbody tr:hover {
     cursor: pointer;
 }
 .table-page-number-minus-one {
-    border-right: 10px solid #369;
+    border-right: 10px solid var(--icon-color);
 }
 .table-page-number-plus-one {
-    border-left: 10px solid #369;
+    border-left: 10px solid var(--icon-color);
 }
 .table-page-number-current-container {
     margin: 4px;
@@ -384,7 +405,7 @@ tbody tr:hover {
     height: 20px;
     text-align: center;
     margin: 0 8px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     outline: none;
 }
 #table-page-number-total {
