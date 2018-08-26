@@ -114,7 +114,7 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 8px;
-    background-color: var(--container-background-color);
+    background-color: var(--control-icon-background-color);
     margin-top: 10px;
     margin-left: 10px;
     position: relative;
@@ -277,7 +277,7 @@ input[type="text"], textarea {
 .default-table-scheme {
     --border-color: #ccc;
     --hover-color: #f2f2f2;
-    --font-color: #369;
+    --font-color: #2f5777;
     --icon-color: #369;
     --sorting-icon-color: #000;
 }
