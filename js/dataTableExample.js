@@ -203,6 +203,7 @@ if (typeof module !== 'undefined' && module.parent) {
         alert('Error happens.\n' + oReq.status + '\n' + oReq.statusText);
       });
       oReq.open('GET', this.value, true);
+      oReq.setRequestHeader('Access-Control-Allow-Origin', '*');
       oReq.send();
     });
 
