@@ -200,8 +200,11 @@ input[type="text"], textarea {
 }
 
 #custom-delimiter {
-    width: 40px;
+    width: 30px;
+    height: 24px;
     text-align: center;
+    display: inline-block;
+    margin-left: 12px;
 }
 
 
@@ -231,10 +234,10 @@ input[type="text"], textarea {
 /* Create a custom radio button */
 .checkmark {
     position: absolute;
-    top: -1px;
+    top: 0;
     left: 4px;
-    height: 16px;
-    width: 16px;
+    height: 12px;
+    width: 12px;
     background-color: #cbbeb5;
     border-radius: 50%;
 }
@@ -263,10 +266,10 @@ input[type="text"], textarea {
 
 /* Style the indicator (dot/circle) */
 .radio-input-container .checkmark:after {
-    top: 5px;
-    left: 5px;
-    width: 6px;
-    height: 6px;
+    top: 4px;
+    left: 4px;
+    width: 4px;
+    height: 4px;
     border-radius: 50%;
     background: white;
 }
