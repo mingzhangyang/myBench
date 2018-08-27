@@ -57,38 +57,44 @@
                 <textarea wrap="off" id="paste" rows="25"></textarea>
             </div>
             <div class="about-col-names">
-                <span>
+                <div class="user-params">
+                    <span>
                     If not a JSON array, but CSV or TSV, please specify the
                     delimiter below.
                 </span>
-                <form action="" id="delimiter-type">
-                    <label class="radio-input-container">
-                        <input type="radio" name="delimiter"
-                               value="comma" checked>&nbspComma
-                        <span class="checkmark"></span>
+                    <form action="" id="delimiter-type">
+                        <label class="radio-input-container">
+                            <input type="radio" name="delimiter"
+                                   value="comma" checked>&nbspComma
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="radio-input-container">
+                            <input type="radio" name="delimiter"
+                                   value="tab">&nbspTab
+                            <span class="checkmark"></span>
+                        </label>
+                        <label for="custom-delimiter">If not comma or tab,
+                            please specify the custom delimiter:
+                        </label>
+                        <input type="text" id="custom-delimiter">
+                    </form>
+                </div>
+                <div class="user-params">
+                    <input type="checkbox" id="first-line-as-col-names">
+                    <label for="first-line-as-col-names">
+                        Check if the first line is a list of column names.
                     </label>
-                    <label class="radio-input-container">
-                        <input type="radio" name="delimiter"
-                               value="tab">&nbspTab
-                        <span class="checkmark"></span>
-                    </label>
-                    <label for="custom-delimiter">If not comma or tab,
-                        please specify the custom delimiter:
-                    </label>
-                    <input type="text" id="custom-delimiter">
-                </form>
-                <input type="checkbox" id="first-line-as-col-names">
-                <label for="first-line-as-col-names">
-                    Check if the first line is a list of column names.
-                </label>
-                <p>
-                    If not checked, please provide a series of column names separated
-                    by comma, otherwise the default ones (e.g. Col #1) will be
-                    used. Of note, you can select only the columns you are
-                    interested and list them in the order of your own and
-                    ignore the others.
-                </p>
-                <input type="text" id="user-defined-col-names">
+                </div>
+                <div class="user-params">
+                    <p>
+                        If not checked, please provide a series of column names separated
+                        by comma, otherwise the default ones (e.g. Col #1) will be
+                        used. Of note, you can select only the columns you are
+                        interested and list them in the order of your own and
+                        ignore the others.
+                    </p>
+                    <input type="text" id="user-defined-col-names">
+                </div>
             </div>
             <button id="generate-the-table">Generate</button>
             <div class="fold-indicator">
