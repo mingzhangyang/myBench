@@ -70,6 +70,19 @@ function jsonArrayToJsonObj(arr) {
   return res;
 }
 
+function getData(url, targetId, prop) {
+  fetch(url).then(res => {
+    if (res.ok) {
+      return res.text().then(text => {
+        document.getElementById(targetId)[prop] = text;
+      });
+    }
+    alert(`Failed with status code: ${res.status}`);
+  }).catch(err => {
+      alert('Fetching data failed:', err.message);
+  });
+}
+
 if (typeof module !== 'undefined' && module.parent) {
 
 } else if (typeof module !== 'undefined' && !module.parent) {
@@ -178,33 +191,7 @@ if (typeof module !== 'undefined' && module.parent) {
     // add event listener to remote file url input
     document.getElementById('data-url')
       .addEventListener('change', function () {
-      let url = this.value;
-      let oReq = new XMLHttpRequest();
-      if (!oReq) {
-        alert('Giving up : can\'t create XMLHttpRequest object.');
-        return;
-      }
-      oReq.addEventListener('load', function () {
-        if (oReq.readyState === XMLHttpRequest.DONE) {
-          if (oReq.status === 200) {
-            document.getElementById('paste').value = oReq.responseText;
-          } else {
-            alert('Something wrong : response code ' + oReq.status);
-            return;
-          }
-        } else {
-          alert('Can\'t finish fetching the data. Please try again.');
-        }
-      });
-      oReq.addEventListener('progress', function () {
-
-      });
-      oReq.addEventListener('error', function () {
-        alert('Error happens.\n' + oReq.status + '\n' + oReq.statusText);
-      });
-      oReq.open('GET', this.value, true);
-      oReq.setRequestHeader('Access-Control-Allow-Origin', '*');
-      oReq.send();
+        getData(this.value, 'paste', 'value');
     });
 
     // add event listener to 'generate button'
@@ -242,6 +229,9 @@ if (typeof module !== 'undefined' && module.parent) {
           return;
         }
         let dt = new DataTable(data, 'my-table');
+        if (colNamesByUser) {
+          dt.setColumnNames(colNamesByUser.split(','));
+        }
         dt.generate();
       } else {
         let data;
@@ -252,6 +242,9 @@ if (typeof module !== 'undefined' && module.parent) {
           return;
         }
         let dt = new DataTable(data, 'my-table');
+        if (colNamesByUser) {
+          dt.setColumnNames(colNamesByUser.split(','));
+        }
         dt.generate();
       }
     });
