@@ -141,10 +141,10 @@ if (typeof module !== 'undefined' && module.parent) {
     });
 
     // add event listener to close icon of info-section
-    let infoSection = document.getElementsByClassName('info-section')[0];
-    infoSection.addEventListener('click', function () {
-      mainContentArea.classList
-        .remove('info-section-active');
+    document.getElementsByClassName('info-section')[0]
+      .addEventListener('click', function () {
+        mainContentArea.classList
+          .remove('info-section-active');
     });
 
     // add event listener to selecting local file
@@ -167,17 +167,48 @@ if (typeof module !== 'undefined' && module.parent) {
       reader.readAsText(file);
     });
 
-    let inp = document.getElementById('custom-delimiter');
-    inp.addEventListener('focus', function() {
+    // uncheck comma or tab if user focus on custom delimiter input
+    document.getElementById('custom-delimiter')
+      .addEventListener('focus', function() {
       let cb = document.getElementsByName('delimiter');
       cb[0].checked = false;
       cb[1].checked = false;
     });
 
-    // add event listener to generate button
-    let generateBtn = document.getElementById('generate-the-table');
+    // add event listener to remote file url input
+    document.getElementById('data-url')
+      .addEventListener('change', function () {
+      let url = this.value;
+      let oReq = new XMLHttpRequest();
+      if (!oReq) {
+        alert('Giving up : can\'t create XMLHttpRequest object.');
+        return;
+      }
+      oReq.addEventListener('load', function () {
+        if (oReq.readyState === XMLHttpRequest.DONE) {
+          if (oReq.status === 200) {
+            document.getElementById('paste').value = oReq.responseText;
+          } else {
+            alert('Something wrong : response code ' + oReq.status);
+            return;
+          }
+        } else {
+          alert('Can\'t finish fetching the data. Please try again.');
+        }
+      });
+      oReq.addEventListener('progress', function () {
 
-    generateBtn.addEventListener('click', function () {
+      });
+      oReq.addEventListener('error', function () {
+        alert('Error happens.\n' + oReq.status + '\n' + oReq.statusText);
+      });
+      oReq.open('GET', this.value, true);
+      oReq.send();
+    });
+
+    // add event listener to 'generate button'
+    document.getElementById('generate-the-table')
+      .addEventListener('click', function () {
       // pull out user settings
       let delimiterValue = document.getElementById('delimiter-type')['delimiter'].value;
       let custDeli = document.getElementById('custom-delimiter').value;
@@ -223,5 +254,8 @@ if (typeof module !== 'undefined' && module.parent) {
         dt.generate();
       }
     });
+
+
+
   })();
 }
