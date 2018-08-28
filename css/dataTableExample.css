@@ -430,3 +430,38 @@ tbody tr:hover {
     border: none;
     background-color: transparent;
 }
+
+
+/* filter section style*/
+.filter-section-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    margin-bottom: 8px;
+    min-height: 30px;
+}
+.filter-name {
+    display: block;
+    width: 180px;
+    height: 100%;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    text-align: center;
+    line-height: 2;
+    border-radius: 4px;
+
+}
+.filter-values {
+    display: block;
+    width: calc(100% - 200px);
+    margin-left: 12px;
+
+}
+.filter-value {
+    display: inline-flex;
+    flex-direction: row;
+}
+.filter-value input[type='checkbox'] {
+    margin-right: 10px;
+}
