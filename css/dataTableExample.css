@@ -433,35 +433,71 @@ tbody tr:hover {
 
 
 /* filter section style*/
-.filter-section-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: relative;
-    margin-bottom: 8px;
-    min-height: 30px;
-}
-.filter-name {
-    display: block;
-    width: 180px;
-    height: 100%;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    text-align: center;
-    line-height: 2;
+.filter-section-control {
+    width: 120px;
+    height: 30px;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
-
+    text-align: center;
+    line-height: 30px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
 }
-.filter-values {
-    display: block;
-    width: calc(100% - 200px);
-    margin-left: 12px;
 
+.filter-section-control:after {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-bottom: 2px solid #369;
+    border-right: 2px solid #369;
+    margin-left: 10px;
+    transform: rotate(45deg);
+    transition: all .4s;
+}
+
+.filter-section-control:hover {
+    background-color: var(--hover-color);
+}
+
+.filter-section-active .filter-section-control:after {
+    transform: rotate(-135deg);
+}
+
+.filter-section-active table.filter-section-table {
+    display: table;
+}
+
+table.filter-section-table {
+    margin-top: 4px;
+    border-collapse: collapse;
+    border: none;
+    margin-bottom: 4px;
+    display: none;
+    transition: all .4s;
+}
+
+tr.filter-section-row {
+    width: 100%;
+    border: none;
+}
+
+td.filter-name {
+    width: 180px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+td.filter-values {
+    border: none;
 }
 .filter-value {
     display: inline-flex;
     flex-direction: row;
+    align-items: center;
 }
 .filter-value input[type='checkbox'] {
-    margin-right: 10px;
+    margin-right: 8px;
+    margin-left: 12px;
 }

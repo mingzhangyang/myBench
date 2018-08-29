@@ -93,6 +93,8 @@ if (typeof module !== 'undefined' && module.parent) {
     // console.log(JSON.stringify(exampleData, null, '    '));
     let dt = new DataTable(exampleData, 'my-table');
     dt.generate();
+    dt.addFilter('Gene_symbol', 'value');
+    dt.createFilterSection();
     // console.log(dt);
   };
   (function addEventListeners (){
