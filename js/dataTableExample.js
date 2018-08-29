@@ -92,9 +92,10 @@ if (typeof module !== 'undefined' && module.parent) {
     document.getElementById('paste').value = JSON.stringify(exampleData, null, '    ');
     // console.log(JSON.stringify(exampleData, null, '    '));
     let dt = new DataTable(exampleData, 'my-table');
-    dt.generate();
+    // dt.generate();
     dt.addFilter('Gene_symbol', 'value');
-    dt.createFilterSection();
+    dt.generate();
+    // dt.createFilterSection();
     // console.log(dt);
   };
   (function addEventListeners (){
