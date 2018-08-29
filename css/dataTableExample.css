@@ -173,7 +173,7 @@ input[type="text"], textarea {
     background-color: var(--generate-the-table-background-color);
     width: 120px;
     height: 36px;
-    border-radius: 10px;
+    border-radius: 4px;
     line-height: 30px;
     text-align: center;
     color: var(--generate-the-table-color);
@@ -298,6 +298,7 @@ input[type="text"], textarea {
     --font-color: #2f5777;
     --icon-color: #369;
     --sorting-icon-color: #000;
+    --search-box-border-color: #205493;
 }
 
 
@@ -431,21 +432,66 @@ tbody tr:hover {
     background-color: transparent;
 }
 
+/* Search bar style */
+div.search-bar-wrapper {
+    margin: 10px 0;
+}
+input[type="search"].search-box {
+    height: 28px;
+    min-width: 200px;
+    width: 50%;
+    max-width: 600px;
+    outline: none;
+    border: 1px solid var(--border-color);
+    padding:4px 6px;
+    border-radius: 2px;
+    cursor: text;
+}
+label.label-for-search-box {
+    display: inline-block;
+    background-color: var(--search-box-border-color);
+    color: white;
+    width: 100px;
+    height: 30px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    margin-left: 12px;
+    cursor: pointer;
+}
 
-/* filter section style*/
-.filter-section-control {
-    width: 120px;
+label.label-for-search-box:hover {
+    background-color: var(--icon-color);
+}
+
+/* define table top buttons style */
+div.filter-viz-download-buttons-wrapper {
+    display: block;
+    position: relative;
+}
+
+div.table-top-button {
+    position: relative;
+    display: inline-block;
+    margin: 8px 8px 4px 0;
+    width: 100px;
     height: 30px;
     border: 1px solid var(--border-color);
     border-radius: 4px;
     text-align: center;
     line-height: 30px;
-    margin-top: 8px;
-    margin-bottom: 8px;
     cursor: pointer;
 }
 
-.filter-section-control:after {
+div.table-top-button:hover {
+    background-color: var(--hover-color);
+}
+
+/* filter section style*/
+/* filter button defined by table-top-button */
+
+.filter-section-control-button:after, .viz-section-control-button:after {
     content: '';
     display: inline-block;
     width: 6px;
@@ -457,16 +503,20 @@ tbody tr:hover {
     transition: all .4s;
 }
 
-.filter-section-control:hover {
+.filter-section-active .filter-section-control-button {
     background-color: var(--hover-color);
 }
 
-.filter-section-active .filter-section-control:after {
+.filter-section-active .filter-section-control-button::after {
     transform: rotate(-135deg);
 }
 
 .filter-section-active table.filter-section-table {
     display: table;
+}
+
+.filter-section-active div.filter-viz-download-buttons-wrapper {
+    border-bottom: 1px solid var(--border-color);
 }
 
 table.filter-section-table {
@@ -486,7 +536,8 @@ tr.filter-section-row {
 td.filter-name {
     width: 180px;
     text-align: center;
-    border-radius: 4px;
+    border: none;
+    background-color: var(--hover-color);
 }
 
 td.filter-values {
@@ -500,4 +551,25 @@ td.filter-values {
 .filter-value input[type='checkbox'] {
     margin-right: 8px;
     margin-left: 12px;
+}
+
+
+/* visualization section style */
+.viz-section-active .viz-section-control-button {
+    background-color: var(--hover-color);
+}
+
+.viz-section-active .viz-section-control-button::after {
+    transform: rotate(-135deg);
+}
+
+.viz-section-active div.filter-viz-download-buttons-wrapper {
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* download button position setting */
+div.download-control-button {
+    position: absolute;
+    margin-right: 0;
+    right: 0;
 }
