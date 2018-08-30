@@ -92,11 +92,27 @@ if (typeof module !== 'undefined' && module.parent) {
     document.getElementById('paste').value = JSON.stringify(exampleData, null, '    ');
     // console.log(JSON.stringify(exampleData, null, '    '));
     let dt = new DataTable(exampleData, 'my-table');
-    // dt.generate();
     dt.addFilter('Gene_symbol', 'value');
+    dt.configureColumn('Aff_id', {
+      label: 'uid',
+      tips: 'unique identifier',
+      sortable: true,
+      width: '100px',
+      align: 'center',
+      formatter: 'highlight'
+    });
+    dt.configureColumn('Gene_symbol', {
+      label: 'Gene Symbol',
+      width: '100px',
+      align: 'center'
+    });
+    dt.configureColumn('Gene_accession', {
+      label: 'Accession',
+      width: '120px',
+      align: 'center',
+    });
     dt.generate();
-    // dt.createFilterSection();
-    // console.log(dt);
+    console.log(dt);
   };
   (function addEventListeners (){
     let mainContentArea = document.getElementsByClassName('main-content-area')[0];
