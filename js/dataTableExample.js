@@ -81,6 +81,9 @@ document.body.onload = function () {
     for (let {ctrl, state} of ctrlStateParis) {
       if (target.classList.contains(ctrl) || target.parentElement.classList.contains(ctrl)) {
         mainContentArea.classList.add(state);
+        if (['local-file-controller', 'paste-input-controller','url-input-controller'].indexOf(ctrl) !== -1) {
+          mainContentArea.classList.remove('preview-folded');
+        }
       } else {
         mainContentArea.classList.remove(state);
       }
