@@ -3,6 +3,7 @@
  */
 'use strict';
 
+// load data and create table
 document.body.onload = function () {
   document.getElementById('paste').value = JSON.stringify(exampleData, null, '    ');
   // console.log(JSON.stringify(exampleData, null, '    '));
@@ -29,6 +30,8 @@ document.body.onload = function () {
   dt.generate();
   console.log(dt);
 };
+
+// page interaction logic
 (function addEventListeners (){
   let mainContentArea = document.getElementsByClassName('main-content-area')[0];
 
@@ -92,6 +95,7 @@ document.body.onload = function () {
 
   // add event listener to close icon of info-section
   document.getElementsByClassName('info-section')[0]
+  .getElementsByTagName('i')[0]
   .addEventListener('click', function () {
     mainContentArea.classList
     .remove('info-section-active');
