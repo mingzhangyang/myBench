@@ -2,14 +2,16 @@ body {
     padding: 100px;
 }
 #container {
-    margin-left: 200px;
+    width: 600px;
+    margin: auto;
 }
 #slider {
     width: 500px;
     height: 300px;
     border: 2px dotted #f66;
-    padding: 10px;
+    padding: 20px;
     position: absolute;
+    overflow: hidden;
 }
 .slides {
     width: 500px;
@@ -20,21 +22,21 @@ body {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    top: 10px;
+    top: 20px;
+    left: 20px;
     transition-duration: 2s;
 }
 .current {
     background-color: DodgerBlue;
     opacity: 1;
-    left: 10px;
 }
 .upcoming {
     background-color: green;
     opacity: 0;
-    left: 10px;
+    margin-left: 100%;
 }
 .gone {
-    left: -100%;
+    margin-left: -100%;
     opacity: 0;
 }
 .control {
@@ -64,13 +66,13 @@ svg {
 }
 #indicators {
     width: 200px;
-    /*   background-color: #42f4e8; */
+    /*background-color: #42f4e8;*/
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     position: absolute;
     top: 300px;
-    left: 150px;
+    left: 170px;
 }
 .indicator {
     width: 16px;
