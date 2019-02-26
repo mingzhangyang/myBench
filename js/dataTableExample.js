@@ -3,7 +3,7 @@
  */
 'use strict';
 
-import DataTable from "../../data2table/src/js/dataTable.core";
+import DataTable from "../../data2table/src/js/dataTable.core.js";
 
 // load data and create table
 document.body.onload = function () {
