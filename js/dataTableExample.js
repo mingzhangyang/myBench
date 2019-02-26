@@ -3,6 +3,8 @@
  */
 'use strict';
 
+import DataTable from "DataTable";
+
 // load data and create table
 document.body.onload = function () {
   document.getElementById('paste').value = JSON.stringify(exampleData, null, '    ');
