@@ -9,7 +9,12 @@ import DataTable from "../../data2table/src/js/dataTable.core.js";
 document.body.onload = function () {
   document.getElementById('paste').value = JSON.stringify(exampleData, null, '    ');
   // console.log(JSON.stringify(exampleData, null, '    '));
-  let dt = new DataTable(exampleData, 'my-table');
+  let dt = new DataTable(exampleData, 'my-table', {
+    caption: '',
+    dataIsComplete: true,
+    downloadFileName: 'data2table.test',
+    dataToDownload: exampleData
+  });
   dt.addFilter('Gene_symbol', 'value');
   dt.configureColumn('Aff_id', {
     label: 'uid',
