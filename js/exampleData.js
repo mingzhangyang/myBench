@@ -441,8 +441,4 @@ let iris = `5.1,3.5,1.4,0.2,Iris-setosa
 6.2,3.4,5.4,2.3,Iris-virginica
 5.9,3.0,5.1,1.8,Iris-virginica`;
 
-if (typeof module !== 'undefined' && module.parent) {
-
-} else {
-  // test code go here
-}
+export {exampleData, dataSet, iris}
