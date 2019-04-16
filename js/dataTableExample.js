@@ -4,7 +4,10 @@
 'use strict';
 
 import DataTable from "../../data2table/src/js/dataTable.core.js";
-import {exampleData} from "./exampleData.js"
+import { exampleData } from "./exampleData.js";
+import { csvString2JSON } from "../../data2table/src/js/utils.js";
+
+
 
 // load data and create table
 document.body.onload = function () {

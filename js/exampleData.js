@@ -3,7 +3,7 @@
  */
 'use strict';
 
-let exampleData = [
+export let exampleData = [
   { "Aff_id": "10377550",
     "Gene_accession": "NM_001127233",
     "Gene_symbol": "Trp53",
@@ -251,7 +251,7 @@ let exampleData = [
   }
 ];
 
-var dataSet = [
+export const dataSet = [
   [ "Tiger Nixon", "System Architect", "Edinburgh", "5421", "2011/04/25", "$320,800" ],
   [ "Garrett Winters", "Accountant", "Tokyo", "8422", "2011/07/25", "$170,750" ],
   [ "Ashton Cox", "Junior Technical Author", "San Francisco", "1562", "2009/01/12", "$86,000" ],
@@ -290,7 +290,7 @@ var dataSet = [
   [ "Unity Butler", "Marketing Designer", "San Francisco", "5384", "2009/12/09", "$85,675" ]
 ];
 
-let iris = `5.1,3.5,1.4,0.2,Iris-setosa
+export const iris = `5.1,3.5,1.4,0.2,Iris-setosa
 4.9,3.0,1.4,0.2,Iris-setosa
 4.7,3.2,1.3,0.2,Iris-setosa
 4.6,3.1,1.5,0.2,Iris-setosa
@@ -441,4 +441,3 @@ let iris = `5.1,3.5,1.4,0.2,Iris-setosa
 6.2,3.4,5.4,2.3,Iris-virginica
 5.9,3.0,5.1,1.8,Iris-virginica`;
 
-export {exampleData, dataSet, iris}
