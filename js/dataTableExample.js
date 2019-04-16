@@ -8,6 +8,7 @@ import { exampleData } from "./exampleData.js";
 import { csvString2JSON } from "../../data2table/src/js/utils.js";
 
 
+
 // load data and create table
 document.body.onload = function () {
   document.getElementById('paste').value = JSON.stringify(exampleData, null, '    ');
