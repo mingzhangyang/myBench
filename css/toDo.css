@@ -11,6 +11,16 @@ body {
     box-shadow: 5px 10px 8px 10px #888888;
 }
 
+i {
+    cursor: pointer;
+    padding: 4px 6px;
+    border-radius: 4px;
+}
+
+i:hover {
+    background-color: beige;
+}
+
 .list-header {
     width: 100%;
     background-color: paleturquoise;
@@ -36,9 +46,25 @@ div.list-item {
     border-bottom: 1px solid #eeeeee;
     font-size: 24px;
     color: #666666;
-    padding: 10px 20px;
     display: flex;
     align-items: center;
+    position: relative;
+    padding: 12px 16px;
+    transition: height .4s, opacity .4s, padding 1s;
+}
+
+div.list-item:hover {
+    background-color: cornsilk;
+}
+
+div.list-item.to-be-removed {
+    height: 0;
+    opacity: 0;
+    padding: 0 16px;
+}
+
+div.list-item i {
+    margin-right: 12px;
 }
 
 div.list-item.checked span {
@@ -46,28 +72,53 @@ div.list-item.checked span {
     text-decoration: line-through;
 }
 
-div.list-item::before {
-    content: "";
-    display: inline-flex;
-    width: 20px;
-    height: 20px;
-    border: 2px solid dodgerblue;
-    border-radius: 50%;
-    margin: 8px;
+div.list-item i {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-div.list-item.checked::before {
+div.list-item i.check-mark::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border: 2px solid dodgerblue;
+    border-radius: 50%;
+    padding: 0 0 2px 2px;
+}
+
+div.list-item.checked i.check-mark::before {
     content: "✔";
     font-size: 18px;
     color: dodgerblue;
     opacity: .7;
 }
 
-.icon-container i {
-    padding: 2px 4px;
-    border-radius: 4px;
+div.list-item div.icon-container {
+    position: absolute;
+    right: 0;
+}
+
+div.list-item div.icon-container {
+    display: none;
+}
+
+div.list-item:hover div.icon-container {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.list-item i.archive-mark::before {
+    content: "🖥";
+    color: dodgerblue;
+    font-style: normal;
+}
+
+div.list-item i.delete-mark::before {
+    content: "✖";
+    color: red;
+    font-style: normal;
 }
 
 .list-footer {
@@ -81,7 +132,10 @@ div.list-item.checked::before {
     align-items: center;
 }
 
+
+
 i.selected {
     border: 1px solid #dddddd;
+    border-radius: 4px;
 }
 
