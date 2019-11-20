@@ -3,9 +3,9 @@
  */
 'use strict';
 
-import DataTable from "../../data2table/src/js/dataTable.core.js";
+import DataTable from "../../data2table/src/js/datatable.js";
 import { exampleData } from "./exampleData.js";
-import { csvString2JSON } from "../../data2table/src/js/utils.js";
+import { csvString2JSON } from "../../data2table/src/js/utils/utils.js";
 
 
 
@@ -20,6 +20,7 @@ document.body.onload = function () {
     dataToDownload: exampleData
   });
   dt.addFilter('Gene_symbol', 'value');
+  console.log(dt._stateManager);
   dt.configureColumn('Aff_id', {
     label: 'uid',
     tips: 'unique identifier',
@@ -181,9 +182,9 @@ document.body.onload = function () {
         return;
       }
       let dt = new DataTable(data, 'my-table');
-      if (colNamesByUser) {
-        dt.setColumnNames(colNamesByUser.split(','));
-      }
+      // if (colNamesByUser) {
+      //   dt.setColumnNames(colNamesByUser.split(','));
+      // }
       dt.generate();
     } else {
       let data;
@@ -194,9 +195,9 @@ document.body.onload = function () {
         return;
       }
       let dt = new DataTable(data, 'my-table');
-      if (colNamesByUser) {
-        dt.setColumnNames(colNamesByUser.split(','));
-      }
+      // if (colNamesByUser) {
+      //   dt.setColumnNames(colNamesByUser.split(','));
+      // }
       dt.generate();
     }
   });
