@@ -7,10 +7,8 @@ import DataTable from "../../data2table/src/js/datatable.js";
 import { exampleData } from "./exampleData.js";
 import { csvString2JSON } from "../../data2table/src/js/utils/utils.js";
 
-
-
 // load data and create table
-document.body.onload = function () {
+window.onload = function () {
   document.getElementById('paste').value = JSON.stringify(exampleData, null, '    ');
   // console.log(JSON.stringify(exampleData, null, '    '));
   let dt = new DataTable(exampleData, 'my-table', {
@@ -20,7 +18,7 @@ document.body.onload = function () {
     dataToDownload: exampleData
   });
   dt.addFilter('Gene_symbol', 'value');
-  console.log(dt._stateManager);
+  console.log(dt);
   dt.configureColumn('Aff_id', {
     label: 'uid',
     tips: 'unique identifier',
