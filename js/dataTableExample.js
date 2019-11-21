@@ -18,7 +18,7 @@ window.onload = function () {
     dataToDownload: exampleData
   });
   dt.addFilter('Gene_symbol', 'value');
-  console.log(dt);
+  // console.log(dt);
   dt.configureColumn('Aff_id', {
     label: 'uid',
     tips: 'unique identifier',
@@ -38,7 +38,7 @@ window.onload = function () {
     align: 'center',
   });
   dt.generate();
-  console.log(dt);
+  // console.log(dt);
 };
 
 // page interaction logic
